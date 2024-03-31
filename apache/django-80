@@ -1,0 +1,45 @@
+# install in /etc/apache2/sites-available
+# create soft link to it in /etc/apache/sites-enabled
+#
+<VirtualHost *:80>
+    ServerAdmin webmaster@localhost
+
+    DocumentRoot /home/dev/Stats/project/project/
+
+    <IfModule mod_alias.c>
+      Alias /static /home/dev/Stats/apache/static/
+      #Alias /admin-media /home/dev/Stats/apache/admin-static/
+    </IfModule>
+
+    <IfModule mod_wsgi.c>
+        WSGIScriptAlias / /home/dev/Stats/apache/django.wsgi
+        WSGIDaemonProcess stats user=dev group=dev processes=5 threads=6 display-name=%{GROUP}
+        WSGIProcessGroup stats
+        WSGIApplicationGroup %{GLOBAL}
+    </IfModule>
+
+    <Directory />
+        Options FollowSymLinks
+        AllowOverride None
+    </Directory>
+
+    <Directory /home/dev/Stats/project/media>
+      Order deny,allow
+      Allow from all
+    </Directory>
+
+    <Directory /home/dev/Stats/apache>
+      Order deny,allow
+      Allow from all
+    </Directory>
+
+    ErrorLog ${APACHE_LOG_DIR}/error-pwexler.log
+
+    # Possible values include: debug, info, notice, warn, error, crit,
+    # alert, emerg.
+    LogLevel warn
+
+    CustomLog ${APACHE_LOG_DIR}/access-pwexler.log combined
+
+</VirtualHost>
+

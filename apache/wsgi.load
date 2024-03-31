@@ -1,0 +1,5 @@
+# install in /etc/apache2/mods-available
+# create soft link to it in /etc/apache2/mods-enabled
+#
+LoadModule wsgi_module /usr/lib/apache2/modules/mod_wsgi.so
+

@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="/html/js/jquery-1.9.1.min.js"></script>
+    <script> 
+      function demo_post_request() {
+          $.post( "/demo_post/", 
+                  { ak: "100emersonlanesuite1529bridgevillepa15017", userID: "1" },
+                  demo_post_response, 
+                  "json"
+          );
+      }
+
+      function demo_post_response(data, status, xhr) {
+          for (var i in data) {
+              show_object(data[i]);
+              $('body').append($('<p>'));
+          }
+      }
+      function show_object(object) {
+          for (var key in object) {
+              $('body').append($('<span>').text(key + '=' + object[key] + ' '));
+          }
+      }
+    </script>
+  </head>    
+  <body>
+    This is a demonstration of a POST request to the test server which then 
+    queries the db server. The test server converts each record name to 
+    lowercase and returns the records to this page.<br/>
+    Click <button id="demo_button">HERE</button><br/> 
+    <script> 
+      $('#demo_button').click(demo_post_request); 
+    </script>
+  </body>
+</html>
+
