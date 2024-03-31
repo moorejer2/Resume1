@@ -1,0 +1,2 @@
+# Python package requirements for a production environment.
+-r base.txt
