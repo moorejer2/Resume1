@@ -1,0 +1,1027 @@
+
+    	<h1>
+    		Team 1 v. Team 2 v. Team 3
+    	</h1>
+    	<p>
+    		MM/DD/YY &amp; HH:MM @ LOCATION
+    	</p>
+    	<div style="overflow-x:scroll">
+    		Box Score 1
+    		<table class="table" style="width: 1400 px">
+    			<tbody>
+    				<tr>
+    					<th style="text-align:center; border:1px solid; background:grey; color: white">
+    						School
+    					</th>
+    					<th style="text-align:center; border:1px solid; background:grey; color: white">
+    						Forfeit
+    					</th>
+    					<th style="text-align:center; border:1px solid; background:grey; color: white">
+    						DQ
+    					</th>
+    					<th style="text-align:center; border:1px solid; background:grey; color: white">
+    						1
+    					</th>
+    					<th style="text-align:center; border:1px solid; background:grey; color: white">
+    						2
+    					</th>
+    					<th style="text-align:center; border:1px solid; background:grey; color: white">
+    						3
+    					</th>
+    					<th style="text-align:center; border:1px solid; background:grey; color: white">
+    						4
+    					</th>
+    					<th style="text-align:center; border:1px solid; background:grey; color: white">
+    						OT
+    					</th>
+    					<th style="text-align:center; border:1px solid; background:grey; color: white">
+    						Shootout
+    					</th>
+    					<th style="text-align:center; border:1px solid; background:grey; color: white">
+    						Total
+    					</th>
+    				</tr>
+    				<tr>
+    					<td style="text-align:center">
+    						School 1
+    					</td>
+    					<td>
+    						<input type="checkbox">
+    					</td>
+    					<td>
+    						<input type="checkbox">
+    					</td>
+    					<td>
+    						<div class="control-group">
+    							<div class="controls">
+    								<input class="tinytext" type="text" id="S1qtr1score" onchange="updatesum()">
+    							</div>
+    						</div>
+    					</td>
+    					<td>
+    						<div class="control-group">
+    							<div class="controls">
+    								<input class="tinytext" type="text" id="S1qtr2score" onchange="updatesum()">
+    							</div>
+    						</div>
+    					</td>
+    					<td>
+    						<div class="control-group">
+    							<div class="controls">
+    								<input class="tinytext" type="text" id="S1qtr3score" onchange="updatesum()">
+    							</div>
+    						</div>
+    					</td>
+    					<td>
+    						<div class="control-group">
+    							<div class="controls">
+    								<input class="tinytext" type="text" id="S1qtr4score" onchange="updatesum()">
+    							</div>
+    						</div>
+    					</td>
+    					<td>
+    						<div class="control-group">
+    							<div class="controls">
+    								<input class="tinytext" type="text" id="S1OTscore" onchange="updatesum()">
+    							</div>
+    						</div>
+    					</td>
+    					<td>
+    						<div class="control-group">
+    							<div class="controls">
+    								<input class="tinytext" type="text" id="S1SOscore" onchange="updatesum()">
+    							</div>
+    						</div>
+    					</td>
+    					<td>
+    						<div class="control-group">
+    							<div class="controls">
+    								<input class="tinytext" type="text" id="S1Totalscore" onchange="updatesum()">
+    							</div>
+    						</div>
+    					</td>
+    				</tr>
+    				<tr>
+    					<td style="text-align:center">
+    						School 2
+    					</td>
+    					<td>
+    						<input type="checkbox">
+    					</td>
+    					<td>
+    						<input type="checkbox">
+    					</td>
+    					<td>
+    						<div class="control-group">
+    							<div class="controls">
+    								<input class="tinytext" type="text" id="S2qtr1score" onchange="updatesum()">
+    							</div>
+    						</div>
+    					</td>
+    					<td>
+    						<div class="control-group">
+    							<div class="controls">
+    								<input class="tinytext" type="text" id="S2qtr2score" onchange="updatesum()">
+    							</div>
+    						</div>
+    					</td>
+    					<td>
+    						<div class="control-group">
+    							<div class="controls">
+    								<input class="tinytext" type="text" id="S2qtr3score" onchange="updatesum()">
+    							</div>
+    						</div>
+    					</td>
+    					<td>
+    						<div class="control-group">
+    							<div class="controls">
+    								<input class="tinytext" type="text" id="S2qtr4score" onchange="updatesum()">
+    							</div>
+    						</div>
+    					</td>
+    					<td>
+    						<div class="control-group">
+    							<div class="controls">
+    								<input class="tinytext" type="text" id="S2OTscore" onchange="updatesum()">
+    							</div>
+    						</div>
+    					</td>
+    					<td>
+    						<div class="control-group">
+    							<div class="controls">
+    								<input class="tinytext" type="text" id="S2SOscore" onchange="updatesum()">
+    							</div>
+    						</div>
+    					</td>
+    					<td>
+    						<div class="control-group">
+    							<div class="controls">
+    								<input class="tinytext" type="text" id="S2Totalscore" onchange="updatesum()">
+    							</div>
+    						</div>
+    					</td>
+    				</tr>
+    			</tbody>
+    		</table>
+    		<a class="btn">Add Overtime</a>
+    	</div>
+    	<br>
+    	<br>
+    	<div style="overflow-x:scroll">
+    		Box Score 2
+    		<table class="table" style="width: 1400 px">
+    			<tbody>
+    				<tr>
+    					<th style="text-align:center; border:1px solid; background:grey; color: white">
+    						School
+    					</th>
+    					<th style="text-align:center; border:1px solid; background:grey; color: white">
+    						Forfeit
+    					</th>
+    					<th style="text-align:center; border:1px solid; background:grey; color: white">
+    						DQ
+    					</th>
+    					<th style="text-align:center; border:1px solid; background:grey; color: white">
+    						1
+    					</th>
+    					<th style="text-align:center; border:1px solid; background:grey; color: white">
+    						2
+    					</th>
+    					<th style="text-align:center; border:1px solid; background:grey; color: white">
+    						3
+    					</th>
+    					<th style="text-align:center; border:1px solid; background:grey; color: white">
+    						4
+    					</th>
+    					<th style="text-align:center; border:1px solid; background:grey; color: white">
+    						OT
+    					</th>
+    					<th style="text-align:center; border:1px solid; background:grey; color: white">
+    						Shootout
+    					</th>
+    					<th style="text-align:center; border:1px solid; background:grey; color: white">
+    						Total
+    					</th>
+    				</tr>
+    				<tr>
+    					<td style="text-align:center">
+    						School 2
+    					</td>
+    					<td>
+    						<input type="checkbox">
+    					</td>
+    					<td>
+    						<input type="checkbox">
+    					</td>
+    					<td>
+    						<div class="control-group">
+    							<div class="controls">
+    								<input class="tinytext" type="text" id="S1qtr1score" onchange="updatesum()">
+    							</div>
+    						</div>
+    					</td>
+    					<td>
+    						<div class="control-group">
+    							<div class="controls">
+    								<input class="tinytext" type="text" id="S1qtr2score" onchange="updatesum()">
+    							</div>
+    						</div>
+    					</td>
+    					<td>
+    						<div class="control-group">
+    							<div class="controls">
+    								<input class="tinytext" type="text" id="S1qtr3score" onchange="updatesum()">
+    							</div>
+    						</div>
+    					</td>
+    					<td>
+    						<div class="control-group">
+    							<div class="controls">
+    								<input class="tinytext" type="text" id="S1qtr4score" onchange="updatesum()">
+    							</div>
+    						</div>
+    					</td>
+    					<td>
+    						<div class="control-group">
+    							<div class="controls">
+    								<input class="tinytext" type="text" id="S1OTscore" onchange="updatesum()">
+    							</div>
+    						</div>
+    					</td>
+    					<td>
+    						<div class="control-group">
+    							<div class="controls">
+    								<input class="tinytext" type="text" id="S1SOscore" onchange="updatesum()">
+    							</div>
+    						</div>
+    					</td>
+    					<td>
+    						<div class="control-group">
+    							<div class="controls">
+    								<input class="tinytext" type="text" id="S1Totalscore" onchange="updatesum()">
+    							</div>
+    						</div>
+    					</td>
+    				</tr>
+    				<tr>
+    					<td style="text-align:center">
+    						School 3
+    					</td>
+    					<td>
+    						<input type="checkbox">
+    					</td>
+    					<td>
+    						<input type="checkbox">
+    					</td>
+    					<td>
+    						<div class="control-group">
+    							<div class="controls">
+    								<input class="tinytext" type="text" id="S2qtr1score" onchange="updatesum()">
+    							</div>
+    						</div>
+    					</td>
+    					<td>
+    						<div class="control-group">
+    							<div class="controls">
+    								<input class="tinytext" type="text" id="S2qtr2score" onchange="updatesum()">
+    							</div>
+    						</div>
+    					</td>
+    					<td>
+    						<div class="control-group">
+    							<div class="controls">
+    								<input class="tinytext" type="text" id="S2qtr3score" onchange="updatesum()">
+    							</div>
+    						</div>
+    					</td>
+    					<td>
+    						<div class="control-group">
+    							<div class="controls">
+    								<input class="tinytext" type="text" id="S2qtr4score" onchange="updatesum()">
+    							</div>
+    						</div>
+    					</td>
+    					<td>
+    						<div class="control-group">
+    							<div class="controls">
+    								<input class="tinytext" type="text" id="S2OTscore" onchange="updatesum()">
+    							</div>
+    						</div>
+    					</td>
+    					<td>
+    						<div class="control-group">
+    							<div class="controls">
+    								<input class="tinytext" type="text" id="S2SOscore" onchange="updatesum()">
+    							</div>
+    						</div>
+    					</td>
+    					<td>
+    						<div class="control-group">
+    							<div class="controls">
+    								<input class="tinytext" type="text" id="S2Totalscore" onchange="updatesum()">
+    							</div>
+    						</div>
+    					</td>
+    				</tr>
+    			</tbody>
+    		</table>
+    		<a class="btn">Add Overtime</a>
+    	</div>
+    	<br>
+    	<br>
+    	<div style="overflow-x:scroll">
+    		Box Score 3
+    		<table class="table" style="width: 1400 px">
+    			<tbody>
+    				<tr>
+    					<th style="text-align:center; border:1px solid; background:grey; color: white">
+    						School
+    					</th>
+    					<th style="text-align:center; border:1px solid; background:grey; color: white">
+    						Forfeit
+    					</th>
+    					<th style="text-align:center; border:1px solid; background:grey; color: white">
+    						DQ
+    					</th>
+    					<th style="text-align:center; border:1px solid; background:grey; color: white">
+    						1
+    					</th>
+    					<th style="text-align:center; border:1px solid; background:grey; color: white">
+    						2
+    					</th>
+    					<th style="text-align:center; border:1px solid; background:grey; color: white">
+    						3
+    					</th>
+    					<th style="text-align:center; border:1px solid; background:grey; color: white">
+    						4
+    					</th>
+    					<th style="text-align:center; border:1px solid; background:grey; color: white">
+    						OT
+    					</th>
+    					<th style="text-align:center; border:1px solid; background:grey; color: white">
+    						Shootout
+    					</th>
+    					<th style="text-align:center; border:1px solid; background:grey; color: white">
+    						Total
+    					</th>
+    				</tr>
+    				<tr>
+    					<td style="text-align:center">
+    						School 1
+    					</td>
+    					<td>
+    						<input type="checkbox">
+    					</td>
+    					<td>
+    						<input type="checkbox">
+    					</td>
+    					<td>
+    						<div class="control-group">
+    							<div class="controls">
+    								<input class="tinytext" type="text" id="S1qtr1score" onchange="updatesum()">
+    							</div>
+    						</div>
+    					</td>
+    					<td>
+    						<div class="control-group">
+    							<div class="controls">
+    								<input class="tinytext" type="text" id="S1qtr2score" onchange="updatesum()">
+    							</div>
+    						</div>
+    					</td>
+    					<td>
+    						<div class="control-group">
+    							<div class="controls">
+    								<input class="tinytext" type="text" id="S1qtr3score" onchange="updatesum()">
+    							</div>
+    						</div>
+    					</td>
+    					<td>
+    						<div class="control-group">
+    							<div class="controls">
+    								<input class="tinytext" type="text" id="S1qtr4score" onchange="updatesum()">
+    							</div>
+    						</div>
+    					</td>
+    					<td>
+    						<div class="control-group">
+    							<div class="controls">
+    								<input class="tinytext" type="text" id="S1OTscore" onchange="updatesum()">
+    							</div>
+    						</div>
+    					</td>
+    					<td>
+    						<div class="control-group">
+    							<div class="controls">
+    								<input class="tinytext" type="text" id="S1SOscore" onchange="updatesum()">
+    							</div>
+    						</div>
+    					</td>
+    					<td>
+    						<div class="control-group">
+    							<div class="controls">
+    								<input class="tinytext" type="text" id="S1Totalscore" onchange="updatesum()">
+    							</div>
+    						</div>
+    					</td>
+    				</tr>
+    				<tr>
+    					<td style="text-align:center">
+    						School 3
+    					</td>
+    					<td>
+    						<input type="checkbox">
+    					</td>
+    					<td>
+    						<input type="checkbox">
+    					</td>
+    					<td>
+    						<div class="control-group">
+    							<div class="controls">
+    								<input class="tinytext" type="text" id="S2qtr1score" onchange="updatesum()">
+    							</div>
+    						</div>
+    					</td>
+    					<td>
+    						<div class="control-group">
+    							<div class="controls">
+    								<input class="tinytext" type="text" id="S2qtr2score" onchange="updatesum()">
+    							</div>
+    						</div>
+    					</td>
+    					<td>
+    						<div class="control-group">
+    							<div class="controls">
+    								<input class="tinytext" type="text" id="S2qtr3score" onchange="updatesum()">
+    							</div>
+    						</div>
+    					</td>
+    					<td>
+    						<div class="control-group">
+    							<div class="controls">
+    								<input class="tinytext" type="text" id="S2qtr4score" onchange="updatesum()">
+    							</div>
+    						</div>
+    					</td>
+    					<td>
+    						<div class="control-group">
+    							<div class="controls">
+    								<input class="tinytext" type="text" id="S2OTscore" onchange="updatesum()">
+    							</div>
+    						</div>
+    					</td>
+    					<td>
+    						<div class="control-group">
+    							<div class="controls">
+    								<input class="tinytext" type="text" id="S2SOscore" onchange="updatesum()">
+    							</div>
+    						</div>
+    					</td>
+    					<td>
+    						<div class="control-group">
+    							<div class="controls">
+    								<input class="tinytext" type="text" id="S2Totalscore" onchange="updatesum()">
+    							</div>
+    						</div>
+    					</td>
+    				</tr>
+    			</tbody>
+    		</table>
+    		<a class="btn">Add Overtime</a>
+    	</div>
+    	<br>
+    	<br>
+    	<div class="control-group">
+    		<label class="control-label">
+    			Show/Hide a Statistic
+    		</label>
+    		<div class="controls">
+    			<select class="input-small">
+    				<option>
+    				</option>
+    			</select>
+    		</div>
+    	</div>
+    	Team Stats
+    	<div style="overflow-x:scroll">
+    		<table class="table" style="width: 1400 px; border:1px solid black">
+    			<tbody>
+    				<tr>
+    					<td>
+    					</td>
+    					<th style="text-align:center; border:1px solid; background:grey; color: white">
+    						Stat Type
+    					</th>
+    				</tr>
+    				<tr>
+    					<td style="text-align:center" title="School">
+    						School
+    					</td>
+    					<td style="text-align:center">
+    						Stat 1
+    					</td>
+    				</tr>
+    				<tr>
+    					<td style="text-align:center" title="School">
+    						School 1
+    					</td>
+    					<td>
+    						<input class="tinytext" type="text">
+    					</td>
+    				</tr>
+    				<tr>
+    					<td style="text-align:center" title="School">
+    						School 2
+    					</td>
+    					<td>
+    						<input class="tinytext" type="text">
+    					</td>
+    				</tr>
+    				<tr>
+    					<td style="text-align:center" title="School">
+    						School 3
+    					</td>
+    					<td>
+    						<input class="tinytext" type="text">
+    					</td>
+    				</tr>
+    			</tbody>
+    		</table>
+    	</div>
+    	<br>
+    	<br>
+    	<div class="control-group">
+    		<label class="control-label">
+    			Show/Hide a Statistic
+    		</label>
+    		<div class="controls">
+    			<select class="input-small">
+    				<option>
+    				</option>
+    			</select>
+    		</div>
+    	</div>
+    	Athlete Stats School 1
+    	<div style="overflow-x:scroll">
+    		<table class="table" style="width: 1400 px; border:1px solid black" id="School1Athlete">
+    			<tbody>
+    				<tr>
+    					<td colspan="5">
+    					</td>
+    					<th style="text-align:center; border:1px solid; background:grey; color: white">
+    						Stat Type
+    					</th>
+    				</tr>
+    				<tr>
+    					<td style="text-align:center">
+    						Played
+    					</td>
+    					<td style="text-align:center">
+    						#
+    					</td>
+    					<td style="text-align:center">
+    						Last Name
+    					</td>
+    					<td style="text-align:center">
+    						First Name
+    					</td>
+    					<td style="text-align:center">
+    						Positions
+    					</td>
+    					<td style="text-align:center">
+    						Stat 1
+    					</td>
+    				</tr>
+    				<tr>
+    					<td>
+    						<input type="checkbox">
+    					</td>
+    					<td>
+    						<input class="tinytext" type="text">
+    					</td>
+    					<td>
+    						<input class="input-medium" type="text">
+    					</td>
+    					<td>
+    						<input class="input-medium" type="text">
+    					</td>
+    					<td>
+    						<select class="input-small">
+    						</select>
+    					</td>
+    					<td>
+    						<input class="tinytext" type="text">
+    					</td>
+    				</tr>
+    			</tbody>
+    		</table>
+    		<button onclick="AppendAthlete1()">
+    			Add Athlete
+    		</button>
+    	</div>
+    	<br>
+    	<br>
+    	<div class="control-group">
+    		<label class="control-label">
+    			Show/Hide a Statistic
+    		</label>
+    		<div class="controls">
+    			<select class="input-small">
+    				<option>
+    				</option>
+    			</select>
+    		</div>
+    	</div>
+    	Athlete Stats School 2
+    	<div style="overflow-x:scroll">
+    		<table class="table" style="width: 1400 px; border:1px solid black" id="School2Athlete">
+    			<tbody>
+    				<tr>
+    					<td colspan="5">
+    					</td>
+    					<th style="text-align:center; border:1px solid; background:grey; color: white">
+    						Stat Type
+    					</th>
+    				</tr>
+    				<tr>
+    					<td style="text-align:center">
+    						Played
+    					</td>
+    					<td style="text-align:center">
+    						#
+    					</td>
+    					<td style="text-align:center">
+    						Last Name
+    					</td>
+    					<td style="text-align:center">
+    						First Name
+    					</td>
+    					<td style="text-align:center">
+    						Positions
+    					</td>
+    					<td style="text-align:center">
+    						Stat 1
+    					</td>
+    				</tr>
+    				<tr>
+    					<td>
+    						<input type="checkbox">
+    					</td>
+    					<td>
+    						<input class="tinytext" type="text">
+    					</td>
+    					<td>
+    						<input class="input-medium" type="text">
+    					</td>
+    					<td>
+    						<input class="input-medium" type="text">
+    					</td>
+    					<td>
+    						<select class="input-small">
+    						</select>
+    					</td>
+    					<td>
+    						<input class="tinytext" type="text">
+    					</td>
+    				</tr>
+    			</tbody>
+    		</table>
+    		<button onclick="AppendAthlete2()">
+    			Add Athlete
+    		</button>
+    	</div>
+    	<br>
+    	<br>
+    	<div class="control-group">
+    		<label class="control-label">
+    			Show/Hide a Statistic
+    		</label>
+    		<div class="controls">
+    			<select class="input-small">
+    				<option>
+    				</option>
+    			</select>
+    		</div>
+    	</div>
+    	Athlete Stats School 3
+    	<div style="overflow-x:scroll">
+    		<table class="table" style="width: 1400 px; border:1px solid black" id="School1Athlete">
+    			<tbody>
+    				<tr>
+    					<td colspan="5">
+    					</td>
+    					<th style="text-align:center; border:1px solid; background:grey; color: white">
+    						Stat Type
+    					</th>
+    				</tr>
+    				<tr>
+    					<td style="text-align:center">
+    						Played
+    					</td>
+    					<td style="text-align:center">
+    						#
+    					</td>
+    					<td style="text-align:center">
+    						Last Name
+    					</td>
+    					<td style="text-align:center">
+    						First Name
+    					</td>
+    					<td style="text-align:center">
+    						Positions
+    					</td>
+    					<td style="text-align:center">
+    						Stat 1
+    					</td>
+    				</tr>
+    				<tr>
+    					<td>
+    						<input type="checkbox">
+    					</td>
+    					<td>
+    						<input class="tinytext" type="text">
+    					</td>
+    					<td>
+    						<input class="input-medium" type="text">
+    					</td>
+    					<td>
+    						<input class="input-medium" type="text">
+    					</td>
+    					<td>
+    						<select class="input-small">
+    						</select>
+    					</td>
+    					<td>
+    						<input class="tinytext" type="text">
+    					</td>
+    				</tr>
+    			</tbody>
+    		</table>
+    		<button onclick="AppendAthlete1()">
+    			Add Athlete
+    		</button>
+    	</div>
+    	<br>
+    	<br>
+    	<br>
+    	<table>
+    		<tbody>
+    			<tr>
+    				<th style="text-align:center; border:1px solid; background:grey; color: white">
+    					Scoring Summary Team 1 v. Team 2
+    				</th>
+    				<th style="text-align:center; border:1px solid; background:grey; color: white">
+    					Game Summary
+    				</th>
+    			</tr>
+    			<tr>
+    				<td>
+    					<table>
+    						<tbody>
+    							<tr>
+    								<td>
+    									1
+    								</td>
+    								<td>
+    									<input type="text">
+    								</td>
+    							</tr>
+    							<tr>
+    								<td>
+    									2
+    								</td>
+    								<td>
+    									<input type="text">
+    								</td>
+    							</tr>
+    							<tr>
+    								<td>
+    									3
+    								</td>
+    								<td>
+    									<input type="text">
+    								</td>
+    							</tr>
+    							<tr>
+    								<td>
+    									4
+    								</td>
+    								<td>
+    									<input type="text">
+    								</td>
+    							</tr>
+    						</tbody>
+    					</table>
+    					<button onclick="AppendAthlete2()">
+    						Add Overtime
+    					</button>
+    					<button onclick="AppendAthlete2()">
+    						Add Shootout
+    					</button>
+    				</td>
+    				<td>
+    					<textarea></textarea>
+    				</td>
+    			</tr>
+    		</tbody>
+    	</table>
+    	<br>
+    	<br>
+    	<table>
+    		<tbody>
+    			<tr>
+    				<th style="text-align:center; border:1px solid; background:grey; color: white">
+    					Scoring Summary Team 2 v. Team 3
+    				</th>
+    				<th style="text-align:center; border:1px solid; background:grey; color: white">
+    					Game Summary
+    				</th>
+    			</tr>
+    			<tr>
+    				<td>
+    					<table>
+    						<tbody>
+    							<tr>
+    								<td>
+    									1
+    								</td>
+    								<td>
+    									<input type="text">
+    								</td>
+    							</tr>
+    							<tr>
+    								<td>
+    									2
+    								</td>
+    								<td>
+    									<input type="text">
+    								</td>
+    							</tr>
+    							<tr>
+    								<td>
+    									3
+    								</td>
+    								<td>
+    									<input type="text">
+    								</td>
+    							</tr>
+    							<tr>
+    								<td>
+    									4
+    								</td>
+    								<td>
+    									<input type="text">
+    								</td>
+    							</tr>
+    						</tbody>
+    					</table>
+    					<button onclick="AppendAthlete2()">
+    						Add Overtime
+    					</button>
+    					<button onclick="AppendAthlete2()">
+    						Add Shootout
+    					</button>
+    				</td>
+    				<td>
+    					<textarea></textarea>
+    				</td>
+    			</tr>
+    		</tbody>
+    	</table>
+    	<br>
+    	<br>
+    	<table>
+    		<tbody>
+    			<tr>
+    				<th style="text-align:center; border:1px solid; background:grey; color: white">
+    					Scoring Summary Team 1 v. Team 3
+    				</th>
+    				<th style="text-align:center; border:1px solid; background:grey; color: white">
+    					Game Summary
+    				</th>
+    			</tr>
+    			<tr>
+    				<td>
+    					<table>
+    						<tbody>
+    							<tr>
+    								<td>
+    									1
+    								</td>
+    								<td>
+    									<input type="text">
+    								</td>
+    							</tr>
+    							<tr>
+    								<td>
+    									2
+    								</td>
+    								<td>
+    									<input type="text">
+    								</td>
+    							</tr>
+    							<tr>
+    								<td>
+    									3
+    								</td>
+    								<td>
+    									<input type="text">
+    								</td>
+    							</tr>
+    							<tr>
+    								<td>
+    									4
+    								</td>
+    								<td>
+    									<input type="text">
+    								</td>
+    							</tr>
+    						</tbody>
+    					</table>
+    					<button onclick="AppendAthlete2()">
+    						Add Overtime
+    					</button>
+    					<button onclick="AppendAthlete2()">
+    						Add Shootout
+    					</button>
+    				</td>
+    				<td>
+    					<textarea></textarea>
+    				</td>
+    			</tr>
+    		</tbody>
+    	</table>
+    	<br>
+    	<br>
+    	<table>
+    		<tbody>
+    			<tr>
+    				<th style="text-align:center; border:1px solid; background:grey; color: white">
+    					Event Results
+    				</th>
+    				<th style="text-align:center; border:1px solid; background:grey; color: white">
+    					Event Summary
+    				</th>
+    			</tr>
+    			<tr>
+    				<td>
+    					<table>
+    						<tbody>
+    							<tr>
+    								<td>
+    									School 1
+    								</td>
+    								<td>
+    									<input style="text-align:center" class="input-small" type="text" placeholder="1-1">
+    								</td>
+    							</tr>
+    							<tr>
+    								<td>
+    									School 2
+    								</td>
+    								<td>
+    									<input style="text-align:center" class="input-small" type="text" placeholder="2-0">
+    								</td>
+    							</tr>
+    							<tr>
+    								<td>
+    									School 3
+    								</td>
+    								<td>
+    									<input style="text-align:center" class="input-small" type="text" placeholder="0-2">
+    								</td>
+    							</tr>
+    						</tbody>
+    					</table>
+    				</td>
+    				<td>
+    					<textarea></textarea>
+    				</td>
+    			</tr>
+    		</tbody>
+    	</table>
+    	<br>
+    	<br>
+    	<a class="btn">Save</a>
+
+    <!-- /container -->
+
+    <style>
+      
+        body {
+          padding-top: 60px;
+        }
+      
+      .tinytext {
+          width: 20px;
+      }
+      .centertxt {
+          style="text-align:center"
+      }
+      
+      table, th, td
+      {
+      border: 1px solid #cccccc; 
+      }
+    </style>
+

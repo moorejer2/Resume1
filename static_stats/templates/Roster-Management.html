@@ -1,0 +1,12 @@
+
+<script>
+$(function() {
+	if($.cookie('team') === null) { 
+    	window.location.href = "#/team_search";
+	}
+	else {
+		window.location.href = "#/team/" + $.cookie('team') + "/";
+	}
+});
+</script>
+

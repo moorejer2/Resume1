@@ -1,0 +1,53 @@
+
+    <div class="container">
+		<form id="select_template">
+    	<div class="control-group">
+    		<label class="control-label">
+    			Available Sports Templates
+    		</label>
+    		<div class="controls">
+    		</div>
+    	</div>
+    	<select id="plates" class="input-medium">
+    		<option value="static/templates/Head-to-Head-Template.html">
+    			Head to Head
+    		</option>
+            <option value="static/templates/Matchup-Template.html">
+    			Matchup Template
+    		</option>
+            <option value="static/templates/Meet-Template.html">
+    			Meet Template
+            </option>
+    	</select>
+    	<a href="#/add-sport-template"><i class="icon-plus"></i>Add a Template</a>
+    	<br>
+    	<a class="btn" id="reset">Clear Selection</a>
+		</form>
+    	<hr>
+    </div>
+<div class="container" id="winder">
+
+</div>
+<script>
+$('#plates').val("");
+
+$('#plates').change(function() {
+    $.ajax({
+        'url': $('#plates').val(),
+        'type': 'GET',
+        'success' : function(data) {
+            $('#winder').html(data);
+        }
+    });
+});
+
+$('#reset').click(function(){
+    $('#winder').html("");
+    $(':input','#select_template')
+    .not(':button, :submit, :reset, :hidden')
+    .val('')
+    .removeAttr('checked')
+    .removeAttr('selected');
+});
+
+</script>

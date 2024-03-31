@@ -1,0 +1,162 @@
+<div class="container">
+	<form action="" class="form-inline" id="team_search_refine" onsubmit="get_school();return false;">
+    	<label for="select_school" class="control-label">School<br>
+		    <input id="select_school" type="text"></label>
+
+        <label for="select_sport" class="control-label">Sport<br>
+			<select id="select_sport" class="input-small"></select></label>
+
+        <label for="select_level" class="control-label">Level<br>
+			<select id="select_level" class="input-small"></select></label>
+
+        <label for="select_gender" class="control-label">Gender<br>
+			<select id="select_gender" class="input-small"></select></label>
+
+        <label for="select_year" class="control-label">Year<br>
+   			<select id="select_year" class="input-small">
+                <option value="2013">2013</option>
+            </select></label>
+
+        <input class="btn" type='submit' name='search' value='Search'/>
+		    <button id="reset" class="btn">Clear</button>
+	</form>
+</div>
+<br>
+<div id="team_result" class="padpad container">
+	<ul id="teams_list">
+	</ul>
+</div>
+
+
+<input type="hidden" id="hid_scho" value="" />
+</div>
+<div id="school-message" title="Select School">
+</div>
+
+<script>
+
+function get_school() {
+var school;
+    if ($('#select_school').val() != "") {
+            $.ajax({
+            	url: "db/api0/entities/?search=" + $('#select_school').val(),
+            	type: "get",
+    			async: false,
+    			success: function (schooldata) {
+    				if (schooldata.length <= 0) {
+                        alert("No results found for School");
+                        return_now = true;
+                        return false;
+                    }
+                    if (schooldata.length > 1) {
+                        $("#school-message").html("");
+                        $.each(schooldata, function(i, team) {
+            				$("#school-message").append(
+            		   		    '<a href="javascript:{}" onclick="$(\'#hid_scho\').val(\''
+                                + team.id
+                                + '\');$(\'#select_school\').val(\''
+                                + team.name
+                                + '\');process_search();$dia_scho.dialog(\'close\');">'
+                                + team.name
+                                + '</a><br>');
+                        });
+                        $dia_scho.dialog("open");
+              }
+              else {
+                  $("#hid_scho").val(schooldata.id);
+                  process_search();
+              }
+         }
+    });
+}
+else
+    $("#hid_scho").val(null);
+    process_search();
+}
+
+$(function() {
+
+	$.getJSON("/db/sport/", function(entities) {
+		$.each(entities, function(arrayID, ent) {   
+     		$('#select_sport')
+        		.append($("<option></option>")
+         		.attr("value",ent.id)
+         		.text(ent.name));
+		});
+	});
+	$.getJSON("/db/gender/", function(genders) {
+		$.each(genders, function(arrayID, gen) {   
+     		$('#select_gender')
+         		.append($("<option></option>")
+         		.attr("value",gen.id)
+         		.text(gen.name)); 
+		});
+	});
+	$.getJSON("/db/level/", function(levels) {
+		$.each(levels, function(arrayID, lev) {   
+     		$('#select_level')
+         		.append($("<option></option>")
+         		.attr("value",lev.id)
+       			.text(lev.name)); 
+		});
+	});
+    //for (i = (new Date().getFullYear() + 7); i > 1999; i--) {
+    //	$('#select_year').append($('<option />').val(i).html(i));
+	//}
+    $dia_scho = $("#school-message").dialog({
+        autoOpen: false,
+            modal: true,
+            buttons: {
+                "cancel": function() {
+                    $(this).dialog("close");
+                }
+            }
+        });
+});
+
+function process_search() { 
+//alert("searched!");
+    var baseurl = '/db/api0/teams/?';
+    var searchurl = baseurl;
+
+    if ($("#hid_scho").val() != null)
+        searchurl = searchurl + "entity=" + $("#hid_scho").val() + "&";
+    if ($("#select_gender").val() != null)
+        searchurl = searchurl + "gender=" + $("#filter_gender").val() + "&";
+    if ($("#select_sport").val() != null)
+        searchurl = searchurl + "sport=" + $("#filter_sport").val() + "&";
+    if ($("#select_level").val() != null)
+        searchurl = searchurl + "level=" + $("#filter_level").val() + "&";
+    if ($("#select_year").val() != null)
+        searchurl = searchurl + "graduation_year=" + $("#select_year").val() + "&";
+
+	$.getJSON(searchurl, function(types) {
+		$('#teams_list').empty();
+        if ( types.length == 0 ) {
+            $("#team_result").html("<h4>No teams found, please refine your search.</h4>");
+        }
+		$.each(types, function(i, team) {
+     		$('#teams_list')
+				.append($('<li><a href="#/team/'
+				+ team.id
+				+ '/">'
+				+ team.entity_data.name
+				+ ' - '
+				+ team.gender
+				+ ' - '
+				+ team.level_data.name
+				+ ' - '
+				+ team.sport_data.name
+				+ '</a></li>'));
+		});
+	});
+}
+
+$('#reset').click(function(){
+    $(':input','#team_search_refine')
+    .not(':button, :submit, :reset, :hidden')
+    .val('')
+    .removeAttr('checked')
+    .removeAttr('selected');
+});
+</script>

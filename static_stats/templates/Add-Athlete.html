@@ -1,0 +1,278 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+
+<div id="tabs" class="container">
+	<ul>
+		<li><a href="#tabs-1">Static</a></li>
+		<li><a href="#tabs-2">Dynamic</a></li>
+	</ul>
+	<div id="tabs-1">
+		<button id="ClearAll">Clear All</button>
+    	<div class="control-group">
+    		<label class="control-label">
+    			First Name
+    		</label>
+    		<div class="controls">
+    			<input type="text">
+    		</div>
+    	</div>
+    	<div class="control-group">
+    		<label class="control-label">
+    			Middle Initial
+    		</label>
+    		<div class="controls">
+    			<input class="input-mini" type="text">
+    		</div>
+    	</div>
+    	<div class="control-group">
+    		<label class="control-label">
+    			Last Name
+    		</label>
+    		<div class="controls">
+    			<input type="text">
+    		</div>
+    	</div>
+    	<div class="control-group">
+    		<label class="control-label">
+    			<div class="control-group">
+    				<label class="control-label">
+    					School
+    				</label>
+    				<div class="controls">
+    					<input type="text">
+    				</div>
+    			</div>
+    			Position
+    		</label>
+    		<div class="controls">
+    			<select class="input-small">
+    				<option value="quarter back">
+    					QB
+    				</option>
+    				<option value="wide receiver">
+    					WR
+    				</option>
+    				<option value="corner back">
+    					CNR
+    				</option>
+    			</select>
+    		</div>
+    	</div>
+    	<div class="control-group">
+    		<label class="control-label">
+    			Jersey
+    		</label>
+    		<div class="controls">
+    			<select class="input-mini">
+    				<option value="0">
+    					0
+    				</option>
+    				<option value="1">
+    					1
+    				</option>
+    				<option value="99">
+    					99
+    				</option>
+    			</select>
+    		</div>
+    	</div>
+    	<div class="control-group">
+    		<label class="control-label">
+    			Graduation Class
+    		</label>
+    		<div class="controls">
+    			<input class="input-small" type="text">
+    		</div>
+    	</div>
+    	<div class="control-group">
+    		<label class="control-label">
+    			Height
+    		</label>
+    		<div class="controls">
+    			<select class="input-mini" id="Feet">
+    				<option value="3">
+    					3
+    				</option>
+    				<option value="4">
+    					4
+    				</option>
+    				<option value="5">
+    					5
+    				</option>
+    				<option value="6">
+    					6
+    				</option>
+    				<option value="7">
+    					7
+    				</option>
+    				<option value="8">
+    					8
+    				</option>
+    			</select>
+    			<select class="input-small">
+    				<option value="0">
+    					0
+    				</option>
+    				<option value=".25">
+    					.25
+    				</option>
+    				<option value=".5">
+    					.5
+    				</option>
+    				<option value=".75">
+    					.75
+    				</option>
+    				<option value="11">
+    					11
+    				</option>
+    				<option value="11.25">
+    					11.25
+    				</option>
+    				<option value="11.5">
+    					11.5
+    				</option>
+    				<option value="11.75">
+    					11.75
+    				</option>
+    			</select>
+    		</div>
+    	</div>
+    	<div class="control-group">
+    		<label class="control-label">
+    			Weight
+    		</label>
+    		<div class="controls">
+    			<input class="input-small" type="text">
+    		</div>
+    	</div>
+    	<label class="checkbox">
+    		<input type="checkbox">
+    		Starter
+    	</label>
+    	<hr>
+    	<a class="btn" href="#/roster_manage">
+    		Submit
+    	</a>
+	</div>
+	<div id="tabs-2">
+	{% csrf_token %}
+    	<div class="control-group">
+    		<label for="f_name" class="control-label">First Name</label>
+    		<input type="text" id="f_name">
+    	</div>
+    	<div class="control-group">
+    		<label for="m_name" class="control-label">Middle Name</label>
+    		<input type="text" id="m_name">
+    	</div>
+    	<div class="control-group">
+    		<label for="l_name" class="control-label">Last Name</label>
+    		<input type="text" id="l_name">
+    	</div>
+		<div class="control-group">
+			<label for="select_gender" class="control-label">Gender</label>
+			<select id="select_gender" class="input-small"></select>
+    	</div>
+		<div class="control-group">
+			<label for="select_dob">DOB</label>
+			<input id="select_dob" type="text" class="input-medium">
+		</div>
+    	<div class="control-group">
+    		<label for="in_school"class="control-label">School</label>
+    		<select name="school" id="in_school"></select>
+    	</div>
+		<div class="control-group">
+    		<label for ="yearpicker"class="control-label">Graduation Class</label>
+			<select name="yearpicker" id="yearpicker"></select>
+    	</div>
+		<div class="control-group">
+    		<label for="stu_id" class="control-label">Student ID</label>
+			<input id="stu_id" type="text">
+       	</div>
+    	<div class="control-group">
+    		<label for="jersey" class="control-label">Jersey Number</label>
+			<input id="jersey" type="text">
+       	</div>
+    	<div class="control-group">
+    		<label class="control-label">Height</label>
+    			<select id="in_feet" class="input-mini" id="Feet">
+    				<option value="5">5</option>
+    				<option value="6">6</option>
+    				<option value="7">7</option>
+    			</select>
+    			<select id="in_inch" class="input-small">
+    				<option value="0">0</option>
+    				<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+					<option value="8">8</option>
+					<option value="9">9</option>
+					<option value="1">1</option>
+					<option value="10">10</option>
+					<option value="11">11</option>
+       			</select>
+		</div>
+    		<label id="in_weight">Weight</label>
+			<input class="input-small" type="text">
+		</div>
+    	<button class="btn" id="add_ath">Submit</button>
+	</div>
+</div>
+
+<script>
+$(function() {
+	$.getJSON("/db/api0/entities/", function(entities) {
+		$.each(entities, function(arrayID, ent) {   
+     		$('#in_school')
+         		.append($("<option></option>")
+         		.attr("value",ent.id)
+         		.text(ent.name)); 
+		});
+	});
+	$.getJSON("/db/gender/", function(genders) {
+		$.each(genders, function(arrayID, gen) {   
+     		$('#select_gender')
+         		.append($("<option></option>")
+         		.attr("value",gen.id)
+         		.text(gen.name)); 
+		});
+	});
+	for (i = (new Date().getFullYear() + 10); i > 1989; i--) {
+    	$('#yearpicker').append($('<option />').val(i).html(i));
+	}
+	$('#select_dob').datepicker();
+	$( "#tabs" ).tabs();
+
+	$('#add_ath').click(function(){
+		var make_stu = {
+			first_name: $('#f_name').text(),
+			middle_name: $('#m_name').text(),
+			last_name: $('#l_name').text(),
+			gender: $('#select_gender').val(),
+			graduation_year: $('#yearpicker').val(),
+			dob: $('#select_dob').val(),
+			student_id: $('#stu_id').text(),
+			entity: $.cookie("school")
+			};
+    	$.ajax({
+        	url: "db/api0/students/",
+        	type: "post",
+        	data: make_stu,
+			async: false,
+			success: function (dataCheck) {
+               alert("worked");
+            }
+		});
+	});
+});
+
+$('#ClearAll').click(function(){
+    $('input[type!="button"][type!="submit"], select, textarea')
+         .val('')
+         .blur();
+});
+</script>
+
+

@@ -1,0 +1,119 @@
+<div class="container">
+
+<form action="" class="form-inline" id="stat_list_search_refine" onsubmit="return false;">
+        <label for="select_sport" class="control-label">Sport<br>
+			<select id="select_sport" class="input-small">
+            </select></label>
+        <label for="select_cat" class="control-label">Catagory<br>
+			<select id="select_cat" class="input-small">
+            </select></label>
+        <button id="search" class="btn">Search</button>
+		<button id="reset" class="btn">Clear</button>
+        <a class="btn pull-right" href="#/stat_request">Request a New Statistic</a>
+	</form>
+	<div class="well">
+    	<table id="stats_table" class="table table-bordered tablesorter">
+    		<thead>
+    				<tr>
+    					<th>
+    						Statisitc Name
+    					</th>
+    					<th>
+    						Abbreviation
+    					</th>
+    					<th>
+    						Sport
+    					</th>
+    					<th>
+    						Category
+    					</th>
+    				</tr>
+			</thead>
+            <tbody>
+    		</tbody>
+    	</table>
+	</div>
+</div>
+<script>
+$(function() {
+    $.getJSON("/db/sport/", function(entities) {
+		$.each(entities, function(arrayID, ent) {   
+     		$('#select_sport')
+        		.append($("<option></option>")
+         		.attr("value",ent.id)
+         		.text(ent.name));
+		});
+	});
+    $.getJSON("/db/api0/statisticstypecategory/", function(entities) {
+		$.each(entities, function(arrayID, ent) {   
+     		$('#select_cat')
+        		.append($("<option></option>")
+         		.attr("value",ent.id)
+         		.text(ent.name));
+		});
+	});
+    $.getJSON("/db/api0/statisticstype/", function(types) {
+        var table_obj = $('#stats_table > tbody:last');
+		$.each(types, function(i, stats) {
+     		table_obj.append($(
+    				'<tr><td>'
+           			+ stats.name
+		    		+ '</td><td>'
+			    	+ stats.abbrev
+				    + '</td><td>'
+    				+ $("#select_cat option[value=\'" + stats.category + "\']").text()
+	    			+ '</td><td>'
+		    		+ $("#select_sport option[value=\'" + stats.sport + "\']").text()
+				    + '</td></tr>'
+	        ));
+		});
+        $("#stats_table").tablesorter();
+    });
+});
+
+function process_stat_search() { 
+//alert("searched!");
+    var baseurl = '/db/api0/statisticstype/?';
+    var searchurl = baseurl;
+    var table_obj = $('#stats_table > tbody:last');
+
+    if ($("#select_sport").val() != null)
+        searchurl = searchurl + "sport=" + $("#select_sport").val() + "&";
+    if ($("#select_cat").val() != null)
+        searchurl = searchurl + "category=" + $("#select_cat").val() + "&";
+
+    table_obj.empty();
+
+	$.getJSON(searchurl, function(types) {
+		$.each(types, function(i, stats) {
+     		table_obj.append($(
+    				'<tr><td>'
+           			+ stats.name
+		    		+ '</td><td>'
+			    	+ stats.abbrev
+				    + '</td><td>'
+    				+ $("#select_cat option[value=\'" + stats.category + "\']").text()
+	    			+ '</td><td>'
+		    		+ $("#select_sport option[value=\'" + stats.sport + "\']").text()
+				    + '</td></tr>'
+	        ));
+		});
+        $("#stats_table").tablesorter();
+    });
+}
+
+$('#search').click(function(){
+    process_stat_search();
+});
+
+$('#reset').click(function(){
+    $(':input','#stat_list_search_refine')
+    .not(':button, :submit, :reset, :hidden')
+    .val('')
+    .removeAttr('checked')
+    .removeAttr('selected');
+    process_stat_search();
+});
+
+</script>
+

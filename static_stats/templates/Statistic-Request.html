@@ -1,0 +1,45 @@
+
+
+<div id="tabs" class="container">
+	<button class="btn" id="reset2">Clear All</button>
+        <div class="padpad">
+	    		<label for="select_sport">Sport<br>
+				<select id="select_sport" class="input-medium">
+					<option value="1">Football</option>
+    			</select></label>
+        </div>
+    	<div class="padpad">
+    		<label class="control-label">
+    			Statistic Name<br>
+    			<input type="text" placeholder="Interception yards"></label>
+    	</div>
+    	<div class="padpad">
+    			Abbreviation<br>
+    			<input type="text" placeholder="YDS" class=""></label>
+    	</div>
+    	<div class="padpad">
+    		<label class="control-label">
+    			Type<br>
+    			<input type="text" placeholder="Distance" class=""></label>
+    	</div>
+    	<div class="padpad">
+    		<label class="control-label">
+    			Category<br>
+    			<input type="text" placeholder="Defensive"></label>
+    	</div>
+    	<button type="submit" class="btn disabled">
+    		Send Request
+    	</button>	
+</div>
+
+<script>
+$('#reset2').click(function(){
+    $(':input','#tabs-2')
+    .not(':button, :submit, :reset, :hidden')
+    .val('')
+    .removeAttr('checked')
+    .removeAttr('selected');
+});
+
+</script>
+

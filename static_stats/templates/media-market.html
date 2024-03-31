@@ -1,0 +1,39 @@
+<div id="tabs" class="container">
+    <label for="market_list">Market<br>
+    <select id="market_list"></select>
+    <button class="btn" id="go_market">Select</button>    
+</div>
+<div id="mark_cont" class="container">
+<h4 id="mark_name"></h4>
+
+
+
+</div>
+<script>
+$('#mark_cont').hide();
+
+$(function() {
+	$.ajax({
+        url: "/db/api0/markets/",
+        type: "get",
+        async: false,
+        success: function (mark) {
+	    	$.each(mark, function(i, who) {
+                $('#market_list')
+           			.append($("<option></option>")
+           			.attr("value",who.id)
+           			.text(who.name));
+  		    });
+        }
+	});
+});
+
+$('#go_market').click(function(){
+    $('#mark_cont').html($('#market_list').text());
+
+    window.location.replace("#/market_detail/" + $('#market_list').val() + "/");
+    
+});
+
+</script>
+

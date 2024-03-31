@@ -1,0 +1,96 @@
+<div id="tabs" class="container">
+		<form action="" id="team_search_refine" onsubmit="process_search();return false;">
+		<h5>Roster Management</h5>
+    	<h6>Filters</h6>
+		<select id="select_school">
+    		<option value="n">---</option>
+    	</select>
+    	
+		<select id="select_sport" class="input-medium">
+    		<option value="n">---</option>
+			<option value="3">Football</option>
+    	</select>
+    	
+		<select id="select_level" class="input-medium">
+    		<option value="n">---</option>
+   		</select>
+    	
+		<select id="select_gender" class="input-small">
+    		<option value="n">---</option>
+    	</select>
+    	<br>
+			<input class="btn" type='submit' name='submit' value='submit'/>
+			<button id="reset" class="btn">Clear</button>
+	</form>
+</div>
+<br>
+<div class="container">
+	<ul id="teams_list">
+	</ul>
+</div>
+
+<script>
+$(function() {
+	$( "#tabs" ).tabs();
+	$.getJSON("/db/api0/entities/", function(entities) {
+		$.each(entities, function(arrayID, ent) {   
+     		$('#select_school')
+        		.append($("<option></option>")
+         		.attr("value",ent.id)
+         		.text(ent.name));
+		});
+	});
+	$.getJSON("/db/gender/", function(genders) {
+		$.each(genders, function(arrayID, gen) {   
+     		$('#select_gender')
+         		.append($("<option></option>")
+         		.attr("value",gen.id)
+         		.text(gen.name)); 
+		});
+	});
+	$.getJSON("/db/level/", function(levels) {
+		$.each(levels, function(arrayID, lev) {   
+     		$('#select_level')
+         		.append($("<option></option>")
+         		.attr("value",lev.id)
+       			.text(lev.name)); 
+		});
+	});
+});
+
+function process_search() { 
+//alert("searched!");
+	$.getJSON("/db/api0/teams/", function(types) {
+		$('#teams_list').empty();
+		var sex;
+		$.each(types, function(i, team) {
+			if (team.gender == 1)
+				sex = "Boys";
+			else if (team.gender == 2)
+				sex = "Girls";
+			else
+				sex = "Coed";
+     		$('#teams_list')
+				.append($('<li><a href="#/team_manage/'
+				+ team.id
+				+ '/">'
+				+ team.entity_data.name
+				+ ' - '
+				+ sex
+				+ ' - '
+				+ team.level_data.name
+				+ ' - '
+				+ team.sport_data.name
+				+ '</a></li>'));
+		});
+	});
+}
+
+$('#reset').click(function(){
+    $(':input','#team_search_refine')
+    .not(':button, :submit, :reset, :hidden')
+    .val('')
+    .removeAttr('checked')
+    .removeAttr('selected');
+});
+</script>

@@ -1,0 +1,249 @@
+<div id="tabs" class="container">
+	<ul>
+		<li><a href="#tabs-1">Static</a></li>
+		<li><a href="#tabs-2">Dynamic</a></li>
+	</ul>
+	<div id="tabs-1">
+    	<br>
+    	
+    	<div style="overflow-x:scroll" class="">
+    		<div class="control-group">
+    			<label class="control-label">
+    				Add Filters
+    			</label>
+    			<div class="controls">
+    				<select class="input-small">
+    					<option value="Sport">
+    						Sport
+    					</option>
+    					<option value="Football">
+    						Football
+    					</option>
+    					<option value="Baseball">
+    						Baseball
+    					</option>
+    				</select>
+    				<select class="input-small">
+    					<option value="School">
+    						School
+    					</option>
+    					<option value="School 1">
+    						School 1
+    					</option>
+    					<option value="School 2">
+    						School 2
+    					</option>
+    				</select>
+    				<select class="input-small">
+    					<option value="Level">
+    						Level
+    					</option>
+    					<option value="Varsity">
+    						Varsity
+    					</option>
+    					<option value="Junior Varsity">
+    						JV
+    					</option>
+    					<option value="7th">
+    						7th
+    					</option>
+    				</select>
+    				<select class="input-small">
+    					<option value="Gender">
+    						Gender
+    					</option>
+    					<option value="Boys">
+    						Boys
+    					</option>
+    					<option value="Girls">
+    						Girls
+    					</option>
+    					<option value="Coed">
+    						Coed
+    					</option>
+    				</select>
+    				<select class="input-small">
+    					<option value="Status">
+    						Status
+    					</option>
+    					<option value="Scheduled">
+    						Scheduled
+    					</option>
+    					<option value="Tentative">
+    						Tentative
+    					</option>
+    				</select>
+    				<select class="input-medium">
+    					<option value="Game Type">
+    						Game Type
+    					</option>
+    					<option value="Scrimage">
+    						Scrimage
+    					</option>
+    					<option value="Sport">
+    						Sport
+    					</option>
+    				</select>
+    			</div>
+    		</div>
+
+    		<table id="events_table" class="table table-bordered tablesorter">
+    			<thead>
+    				<tr>
+    					<th>
+    						Date
+    					</th>
+    					<th>
+    						Sport
+    					</th>
+    					<th>
+    						Home Team
+    					</th>
+    					<th>
+    						Away Team
+    					</th>
+    					<th>
+    						Level
+    					</th>
+    					<th>
+    						Gender
+    					</th>
+    					<th>
+    						Status
+    					</th>
+    					<th>
+    						Start Time
+    					</th>
+    					<th>
+    						End Time
+    					</th>
+    					<th>
+    						Game Type
+    					</th>
+    					<th class="">
+    						Home Score
+    					</th>
+    					<th>
+    						Away Score
+    					</th>
+    					<th>
+    					</th>
+    				</tr>
+    			</thead>
+    			<tbody>
+    				<tr>
+    					<td >
+    						07/30/2013
+    					</td>
+    					<td >
+    						Football
+    					</td>
+    					<td >
+    						School 1
+    					</td>
+    					<td >
+    						School 2
+    					</td>
+    					<td >
+    						Varsity
+    					</td>
+    					<td >
+    						Boys
+    					</td>
+    					<td >
+    						Scheduled
+    					</td>
+    					<td >
+    						3:30 PM
+    					</td>
+    					<td >
+    						6:30 PM
+    					</td>
+    					<td >
+    						Scrimage
+    					</td>
+    					<td >
+    						<input  class="input-mini" type="text" id="finalscore" placeholder="21">
+    					</td>
+    					<td>
+    						<input  class="input-mini" type="text" id="finalscore" placeholder="17">
+    					</td>
+    					<td >
+    						<div class="btn-group">
+    							<a href="#/event_edit" class="btn">Edit</a>
+    							<a href="#/stats_list" class="btn">Stats</a>
+    						</div>
+    					</td>
+    				</tr>
+    				<tr>
+    					<td >
+    						08/02/2013
+    					</td>
+    					<td >
+    						Soccer
+    					</td>
+    					<td >
+    						School 3
+    					</td>
+    					<td >
+    						School 4
+    					</td>
+    					<td >
+    						7th
+    					</td>
+    					<td >
+    						Coed
+    					</td>
+    					<td >
+    						Tentative
+    					</td>
+    					<td >
+    						TBA
+    					</td>
+    					<td >
+    						TBA
+    					</td>
+    					<td>
+    						Sport
+    					</td>
+    					<td>
+    						N/A
+    					</td>
+    					<td>
+    						N/A
+    					</td>
+    					<td>
+    						<div class="btn-group">
+    							<a href="#/event_edit" class="btn">Edit</a>
+    							<a href="#/stats_list" class="btn">Stats</a>
+    						</div>
+    					</td>
+    				</tr>
+    			</tbody>
+    		</table>
+    	</div>
+
+		<br>
+    	<a class="btn" href="#/event_entry">Add Event</a>
+	</div>
+	<div id="tabs-2">
+
+
+	</div>
+</div>
+
+<script>
+$(function() {
+	$( "#tabs" ).tabs();
+});
+
+$(function () {
+   	$("#events_table").tablesorter({
+		headers: { 
+        12: {
+          	sorter: false 
+			}
+        }
+	});
+});
+</script>

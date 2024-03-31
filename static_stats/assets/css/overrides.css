@@ -1,0 +1,60 @@
+body {
+	padding-top: 60px;
+	/* 60px to make the container go all the way to the bottom of the topbar */
+	padding-bottom: 40px;
+}
+
+#primary-div {
+	position: relative;
+	top: 35px;
+	width: 90%;
+	margin: 0px auto;
+}
+
+.set_nav {
+	margin: 22px 40px 0px 0px;
+}
+
+.tinytext {
+    width: 20px;
+}
+
+.padpad {
+    padding: 8px;
+}
+
+.no-close .ui-dialog-titlebar-close {
+    display: none;
+}
+
+.new_table th {
+    border:1px solid grey; background:white; color: black;
+}
+
+.new_table2 th {
+    border:1px solid white; background:grey; color: white;
+}
+
+.new_table td {
+	border-width: 1px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #ffffff;
+}
+
+.signthing a {
+  display: block;
+  padding: 2px 20px;
+  width: auto;
+  text-decoration: none;
+  background-color: #ffffff;
+  color: #222222;
+}
+
+.signthing a:hover,
+.signthing a:focus {
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+  background-color: #0088cc;
+}
+
