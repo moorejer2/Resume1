@@ -1,0 +1,766 @@
+	{% csrf_token %}
+
+    	<h1>
+    		<span id="team1"></span> v. <span id="team2"></span>
+    	</h1>
+    	<p>
+    		<span id="date1"></span> &amp; <span id="time1"></span> @ <span id="home1"></span>
+    	</p>
+    	<div style="overflow-x:scroll">
+    		BOX SCORE
+    	
+    	</div>
+        <table id="score_table" class="table" style="width: 1400 px">
+			<thead>
+				<tr>
+					<th>
+						School
+					</th>
+					<th>
+						Record Calculation
+					</th>
+					<th>
+						Forfeit Loss
+					</th>
+					<th>
+						Total
+					</th>
+                    <th>
+					</th>
+				</tr>
+            </thead>
+            <tbody>
+				
+			</tbody>
+		</table>
+    	<br>
+    	<br>
+    	TEAM STATS
+    <div class="padpad">
+    	<div style="overflow-x:scroll">
+    		<table class="tablesorter table table-bordered" id="teams_stats">
+    			<thead class="new_table2">
+    				<tr>
+    					<th>
+    					</th>
+    					<th colspan="10">
+    						Misc.
+    					</th>
+                        <th>
+    					</th>
+    				</tr>
+                    </thead>
+                    <thead>
+    				<tr>
+    					<th title="School">
+    						School
+    					</th>
+    					<th title="Touchbacks">
+    						TB
+    					</th>
+    					<th title="Passes Defended">
+    						DEF
+    					</th>
+    					<th title="Fumbles">
+    						FUM
+    					</th>
+    					<th title="Fumbles Lost">
+    						LOST
+    					</th>
+    					<th title="Offensive First Downs">
+    						Offen...
+    					</th>
+    					<th title="Passing Yards Allowed">
+    						Passi...
+    					</th>
+    					<th title="Rushing Yards Allowed">
+    						Rushi...
+    					</th>
+    					<th title="Penalties">
+    						Penal...
+    					</th>
+    					<th title="Penalty Yards">
+    						Penal...
+    					</th>
+    					<th title="Receptions">
+    						REC
+    					</th>
+                        <th>
+                        </th>
+    				</tr>
+                </thead>
+                <tbody>
+    			</tbody>
+    		</table>
+    	</div>
+    </div>
+    <br>
+    	ATHLETE STATS <span id="team1-2">SCHOOL 1</span>
+    <div class="padpad">
+        <div style="overflow-x:scroll">
+            <table class="tablesorter table table-bordered" id="school1athlete">
+    			<thead class="new_table2">
+    				<tr>
+                        <th colspan="6">
+    					</th>
+    					<th colspan="10">
+    						Misc
+    					</th>
+                        <th>
+    					</th>
+    				</tr>
+                </thead>
+                <thead>
+    				<tr>
+    					<th>
+    						Played
+    					</th>
+    					<th>
+    						#
+    					</th>
+    					<th>
+    						Last Name
+    					</th>
+    					<th>
+    						First Name
+    					</th>
+    					<th>
+    						Positions
+    					</th>
+    					<th title="Start?">
+    						GS?
+    					</th>
+    					<th title="Touchbacks">
+    						TB
+    					</th>
+    					<th title="Passes Defended">
+    						DEF
+    					</th>
+    					<th title="Fumble">
+    						FUM
+    					</th>
+    					<th title="Fumbles Lost">
+    						LOST
+    					</th>
+    					<th title="Offensive First Downs">
+    						Offen...
+    					</th>
+    					<th title="Passing Yards Allowed">
+    						Passi...
+    					</th>
+    					<th title="Rushing Yards Allowed">
+    						Rushi...
+    					</th>
+    					<th title="Penalties">
+    						Penal...
+    					</th>
+    					<th title="Penalty Yards">
+    						Penal...
+    					</th>
+    					<th title="Receptions">
+    						REC
+    					</th>
+                        <th>
+                        </th>
+    				</tr>
+			    <tbody>
+    			</tbody>
+    		</table>
+        </div>
+    <br>
+    <a id="home_add_ath_a" class="btn" href="javascript:{}">Add Athlete</a>
+    </div>
+    <br>
+    	ATHLETE STATS <span id="team2-2">SCHOOL 2</span>
+    <div class="padpad">
+        <div style="overflow-x:scroll">
+            <table class="tablesorter table table-bordered" id="school2athlete">
+    			<thead class="new_table2">
+    				<tr>
+    					<th colspan="6">
+    					</th>
+    					<th colspan="10">
+    						Misc
+    					</th>
+                        <th>
+    					</th>
+    				</tr>
+                </thead>
+                <thead>
+    				<tr>
+    					<th>
+    						Played
+    					</th>
+    					<th>
+    						#
+    					</th>
+    					<th>
+    						Last Name
+    					</th>
+    					<th>
+    						First Name
+    					</th>
+    					<th>
+    						Positions
+    					</th>
+    					<th title="Start?">
+    						GS?
+    					</th>
+    					<th title="Touchbacks">
+    						TB
+    					</th>
+    					<th title="Passes Defended">
+    						DEF
+    					</th>
+    					<th title="Fumble">
+    						FUM
+    					</th>
+    					<th title="Fumbles Lost">
+    						LOST
+    					</th>
+    					<th title="Offensive First Downs">
+    						Offen...
+    					</th>
+    					<th title="Passing Yards Allowed">
+    						Passi...
+    					</th>
+    					<th title="Rushing Yards Allowed">
+    						Rushi...
+    					</th>
+    					<th title="Penalties">
+    						Penal...
+    					</th>
+    					<th title="Penalty Yards">
+    						Penal...
+    					</th>
+    					<th title="Receptions">
+    						REC
+    					</th>
+                        <th>
+                        </th>
+    				</tr>
+			    <tbody>
+    			</tbody>
+    		</table>
+        </div>
+    <br>
+    <a id="away_add_ath_a" class="btn" href="javascript:{}">Add Athlete</a>
+    </div>
+    <br>
+    	BOX SCORE
+    <div class="padpad">
+    	<table>
+    		<tbody>
+    			<tr>
+    				<td>
+    					SCORING SUMMARY
+    				</td>
+    				<td>
+    					EVENT SUMMARY
+    				</td>
+    			</tr>
+    			<tr>
+    				<td>
+    					<table id="EventSummary">
+    						<tbody>
+    							<tr>
+    								<td>
+    									1
+    								</td>
+    								<td>
+    									<input type="text">
+    								</td>
+    							</tr>
+    							<tr>
+    								<td>
+    									2
+    								</td>
+    								<td>
+    									<input type="text">
+    								</td>
+    							</tr>
+    							<tr>
+    								<td>
+    									3
+    								</td>
+    								<td>
+    									<input type="text">
+    								</td>
+    							</tr>
+    							<tr>
+    								<td>
+    									4
+    								</td>
+    								<td>
+    									<input type="text">
+    								</td>
+    							</tr>
+								<tr>
+    								<td id="OTLabel2">
+    									OT
+    								</td>
+    								<td>
+    									<input type="text">
+    								</td>
+    							</tr>
+    						</tbody>
+    					</table>
+    					<button class="btn" id="AddOvertime2">
+    						Add Overtime
+    					</button>
+    				</td>
+    				<td>
+    					<textarea></textarea>
+    				</td>
+    			</tr>
+    		</tbody>
+    	</table>
+		<button class="btn" id="SaveButton">
+			Save
+    	</button>
+
+<div id="pickath" title="">
+</div>
+
+<script>
+var homekey;
+var awaykey;
+
+function save_this_team(key, wrow) {
+    $.ajax({
+        	url: "db/api0/eventteamstats/" + key + "/",
+        	type: "put",
+        	data: {eventparticipant: key,
+                misc_touchbacks: $('#' + wrow + ' input[name="misc_touchbacks"]').val(), 
+                misc_passes_defended: $('#' + wrow + ' input[name="misc_passes_defended"]').val(), 
+                misc_fumbles: $('#' + wrow + ' input[name="misc_fumbles"]').val(), 
+                misc_fumbles_lost: $('#' + wrow + ' input[name="misc_fumbles_lost"]').val(), 
+                misc_offensive_first_downs: $('#' + wrow + ' input[name="misc_offensive_first_downs"]').val(), 
+                misc_passing_yards_allowed: $('#' + wrow + ' input[name="misc_passing_yards_allowed"]').val(), 
+                misc_rushing_yards_allowed: $('#' + wrow + ' input[name="misc_rushing_yards_allowed"]').val(), 
+                misc_penalties: $('#' + wrow + ' input[name="misc_penalties"]').val(), 
+                misc_penalty_yards: $('#' + wrow + ' input[name="misc_penalty_yards"]').val(), 
+                misc_receiving: $('#' + wrow + ' input[name="misc_receiving"]').val()
+                },
+			async: false,
+			success: function (eventdata) {
+                alert("Team statistics updated.");
+                location.reload();
+            }
+    });
+}
+
+function save_this_ath(key, boss, play, wrow) {
+    $.ajax({
+        	url: "db/api0/eventathstats/" + key + "/",
+        	type: "put",
+        	data: {id: key,
+                eventparticipant: boss,
+                athlete: play,
+                last_name: $('tr#' + wrow).find('td.lname').html(),
+                first_name: $('tr#' + wrow).find('td.fname').html(),
+                jersey_num: $('tr#' + wrow).find('td.jers').html(),
+                position: $('tr#' + wrow).find('td.pos').html(),
+                misc_touchbacks: $('#' + wrow + ' input[name="misc_touchbacks"]').val(), 
+                misc_passes_defended: $('#' + wrow + ' input[name="misc_passes_defended"]').val(), 
+                misc_fumbles: $('#' + wrow + ' input[name="misc_fumbles"]').val(), 
+                misc_fumbles_lost: $('#' + wrow + ' input[name="misc_fumbles_lost"]').val(), 
+                misc_offensive_first_downs: $('#' + wrow + ' input[name="misc_offensive_first_downs"]').val(), 
+                misc_passing_yards_allowed: $('#' + wrow + ' input[name="misc_passing_yards_allowed"]').val(), 
+                misc_rushing_yards_allowed: $('#' + wrow + ' input[name="misc_rushing_yards_allowed"]').val(), 
+                misc_penalties: $('#' + wrow + ' input[name="misc_penalties"]').val(), 
+                misc_penalty_yards: $('#' + wrow + ' input[name="misc_penalty_yards"]').val(), 
+                misc_receiving: $('#' + wrow + ' input[name="misc_receiving"]').val()
+                },
+			async: false,
+			success: function (eventdata) {
+                alert("Athlete statistics updated.");
+                location.reload();
+            }
+    });
+}
+
+function save_this_score(id, ev, evp, brk, wrow) {
+    $.ajax({
+        	url: "db/api0/scores/" + id + "/",
+        	type: "put",
+        	data: {id: id,
+                eventparticipant: evp,
+                event: ev,
+                breakdown: brk,
+                score: $('#' + wrow + ' input[name="total"]').val()
+                },
+			async: false,
+			success: function (eventdata) {
+                alert("Score updated.");
+                location.reload();
+            }
+    });
+}
+
+function get_athletes(entpart,school,lev,message) {
+    $("#pickath").dialog('option', 'title', message);
+    $.ajax({
+        	url: "db/api0/athletes/?entity=" + school + "&level=" + lev,
+        	type: "get",
+        	data: {},
+			async: false,
+			success: function (athdata) {
+                $("#pickath").html("");
+                $.each(athdata, function(i, play) {
+       				$("#pickath").append(
+       		   		    '<a href="javascript:{}" onclick="make_ath_stats('
+                            + entpart+','+play.id+',\''+play.first_name+'\',\''+play.last_name+'\',\''+play.jersey_num+'\',\''+play.position+'\','+play.is_starter
+                            + ');$dia_path.dialog(\'close\');">'
+                            + play.last_name + ", " + play.first_name + " - " + play.position
+                            + '</a><br>');
+                });
+                $dia_path.dialog("open");
+            }
+    });
+}
+
+function make_ath_stats(part,player,fname,lname,jersey,pos,star) {
+    $.ajax({
+        	url: "db/api0/eventathstats/",
+        	type: "post",
+        	data: {eventparticipant: part,
+                athlete: player,
+                first_name: fname,
+                last_name: lname,
+                jersey_num: jersey,
+                position: pos,
+                start: star
+                },
+			async: false,
+			success: function (athdata) {
+                alert("Athlete added.");
+                location.reload();
+            }
+    });
+}
+
+$(function() {
+    $dia_path = $("#pickath").dialog({
+        autoOpen: false,
+        modal: true,
+        buttons: {
+            "cancel": function() {
+                $(this).dialog("close");
+            }
+        }
+    });
+	$.ajax({
+        url: "/db/api0/events_full/{{event.id}}/",
+        type: "get",
+        async: false,
+        success: function (events) {
+            var locale = events.facility;
+            var elevel = events.level;
+            var egender = events.gender;
+            var esport = events.sport;
+	    	$.each(events.participants, function(i, who) {   
+     	    	if (who.is_host == true) {
+                    if (who.entity_name == null) {
+                        $('#team1').text("TBA");
+                        $("#home_add_ath_a").attr('onclick', 'alert("Home team is TBA, no athletes available.");');
+                    }
+                    else {
+		    		    $('#team1').text(who.entity_name);
+                        $('#team1-2').text(who.entity_name);
+                        $("#home_add_ath_a").attr('onclick', 'get_athletes('+who.id+','+who.entity+','+elevel+',\'Select Home Team Athlete\');');
+                    }
+                    if (locale != null) {
+                        $('#home1').text(locale);
+                    }
+                    else {
+                        if (who.entity_name == null)
+                            $('#home1').text("TBA");
+                        else
+        				    $('#home1').text(who.entity_name);
+                    }
+                    homekey = who.id;
+			    }
+    			else {
+                    if (who.entity_name == null) {
+                        $('#team2').text("TBA");
+                        $("#away_add_ath_a").attr('onclick', 'alert("Away team is TBA, no athletes available.");');
+                    }
+                    else {
+    				    $('#team2').text(who.entity_name);
+                        $('#team2-2').text(who.entity_name);
+                        $("#away_add_ath_a").attr('onclick', 'get_athletes('+who.id+','+who.entity+','+elevel+',\'Select Away Team Athlete\');');
+                    }
+                    awaykey = who.id;
+			    }
+		    });
+            if (events.date_tba == true)
+                $('#date1').text("TBA");
+            else
+		        $('#date1').text($.datepicker.formatDate('m/d/yy', new Date(events.date)));
+            if (events.time_tba == true)
+                $('#time1').text("TBA");
+            else
+		        $('#time1').text(events.start_time);
+        }
+	});
+    $.ajax({
+        url: "db/api0/scores/?event={{event.id}}",
+        type: "get",
+        async: false,
+        success: function (scoredata) {
+            var table_obj3 = $('#score_table > tbody:last');
+            $.each(scoredata, function(i, part) {
+			    table_obj3.append($(
+					'<tr id="score_' + part.id + '"><td>'
+                    + $('#team1').text()
+                    + '</td><td>'
+                    + '<select><option value="Automatic">Automatic</option><option value="Manual">Manual</option></select>'
+                    + '</td><td>'
+                    + '<input type="checkbox">'
+                    + '</td><td>'
+                    + '<input class="tinytext" name="total" type="text" value="' + part.score + '">'
+                    + '</td><td>'
+                    + '<a class="btn" href="javascript:{}" onclick="save_this_score('
+                    + part.id + ',' + part.event + ',' + part.eventparticipant + ',\'' + part.breakdown + '\', \'score_' + part.id + '\');">Save</a>'
+					+ '</td></tr>'
+			    ));
+            });
+        }
+    });
+    $.ajax({
+        url: "db/api0/eventteamstats/" + homekey + "/",
+        type: "get",
+        async: false,
+        success: function (schooldata) {
+            var table_obj1 = $('#teams_stats > tbody:last');
+			table_obj1.append($(
+					'<tr id="row_home"><td>'
+					+ $('#team1').text()
+					+ '</td><td>'
+					+ '<input type="text" name="misc_touchbacks" class="tinytext" value="'
+                    + schooldata.misc_touchbacks + '" />'
+					+ '</td><td>'
+					+ '<input type="text" name="misc_passes_defended" class="tinytext" value="'
+                    + schooldata.misc_passes_defended + '" />'
+					+ '</td><td>'
+                    + '<input type="text" name="misc_fumbles" class="tinytext" value="'
+                    + schooldata.misc_fumbles + '" />'
+					+ '</td><td>'
+                    + '<input type="text" name="misc_fumbles_lost" class="tinytext" value="'
+                    + schooldata.misc_fumbles_lost + '" />'
+					+ '</td><td>'
+                    + '<input type="text" name="misc_offensive_first_downs" class="tinytext" value="'
+                    + schooldata.misc_offensive_first_downs + '" />'
+					+ '</td><td>'
+                    + '<input type="text" name="misc_passing_yards_allowed" class="tinytext" value="'
+                    + schooldata.misc_passing_yards_allowed + '" />'
+					+ '</td><td>'
+                    + '<input type="text" name="misc_rushing_yards_allowed" class="tinytext" value="'
+                    + schooldata.misc_rushing_yards_allowed + '" />'
+					+ '</td><td>'
+                    + '<input type="text" name="misc_penalties" class="tinytext" value="'
+                    + schooldata.misc_penalties + '" />'
+					+ '</td><td>'
+                    + '<input type="text" name="misc_penalty_yards" class="tinytext" value="'
+                    + schooldata.misc_penalty_yards + '" />'
+					+ '</td><td>'
+                    + '<input type="text" name="misc_receiving" class="tinytext" value="'
+                    + schooldata.misc_receiving + '" />'
+					+ '</td><td>'
+                    + '<a class="btn" href="javascript:{}" onclick="save_this_team('
+                    + homekey + ', \'row_home\');">Save</a>'
+					+ '</td></tr>'
+			));
+        }
+    });
+    $.ajax({
+        url: "db/api0/eventteamstats/" + awaykey + "/",
+        type: "get",
+        async: false,
+        success: function (schooldata) {
+            var table_obj2 = $('#teams_stats > tbody:last');
+			table_obj2.append($(
+					'<tr id="row_away"><td>'
+					+ $('#team2').text()
+					+ '</td><td>'
+					+ '<input type="text" name="misc_touchbacks" class="tinytext" value="'
+                    + schooldata.misc_touchbacks + '" />'
+					+ '</td><td>'
+					+ '<input type="text" name="misc_passes_defended" class="tinytext" value="'
+                    + schooldata.misc_passes_defended + '" />'
+					+ '</td><td>'
+                    + '<input type="text" name="misc_fumbles" class="tinytext" value="'
+                    + schooldata.misc_fumbles + '" />'
+					+ '</td><td>'
+                    + '<input type="text" name="misc_fumbles_lost" class="tinytext" value="'
+                    + schooldata.misc_fumbles_lost + '" />'
+					+ '</td><td>'
+                    + '<input type="text" name="misc_offensive_first_downs" class="tinytext" value="'
+                    + schooldata.misc_offensive_first_downs + '" />'
+					+ '</td><td>'
+                    + '<input type="text" name="misc_passing_yards_allowed" class="tinytext" value="'
+                    + schooldata.misc_passing_yards_allowed + '" />'
+					+ '</td><td>'
+                    + '<input type="text" name="misc_rushing_yards_allowed" class="tinytext" value="'
+                    + schooldata.misc_rushing_yards_allowed + '" />'
+					+ '</td><td>'
+                    + '<input type="text" name="misc_penalties" class="tinytext" value="'
+                    + schooldata.misc_penalties + '" />'
+					+ '</td><td>'
+                    + '<input type="text" name="misc_penalty_yards" class="tinytext" value="'
+                    + schooldata.misc_penalty_yards + '" />'
+					+ '</td><td>'
+                    + '<input type="text" name="misc_receiving" class="tinytext" value="'
+                    + schooldata.misc_receiving + '" />'
+					+ '</td><td>'
+                    + '<a class="btn" href="javascript:{}" onclick="save_this_team('
+                    + awaykey + ', \'row_away\');">Save</a>'
+					+ '</td></tr>'
+			));
+        }
+    });
+    $.ajax({
+        url: "db/api0/eventathstats/?eventparticipant=" + homekey,
+        type: "get",
+        async: false,
+        success: function (playerdata) {
+            var table_obj3 = $('#school1athlete > tbody:last');
+            $.each(playerdata, function(i, part) {
+			    table_obj3.append($(
+					'<tr id="ath_home_' + part.athlete + '"><td>'
+					+ '</td><td class="jers">'
+                    + part.jersey_num
+                    + '</td><td class="lname">'
+                    + part.last_name
+                    + '</td><td class="fname">'
+                    + part.first_name
+                    + '</td><td class="pos">'
+                    + part.position
+                    + '</td><td>'
+                    + '<input type="checkbox" name="start" value=' + part.start + ' />'
+                    + '</td><td>'
+					+ '<input type="text" name="misc_touchbacks" class="tinytext" value="'
+                    + part.misc_touchbacks + '" />'
+					+ '</td><td>'
+					+ '<input type="text" name="misc_passes_defended" class="tinytext" value="'
+                    + part.misc_passes_defended + '" />'
+					+ '</td><td>'
+                    + '<input type="text" name="misc_fumbles" class="tinytext" value="'
+                    + part.misc_fumbles + '" />'
+					+ '</td><td>'
+                    + '<input type="text" name="misc_fumbles_lost" class="tinytext" value="'
+                    + part.misc_fumbles_lost + '" />'
+					+ '</td><td>'
+                    + '<input type="text" name="misc_offensive_first_downs" class="tinytext" value="'
+                    + part.misc_offensive_first_downs + '" />'
+					+ '</td><td>'
+                    + '<input type="text" name="misc_passing_yards_allowed" class="tinytext" value="'
+                    + part.misc_passing_yards_allowed + '" />'
+					+ '</td><td>'
+                    + '<input type="text" name="misc_rushing_yards_allowed" class="tinytext" value="'
+                    + part.misc_rushing_yards_allowed + '" />'
+					+ '</td><td>'
+                    + '<input type="text" name="misc_penalties" class="tinytext" value="'
+                    + part.misc_penalties + '" />'
+					+ '</td><td>'
+                    + '<input type="text" name="misc_penalty_yards" class="tinytext" value="'
+                    + part.misc_penalty_yards + '" />'
+					+ '</td><td>'
+                    + '<input type="text" name="misc_receiving" class="tinytext" value="'
+                    + part.misc_receiving + '" />'
+					+ '</td><td>'
+                    + '<a class="btn" href="javascript:{}" onclick="save_this_ath('
+                    + part.id + ',' + homekey + ',' + part.athlete + ', \'ath_home_' + part.athlete + '\');">Save</a>'
+					+ '</td></tr>'
+			    ));
+            });
+        }
+    });
+    $.ajax({
+        url: "db/api0/eventathstats/?eventparticipant=" + awaykey,
+        type: "get",
+        async: false,
+        success: function (playerdata) {
+            var table_obj3 = $('#school2athlete > tbody:last');
+            $.each(playerdata, function(i, part) {
+			    table_obj3.append($(
+					'<tr id="ath_away_' + part.athlete + '"><td>'
+					+ '</td><td class="jers">'
+                    + part.jersey_num
+                    + '</td><td class="lname">'
+                    + part.last_name
+                    + '</td><td class="fname">'
+                    + part.first_name
+                    + '</td><td class="pos">'
+                    + part.position
+                    + '</td><td>'
+                    + '<input type="checkbox" name="start" value=' + part.start + ' />'
+                    + '</td><td>'
+					+ '<input type="text" name="misc_touchbacks" class="tinytext" value="'
+                    + part.misc_touchbacks + '" />'
+					+ '</td><td>'
+					+ '<input type="text" name="misc_passes_defended" class="tinytext" value="'
+                    + part.misc_passes_defended + '" />'
+					+ '</td><td>'
+                    + '<input type="text" name="misc_fumbles" class="tinytext" value="'
+                    + part.misc_fumbles + '" />'
+					+ '</td><td>'
+                    + '<input type="text" name="misc_fumbles_lost" class="tinytext" value="'
+                    + part.misc_fumbles_lost + '" />'
+					+ '</td><td>'
+                    + '<input type="text" name="misc_offensive_first_downs" class="tinytext" value="'
+                    + part.misc_offensive_first_downs + '" />'
+					+ '</td><td>'
+                    + '<input type="text" name="misc_passing_yards_allowed" class="tinytext" value="'
+                    + part.misc_passing_yards_allowed + '" />'
+					+ '</td><td>'
+                    + '<input type="text" name="misc_rushing_yards_allowed" class="tinytext" value="'
+                    + part.misc_rushing_yards_allowed + '" />'
+					+ '</td><td>'
+                    + '<input type="text" name="misc_penalties" class="tinytext" value="'
+                    + part.misc_penalties + '" />'
+					+ '</td><td>'
+                    + '<input type="text" name="misc_penalty_yards" class="tinytext" value="'
+                    + part.misc_penalty_yards + '" />'
+					+ '</td><td>'
+                    + '<input type="text" name="misc_receiving" class="tinytext" value="'
+                    + part.misc_receiving + '" />'
+					+ '</td><td>'
+                    + '<a class="btn" href="javascript:{}" onclick="save_this_ath('
+                    + part.id +',' + awaykey + ',' + part.athlete + ', \'ath_away_' + part.athlete + '\');">Save</a>'
+					+ '</td></tr>'
+			    ));
+            });
+        }
+    });
+    $.ajaxSetup({ 
+      beforeSend: function(xhr, settings) {
+         function getCookie(name) {
+             var cookieValue = null;
+             if (document.cookie && document.cookie != '') {
+                 var cookies = document.cookie.split(';');
+                 for (var i = 0; i < cookies.length; i++) {
+                     var cookie = jQuery.trim(cookies[i]);
+                     // Does this cookie string begin with the name we want?
+                 if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                     cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                     break;
+                 }
+ 	        	}
+        	}
+        		return cookieValue;
+        	}
+        	if (!(/^http:.*/.test(settings.url) || /^https:.*/.test(settings.url))) {
+            // Only send the token to relative URLs i.e. locally.
+  	        	xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+ 		   	}
+		} 
+	});
+});
+
+
+
+
+</script>
+ 

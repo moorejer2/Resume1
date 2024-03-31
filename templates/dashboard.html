@@ -1,0 +1,38 @@
+{% if user.is_authenticated %}
+{% load account %}
+
+<div class="container">
+	<h3 id="heading">
+    			Schedule Star
+    		</h3>
+			<p>
+			Welcome to Schedule Star, {{ user.first_name }} {{ user.last_name }}!
+    		</p>
+    		<h4 id="subHeading">
+    			USA Today HSS
+    		</h4>
+</div>
+<script type="text/javascript">
+$(function() {
+	window.location.href = "#/event_list";
+});
+</script>
+{% else %}
+{% load url from future %}
+{% load i18n %}
+{% load account %}
+{% load staticfiles %}
+<h4>Login <small> * indicates required field</small></h4>
+<form class="login" method="POST" action="{% url 'account_login' %}">
+{% csrf_token %}
+<label for="id_login">*Email<br><input type="text" placeholder="E-mail address" name="login" id="id_login"></label>
+<label for="id_password">*Password<br><input type="password" placeholder="Password" name="password" id="id_password"></label>
+<label for="id_remember">Remember Me <input type="checkbox" name="remember" id="id_remember"></label>
+  
+  <a href="/accounts/password/reset/" class="button secondaryAction">Forgot Password?</a>
+  <button type="submit" class="btn primaryAction">Sign In</button>
+
+</form>
+<br>
+Don't have an account? Then please <a href="{% url 'account_signup' %}">Sign up</a>.
+{% endif %}

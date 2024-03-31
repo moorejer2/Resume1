@@ -1,0 +1,262 @@
+<div id="tabs" class="container">
+{% csrf_token %}
+    <label for="market_list">Market<br>
+    <select id="market_list"></select></label>
+    <button class="btn" id="go_market">Select</button>    
+</div>
+<div id="mark_cont" class="container">
+    <h4 id="mark_name"></h4>
+    <div class="well">
+        <h6>Core Schools</h6>
+        <table class="tablesorter table table-bordered" id="core">
+            <thead>
+                <tr>
+                    <th width="90%">School</th>
+                    <th></th>
+                <tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <label for="add_core"><br>
+		<input id="add_core" type=text class="input-xlarge" /></label>
+        <button id="add_core_b" class="btn">Add Core School</button>
+    </div>
+
+    <div class="well">
+        <h6>Covered Schools</h6>
+            <table class="tablesorter table table-bordered" id="cover">
+                <thead>
+                    <tr>
+                    <th width="90%">School</th>
+                    <th></th>
+                <tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <label for="add_cover"><br>
+		<input id="add_cover" type=text class="input-xlarge" /></label>
+        <button id="add_cover_b" class="btn">Add Core School</button>
+    </div>
+</div>
+<div id="message" title="Select School">
+</div>
+<script>
+$('#mark_cont').hide();
+var name;
+var m_id;
+
+function create_record(type, eid) {
+    $.ajax({
+            url: "db/api0/marketentities/",
+            type: "post",
+    	    async: false,
+            data: {market: m_id,
+                entity: eid,
+                type: type
+                },
+    	    success: function (schooldata) {
+    		   alert("School added.");
+               run_schools();
+            }
+  		});
+}
+
+function remove_school(me_eid) {
+    $.ajax({
+            url: "db/api0/marketentities/" + me_eid + "/",
+            type: "delete",
+    	    async: false,
+            data: {},
+    	    success: function (schooldata) {
+    		   alert("School removed.");
+               run_schools();
+            }
+  		});
+}
+
+function add_core_school() {
+    if ($('#add_core').val() != "") {
+        $.ajax({
+            url: "db/api0/entities/?search=" + $('#add_core').val(),
+            type: "get",
+    	    async: false,
+    	    success: function (schooldata) {
+    		   if (schooldata.length <= 0) {
+                    alert("School not found.");
+                    return false;
+               }
+               if (schooldata.length > 1) {
+                    $("#message").html("");
+                    $.each(schooldata, function(i, team) {
+            		    $("#message").append(
+            		   		'<a href="javascript:{}" onclick="create_record(\'core\',\'' + team.id + '\');$dia_m.dialog(\'close\');">'
+                            + team.name
+                            + '</a><br>');
+                    });
+                    $dia_m.dialog("open");
+                }
+                else {
+                    create_record('core', team.id);
+                }
+            }
+  		});
+    }
+    else
+        alert("Please supply a school name.");
+}
+
+function add_cover_school() {
+    if ($('#add_cover').val() != "") {
+        $.ajax({
+            url: "db/api0/entities/?search=" + $('#add_cover').val(),
+            type: "get",
+    	    async: false,
+    	    success: function (schooldata) {
+    		   if (schooldata.length <= 0) {
+                    alert("School not found.");
+                    return false;
+               }
+               if (schooldata.length > 1) {
+                    $("#message").html("");
+                    $.each(schooldata, function(i, team) {
+            		    $("#message").append(
+            		   		'<a href="javascript:{}" onclick="create_record(\'covered\',\'' + team.id + '\');$dia_m.dialog(\'close\');">'
+                            + team.name
+                            + '</a><br>');
+                    });
+                    $dia_m.dialog("open");
+                }
+                else {
+                    create_record('covered', team.name);
+                }
+            }
+  		});
+    }
+    else
+        alert("Please supply a school name.");
+}
+
+
+
+function run_schools() {
+    var table_obj1 = $('#core > tbody:last');
+    var table_obj2 = $('#cover > tbody:last');
+    table_obj1.empty();
+    table_obj2.empty();
+    $.ajax({
+        url: "/db/api0/markets/" + m_id + "/",
+        type: "get",
+        async: false,
+        success: function (mark) {
+	    	$.each(mark.entities, function(i, who) {
+                if (who.type == "covered") {
+                    var cover_name;
+                    $.ajax({
+                        url: '/db/api0/entities/' + who.entity + '/',
+                        type: "get",
+                        async: false,
+                        success: function (marke) {
+                            cover_name = marke.name;
+                        }
+                    });
+                    table_obj2.append($(
+                          '<tr><td>'
+                        + cover_name
+                        + '</td><td>'
+                        + '<a class="btn" href="javascript:{}" onclick="remove_school('
+                        + who.id + ');">Remove</a>'
+    					+ '</td></tr>'
+        			    ));
+                }
+                if (who.type == "core") {
+                    var core_name;
+                    $.ajax({
+                        url: '/db/api0/entities/' + who.entity + '/',
+                        type: "get",
+                        async: false,
+                        success: function (marke) {
+                            core_name = marke.name;
+                        }
+                    });
+                    table_obj1.append($(
+                          '<tr><td>'
+                        + core_name
+                        + '</td><td>'
+                        + '<a class="btn" href="javascript:{}" onclick="remove_school('
+                        + who.id + ');">Remove</a>'
+    					+ '</td></tr>'
+        			    ));
+                }
+  		    });
+        }
+	});
+}
+
+$(function() {
+	$.ajax({
+        url: "/db/api0/markets/",
+        type: "get",
+        async: false,
+        success: function (mark) {
+	    	$.each(mark, function(i, who) {
+                $('#market_list')
+           			.append($("<option></option>")
+           			.attr("value",who.id)
+           			.text(who.name));
+  		    });
+        }
+	});
+    $dia_m = $("#message").dialog({
+        autoOpen: false,
+        modal: true,
+        buttons: {
+            "cancel": function() {
+                $(this).dialog("close");
+            }
+        }
+    });
+    $.ajaxSetup({ 
+      beforeSend: function(xhr, settings) {
+         function getCookie(name) {
+             var cookieValue = null;
+             if (document.cookie && document.cookie != '') {
+                 var cookies = document.cookie.split(';');
+                 for (var i = 0; i < cookies.length; i++) {
+                     var cookie = jQuery.trim(cookies[i]);
+                     // Does this cookie string begin with the name we want?
+                 if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                     cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                     break;
+                 }
+ 	        	}
+        	}
+        		return cookieValue;
+        	}
+        	if (!(/^http:.*/.test(settings.url) || /^https:.*/.test(settings.url))) {
+            // Only send the token to relative URLs i.e. locally.
+  	        	xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+ 		   	}
+		} 
+	});
+});
+
+$('#add_cover_b').click(function(){
+    add_cover_school();
+});
+
+$('#add_core_b').click(function(){
+    add_core_school();
+});
+
+$('#go_market').click(function(){
+    name = $('#market_list').text();
+    m_id = $('#market_list').val();
+    $('#mark_name').text(name);
+    $('#mark_cont').show();
+    run_schools();
+});
+
+</script>
+

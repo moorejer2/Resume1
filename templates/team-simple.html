@@ -1,0 +1,55 @@
+<div class="well" id="headingWell">
+
+		<div>
+    		<h2>{{team.entity}} <small> {{team.gender}} - {{team.level}} - {{team.sport}}</small></h2>
+		</div>
+        <a class="btn pull-right" href="#/add_athlete">Add Athlete</a>
+		<div>
+		<h4>Players</h4>
+		<table id="athletes_table" class="table table-bordered tablesorter">
+    			<thead>
+    				<tr>
+    					<th>Last Name</th>
+    					<th>First Name</th>
+    					<th>Year</th>
+    					<th>Jersey Number</th>
+						<th>Height</th>
+						<th>Weight</th>
+    					<th>Position</th>
+    				</tr>
+    			</thead>
+    			<tbody>
+				</tbody>
+			</table>
+    </div>
+</div>
+<script>
+$(function() {
+	$.getJSON("/db/api0/athletes/?level={{team.level_id}}&gender={{team.gender_id}}&entity={{team.entity_id}}&sport={{team.sport_id}}", function(team) {
+		var table_obj = $('#athletes_table > tbody:last');
+		$.each(team, function(a, athlete) {
+			table_obj.append($(
+					'<tr><td>'
+       				+ athlete.last_name
+					+ '</td><td>'
+					+ athlete.first_name
+					+ '</td><td>'
+					+ athlete.graduation_year
+					+ '</td><td>'
+					+ athlete.jersey_num
+					+ '</td><td>'
+					+ athlete.height_feet + '\' ' + athlete.height_inch + '\" '
+					+ '</td><td>'
+					+ athlete.weight
+					+ '</td><td>'
+					+ athlete.position
+					+ '</td></tr>'
+			));
+		});
+        $("#athletes_table").tablesorter();
+	});
+});
+$(window).load(function () {
+	$("#athletes_table").tablesorter();
+});
+</script>

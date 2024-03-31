@@ -1,0 +1,69 @@
+<div class="well" id="headingWell">
+		<div>
+    		<h2>{{team.entity}} <small> {{team.gender}} - {{team.level}} - {{team.sport}}</small></h2>
+		</div>
+		<div>
+		<h4>Players</h4>
+		<table id="athletes_table" class="table table-bordered tablesorter">
+    			<thead>
+    				<tr>
+    					<th>Last Name</th>
+    					<th>First Name</th>
+    					<th>Year</th>
+    					<th>Jersey Number</th>
+						<th>Height</th>
+						<th>Weight</th>
+    					<th>Student ID</th>
+						<th></th>
+    				</tr>
+    			</thead>
+    			<tbody>
+				</tbody>
+			</table>
+</div>
+<br>
+
+<a href="#/add_athlete" class="btn btn-success"><i class="icon-white icon-plus-sign"></i> Add Athlete</a>
+<a href="#/team_search" class="btn pull-right">Team Search</a>
+</div>
+<script>
+$(function() {
+$.cookie("school", {{team.entity_id}});
+$.cookie("team", {{team.id}});
+	$.getJSON("/db/api0/teams/{{team.id}}/", function(team) {
+		var table_obj = $('#athletes_table > tbody:last');
+		$.each(team.athletes, function(a, athlete) {
+			table_obj.append($(
+					'<tr><td>'
+       				+ athlete.student_data.last_name
+					+ '</td><td>'
+					+ athlete.student_data.first_name
+					+ '</td><td>'
+					+ athlete.student_data.graduation_year
+					+ '</td><td>'
+					+ athlete.home_jersey_num
+					+ '</td><td>'
+					+ athlete.height
+					+ '</td><td>'
+					+ athlete.weight
+					+ '</td><td>'
+					+ athlete.student_data.student_id
+					+ '</td><td>'
+					+ '<div class="btn-group">'
+    				+ '<button class="btn">Remove</button></div>'
+					+ '</td></tr>'
+				));
+			});
+		});
+	});
+$(window).load(function () {
+	$("#athletes_table").tablesorter({
+		headers: { 
+        7: {
+        	sorter: false 
+			}
+        }
+	});
+});
+
+	</script>

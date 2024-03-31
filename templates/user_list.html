@@ -1,0 +1,44 @@
+    <div class="container">
+    <a class="btn pull-right" href="#/create_account_1">Add User</a>
+	<table id="u_table" class="table table-bordered tablesorter">
+    		<thead>
+    			<tr>
+    				<th>
+						Last Name
+    				</th>
+    				<th>
+    					First Name
+    				</th>
+    				<th>
+    					Email
+    				</th>
+                    <th>
+    					Gender
+    				</th>
+    			</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+</div>
+<script>
+$(function() {
+	$.getJSON("/db/api0/users/", function(team) {
+		var table_obj = $('#u_table > tbody:last');
+		$.each(team, function(a, athlete) {
+			table_obj.append($(
+					'<tr><td>'
+       				+ athlete.last_name
+					+ '</td><td>'
+					+ athlete.first_name
+					+ '</td><td>'
+					+ athlete.email
+					+ '</td><td>'
+					+ athlete.gender
+					+ '</td></tr>'
+			));
+		});
+        $("#u_table").tablesorter();
+	});
+});
+</script>

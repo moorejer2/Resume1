@@ -1,0 +1,31 @@
+{% extends "account/base.html" %}
+
+{% load url from future %}
+{% load i18n %}
+
+{% block content %}
+
+<h3>Sign Up <small>* indicates required field.</h3>
+
+<p>Already have an account? Then please <a href="{{ login_url }}">sign in</a>.</p>
+
+<form action="{% url 'account_signup' %}" method="post" id="signup_form" class="signup">
+{% csrf_token %}
+  <label for="id_email">*E-mail<br>
+    <input type="text" placeholder="E-mail address" name="email" id="id_email"></label>
+  <label for="id_password1">*Password<br>
+    <input type="password" placeholder="Password" name="password1" id="id_password1"></label>
+  <label for="id_password2">*Confirm Password<br>
+    <input type="password" placeholder="Password" name="password2" id="id_password2"></label>
+  <label for="id_first_name">First name<br>
+    <input type="text" name="first_name" maxlength="30" id="id_first_name"></label>
+  <label for="id_last_name">Last name<br>
+    <input type="text" name="last_name" maxlength="30" id="id_last_name"></label>
+  {% if redirect_field_value %}
+  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+  {% endif %}
+  <button class="btn" type="submit">Sign Up</button>
+</form>
+<a class="btn btn-danger" href="/">Cancel</a>
+
+{% endblock %}

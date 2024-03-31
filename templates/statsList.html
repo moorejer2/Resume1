@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+	<h1 id="title">Stats Tool</h1>
+	<form id="getStats" action="#" method="get">
+            <p>Get All Stats
+                <input type="submit" value="Search" />
+            </p>
+        </form>
+        <form id="searchForm" action="#" method="post">
+            <p>
+                <label for="event">Event Name:</label>
+                <input type="text" id="event" /> <br />
+
+                <input type="submit" value="Search" />
+            </p>
+        </form>
+
+        <h1 id="eventsTitle">Events List</h1>
+        <p id="events"></p>
+         <script type="text/javascript">
+	    $(function() {
+		$("#getStats").submit(function(){
+		    $.get('/getAll',function(data) {
+                            $("#events").html(data['events']) ;
+                           });
+                        return false ;
+                    });
+            });
+            $(function() {
+                $("#searchForm").submit(function() {
+                    $.post('/submit', {event: $("#event").val()}, function(data) {
+                            $("#events").html(data['events']) ;
+                           });
+                    return false ;
+                    });
+            });
+	</script>
+{% endblock %}

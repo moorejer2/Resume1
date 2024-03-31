@@ -1,0 +1,128 @@
+<div id="tabs" class="container well">
+	<form id="student_add">
+	{% csrf_token %}
+		<button id="reset" class="btn">Clear All</button>
+
+		<label class="control-label">School</label>
+    			<select id="select_school" class="input-xlarge" id="Feet">
+
+    			</select>
+
+    	<div class="control-group">
+    		<label for="f_name" class="control-label">First Name</label>
+    		<input type="text" id="f_name">
+    	</div>
+    	<div class="control-group">
+    		<label for="m_name" class="control-label">Middle Name</label>
+    		<input type="text" id="m_name">
+    	</div>
+    	<div class="control-group">
+    		<label for="l_name" class="control-label">Last Name</label>
+    		<input type="text" id="l_name">
+    	</div>
+		<div class="control-group">
+			<label for="select_gender" class="control-label">Gender</label>
+			<select id="select_gender" class="input-small"></select>
+    	</div>
+		<div class="control-group">
+			<label for="select_dob">DOB</label>
+			<input id="select_dob" type="text" class="input-medium">
+		</div>
+		<div class="control-group">
+    		<label for ="yearpicker"class="control-label">Graduation Class</label>
+			<select name="yearpicker" id="yearpicker"></select>
+    	</div>
+		<div class="control-group">
+    		<label for="stu_id" class="control-label">Student ID</label>
+			<input id="stu_id" type="text">
+       	</div>
+   
+   <br><br>
+    	<button class="btn" type="submit">Submit</button>
+		</form>
+	</div>
+
+<script>
+$(function() {
+	$.getJSON("/db/api0/entities/", function(schools) {
+		$.each(schools, function(arrayID, scho) {   
+     		$('#select_school')
+         		.append($("<option></option>")
+         		.attr("value",scho.id)
+         		.text(scho.name)); 
+		});
+	});
+	$.getJSON("/db/gender/", function(genders) {
+		$.each(genders, function(arrayID, gen) {   
+     		$('#select_gender')
+         		.append($("<option></option>")
+         		.attr("value",gen.id)
+         		.text(gen.name)); 
+		});
+	});
+	for (i = (new Date().getFullYear() + 10); i > 1989; i--) {
+    	$('#yearpicker').append($('<option />').val(i).html(i));
+	}
+	$('#select_dob').datepicker({ dateFormat: 'yy-mm-dd' });
+
+$.ajaxSetup({ 
+     beforeSend: function(xhr, settings) {
+         function getCookie(name) {
+             var cookieValue = null;
+             if (document.cookie && document.cookie != '') {
+                 var cookies = document.cookie.split(';');
+                 for (var i = 0; i < cookies.length; i++) {
+                     var cookie = jQuery.trim(cookies[i]);
+                     // Does this cookie string begin with the name we want?
+                 if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                     cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                     break;
+                 }
+             }
+         }
+         return cookieValue;
+         }
+         if (!(/^http:.*/.test(settings.url) || /^https:.*/.test(settings.url))) {
+             // Only send the token to relative URLs i.e. locally.
+             xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+         }
+     } 
+});
+
+	$('#student_add').submit(function(){
+		var make_stu = {
+			first_name: $('#f_name').val(),
+			middle_name: $('#m_name').val(),
+			last_name: $('#l_name').val(),
+			gender: $('#select_gender').val(),
+			graduation_year: $('#yearpicker').val(),
+			dob: $('#select_dob').val(),
+			student_id: $('#stu_id').val(),
+			entity: $('#select_school').val()
+			};
+    	$.ajax({
+        	url: "db/api0/students/",
+        	type: "post",
+        	data: make_stu,
+			async: false,
+		//	beforeSend: function(xhr) {
+		//		xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrfmiddlewaretoken"]').attr('content'))
+		//	},
+			success: function (dataCheck) {
+				alert("Student Added.");
+               window.location.href = "#/add_athlete";
+            }
+		});
+	});
+});
+
+$('#reset').click(function(){
+    $(':input','#student_add')
+    .not(':button, :submit, :reset, :hidden')
+    .val('')
+    .removeAttr('checked')
+    .removeAttr('selected');
+});
+</script>
+
+

@@ -1,0 +1,412 @@
+<div id="tabs" class="container">
+<small>* indicates required field</small>
+	<form id="new_event" class="form-inline">
+		{% csrf_token %}
+		<div class="padpad">
+	    		<label for="select_sport">*Sport<br>
+				<select id="select_sport" class="input-medium">
+					<option value="1">Football</option>
+    			</select></label>
+	    		<label for="select_gender">*Gender<br>
+				<select id="select_gender" class="input-small">
+    			</select></label>
+	    		<label for="select_level">*Level<br>
+				<select id="select_level" class="input-medium">
+    			</select></label>
+		</div>
+        <div class="padpad">
+				<label for="select_date">Date<br>
+				<input id="select_date" class="input-small" type="text"></label>
+				<label class="checkbox">TBA<input name="date_tba" type="checkbox"></label>
+        </div>
+        <div class="padpad">
+				<label>Start Time<br>
+				<select id="select_start_time_hour" class="input-mini">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+					<option value="8">8</option>
+					<option value="9">9</option>
+					<option value="10">10</option>
+					<option value="11">11</option>
+					<option value="12">12</option>
+				</select>
+				<select id="select_start_time_minute" class="input-mini">
+					<option value="00">00</option>
+					<option value="05">05</option>
+					<option value="10">10</option>
+					<option value="15">15</option>
+					<option value="20">20</option>
+					<option value="25">25</option>
+					<option value="30">30</option>
+					<option value="35">35</option>
+					<option value="40">40</option>
+					<option value="45">45</option>
+					<option value="50">50</option>
+					<option value="55">55</option>
+				</select>
+				<select id="select_start_time_ampm" class="input-mini">
+					<option value="0">am</option>
+					<option value="12">pm</option>
+				</select></label>
+                <label class="checkbox">TBA<input name="time_tba" type="checkbox"></label>
+        </div>
+		<div class="padpad">
+				<label for="select_home_team">Home Team<br>
+				<input id="select_home_team" type=text class="input-xlarge" /></label>
+				<label for="select_away_team">Away Team<br>
+				<input id="select_away_team" type=text class="input-xlarge" /></label>
+		</div>
+		<div class="padpad">
+				<label for="select_status">*Status<br>
+				<select id="select_status" class="input-medium">
+				</select></label>
+                <label for="select_season">Season Designation<br>
+				<select id="select_season" class="input-large">
+					<option value="1">Regular Season</option>
+					<option value="2">Preseason</option>
+					<option value="3">Postseason</option>
+				</select></label>
+		</div>
+        <div>
+            <div class="padpad">
+				<label for="select_name">Event Name<br>
+				<input id="select_name" class="input-xxlarge" type="text"></label>
+				<label class="checkbox">Conference<input name="is_conference" type="checkbox"></label>
+            </div>
+            <div class="padpad">
+				<label for="select_location">Location <small>*Leave blank to use home team school</small><br>
+				<input id="select_location" class="input-xlarge" type="text"></label>
+            </div>
+            <div class="padpad">
+				<label for="select_recurrence">Recurrence<br>
+				<select id="select_recurrence" class="input-large">
+                    <option value="0">None</option>
+					<option value="1">Daily</option>
+					<option value="2">Weekly</option>
+					<option value="3">Monthly</option>
+					<option value="4">Yearly</option>
+				</select></label>
+            </div>
+        <div>
+	<button class="btn" id="submit" type="submit">Save &amp; Close</button>
+    </form>
+	<a id="reset" class="btn" href="#/event_list">Cancel</a>
+
+<input type="hidden" id="hid_home" value="" />
+<input type="hidden" id="hid_away" value="" />
+</div>
+<div id="home-message" title="Select Home Team">
+</div>
+<div id="away-message" title="Select Away Team">
+</div>
+<script type="text/javascript">
+$(function() {
+	$.getJSON("/db/level/", function(levels) {
+		$.each(levels, function(arrayID, lev) {   
+     		$('#select_level')
+         		.append($("<option></option>")
+         		.attr("value",lev.id)
+       			.text(lev.name)); 
+		});
+        $('#select_level').val("")
+	});
+	$.getJSON("/db/gender/", function(genders) {
+		$.each(genders, function(arrayID, gen) {   
+     		$('#select_gender')
+         		.append($("<option></option>")
+         		.attr("value",gen.id)
+         		.text(gen.name)); 
+		});
+        $('#select_gender').val("")
+	});
+	$.getJSON("/db/eventstatus/", function(statuses) {
+		$.each(statuses, function(arrayID, sta) {   
+    		$('#select_status')
+       			.append($("<option></option>")
+       			.attr("value",sta.id)
+       			.text(sta.name)); 
+		});
+        $('#select_status').val("")
+	});
+
+	$('#select_date').datepicker({ dateFormat: 'mm/dd/yy' });
+    $('#select_date').datepicker("setDate" ,new Date());
+
+	$.ajaxSetup({ 
+      beforeSend: function(xhr, settings) {
+         function getCookie(name) {
+             var cookieValue = null;
+             if (document.cookie && document.cookie != '') {
+                 var cookies = document.cookie.split(';');
+                 for (var i = 0; i < cookies.length; i++) {
+                     var cookie = jQuery.trim(cookies[i]);
+                     // Does this cookie string begin with the name we want?
+                 if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                     cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                     break;
+                 }
+ 	        	}
+        	}
+        		return cookieValue;
+        	}
+        	if (!(/^http:.*/.test(settings.url) || /^https:.*/.test(settings.url))) {
+            // Only send the token to relative URLs i.e. locally.
+  	        	xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+ 		   	}
+		} 
+	});
+
+    $dia_home = $("#home-message").dialog({
+        autoOpen: false,
+        modal: true,
+        buttons: {
+            "cancel": function() {
+                $(this).dialog("close");
+            }
+        }
+    });
+
+    $dia_away = $("#away-message").dialog({
+        autoOpen: false,
+        modal: true,
+        buttons: {
+            "cancel": function() {
+                $(this).dialog("close");
+            }
+        }
+    });
+    $(':input','#new_event')
+    .not(':button, :submit, :reset, :hidden')
+    .val('')
+    .removeAttr('checked')
+    .removeAttr('selected');
+    $('input[name="time_tba"]').prop('checked', true);
+    $('input[name="date_tba"]').prop('checked', true);
+});
+
+var make_event;
+var this_event_id;
+
+function create_this_event() {
+    var name;
+    var date_temp;
+    if ($('#select_name').val() != "") {
+		name = $('#select_name').val();
+	}
+	else {
+		name = $('#select_away_team').val() + " @ " + $('#select_home_team').val();
+	}
+	make_event = {
+		title: name,
+		sport: $('#select_sport').val(),
+		start_time: $('#select_start_time').val(),
+		gender: $('#select_gender').val(),
+		level: $('#select_level').val(),
+		event_status: $('#select_status').val(),
+		event_type: $('#select_game_type').val(),
+		is_conference: $('input[name="is_conference"]').val(),
+        start_time: (parseInt($('#select_start_time_hour').val()) + parseInt($('#select_start_time_ampm').val())).toString() + ":" + $('#select_start_time_minute').val(),
+        time_tba: $('input[name="time_tba"]').val()
+		};
+    if (($('#select_date').val() != "") && ($('input[name="date_tba"]:checked').length == 0)) {
+        date_temp = {
+            date: $.datepicker.formatDate('yy-mm-dd', new Date($('#select_date').val())),
+            date_tba: false
+            };
+        make_event = $.extend({}, make_event, date_temp);
+	}
+
+    $.ajax({
+        	url: "db/api0/events/",
+        	type: "post",
+        	data: make_event,
+			async: false,
+			success: function (eventdata) {
+                this_event_id = eventdata.id;
+				var make_home = {
+                    is_host: true,
+                    has_accepted: true,
+                    event: this_event_id
+                    };
+                if ($("#hid_home").val() != "") {
+                    var ht = {
+                        entity: $("#hid_home").val(),
+                        is_tba: false
+                        };
+                    make_home = $.extend({}, make_home, ht);
+            	}
+                var make_away = {
+                    is_host: false,
+                    has_accepted: true,
+                    event: this_event_id
+                    };
+                if ($("#hid_away").val() != "") {
+                    var at = {
+                        entity: $("#hid_away").val(),
+                        is_tba: false
+                        };
+                    make_away = $.extend({}, make_away, at);
+            	}
+				$.ajax({
+        			url: "db/api0/eventparticipants/",
+        			type: "post",
+        			data: make_home,
+					async: false,
+					success: function (eventpdata) {
+                        $.ajax({
+        			        url: "db/api0/eventteamstats/",
+        			        type: "post",
+        			        data: {eventparticipant: eventpdata.id},
+					        async: false,
+					        success: function (eventdata) {
+                                
+		                    }
+				        });
+                        $.ajax({
+        			        url: "db/api0/scores/",
+        			        type: "post",
+        			        data: {eventparticipant: eventpdata.id, event: this_event_id},
+					        async: false,
+					        success: function (eventdata) {
+                                
+		                    }
+				        });
+		            }
+				});
+				$.ajax({
+        			url: "db/api0/eventparticipants/",
+        			type: "post",
+        			data: make_away,
+					async: false,
+					success: function (eventpdata) {
+                        $.ajax({
+        			        url: "db/api0/eventteamstats/",
+        			        type: "post",
+        			        data: {eventparticipant: eventpdata.id},
+					        async: false,
+					        success: function (eventdata) {
+                        
+		                    }
+				        });
+                        $.ajax({
+        			        url: "db/api0/scores/",
+        			        type: "post",
+        			        data: {eventparticipant: eventpdata.id, event: this_event_id},
+					        async: false,
+					        success: function (eventdata) {
+                        
+		                    }
+				        });
+		            }
+				});
+                alert("Event created.");
+				window.location.href = "#/event_list";
+            }
+		});
+}
+
+function get_away_team() {
+    if ($('#select_away_team').val() != "") {
+        $.ajax({
+            url: "db/api0/entities/?search=" + $('#select_away_team').val(),
+            type: "get",
+    	    async: false,
+    	    success: function (schooldata) {
+    		   if (schooldata.length <= 0) {
+                    alert("No results found for Away Team");
+                    return false;
+               }
+               if (schooldata.length > 1) {
+                    $("#away-message").html("");
+                    $.each(schooldata, function(i, team) {
+            		    $("#away-message").append(
+            		   		'<a href="javascript:{}" onclick="$(\'#hid_away\').val(\''
+                            + team.id
+                            + '\');$(\'#select_away_team\').val(\''
+                            + team.name
+                            + '\');create_this_event();$dia_away.dialog(\'close\');">'
+                            + team.name
+                            + '</a><br>');
+                    });
+                    $dia_away.dialog("open");
+                }
+                else {
+                    $("#hid_away").val(schooldata.id);
+                    create_this_event();
+                }
+            }
+  		});
+    }
+    else
+        create_this_event();
+}
+
+function get_home_team() {
+    if ($('#select_home_team').val() != "") {
+        $.ajax({
+         	url: "db/api0/entities/?search=" + $('#select_home_team').val(),
+          	type: "get",
+    		async: false,
+    		success: function (schooldata) {
+    			if (schooldata.length <= 0) {
+                    alert("No results found for Home Team");
+                    return false;
+                }
+                if (schooldata.length > 1) {
+                    $("#home-message").html("");
+                    $.each(schooldata, function(i, team) {
+       				$("#home-message").append(
+       		   		    '<a href="javascript:{}" onclick="$(\'#hid_home\').val(\''
+                            + team.id
+                            + '\');$(\'#select_home_team\').val(\''
+                            + team.name
+                            + '\');get_away_team();$dia_home.dialog(\'close\');">'
+                            + team.name
+                            + '</a><br>');
+                    });
+                    $dia_home.dialog("open");
+                }
+                else {
+                    $("#hid_home").val(schooldata.id);
+                    get_away_team();
+                }
+            }
+   		});
+    }
+    else
+        get_away_team();
+}
+
+
+$('#submit').click(function() {
+    if ($('#select_sport,#select_level,#select_gender,#select_status').val() == null) {
+        alert("Please supply all required fields.");
+        return false;
+    }
+    get_home_team();
+});
+
+
+$('#select_start_time_hour,#select_start_time_minute').change(function() {
+    $('input[name="time_tba"]').prop('checked', false);
+});
+
+$('#select_date').change(function() {
+    $('input[name="date_tba"]').prop('checked', false);
+});
+
+$('#reset').click(function() {
+    $(':input','#new_event')
+    .not(':button, :submit, :reset, :hidden')
+    .val('')
+    .removeAttr('checked')
+    .removeAttr('selected');
+
+});
+</script>
+

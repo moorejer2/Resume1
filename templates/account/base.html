@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block parent %}
+  <body>
+    <div class="navbar navbar-fixed-top navbar-inverse jetstrap-highlighted">
+        <div class="navbar-inner">
+			{% load staticfiles %}
+			<a href="/"><img src="{% static "assets/img/ss_logo.png" %}" id="logo" class="pull-left"></a>
+    			<div class="nav-collapse collapse set_nav">
+    				<ul id="main_nav" class="nav pull-right">
+    				</ul>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+
+	<div class="well" id="primary-div" ui-view="view-primary">
+
+{% block content %}
+{% endblock %}
+
+	</div>
+
+    <hr>
+    <footer>
+    	<img src="https://s3.amazonaws.com/media.jetstrap.com/HuwlxiZiSn6Mw76ozN3w_hss_logo_blk.png">
+    	<p>
+    		Copyright © 2013 Schedule Star®. All Rights Reserved.
+    	</p>
+   	</footer>
+  </body>
+{% endblock %}

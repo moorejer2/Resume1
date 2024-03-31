@@ -1,0 +1,116 @@
+<div id="tabs" class="container">
+{% csrf_token %}
+        <small>* indicates required field</small>
+    		<label class="control-label">Account Type<br>
+    			<select>
+    				<option value="Media">
+    					Media
+    				</option>
+    				<option value="Coach">
+    					Coach
+    				</option>
+    			</select></label>
+    		<label class="control-label">First Name<br>
+    			<input id="fname" type="text" /></label>
+    		<label class="control-label">Last Name<br>
+    			<input id="lname" type="text" /></label>
+    		<label class="control-label">*Email<br>
+    			<input id="email" type="text"></label>
+    		<label class="control-label">*Password<br>
+    			<input id="passw" type="password" class=""></label>
+    		<label class="control-label">*Confirm Password<br>
+                <input id="passw2" type="password"></label>
+    		<label class="control-label">Gender<br>
+    			<select id="gder" class="input-small">
+    				<option value="Male">
+    					Male
+    				</option>
+    				<option value="Female">
+    					Female
+    				</option>
+    			</select></label>
+    		<label class="control-label">DOB<br>
+    			<input id="dob" type="text"></label>
+    		<label class="control-label">Media Market<br>
+                <input type="text" class=""></label>
+			<button id="ClearAll" class="btn">Clear All</button>
+    	</div>
+    	<hr>
+    	<button id="sub" class="btn jetstrap-selected" href="#/create_account_2">Next</button>
+    </div>
+
+<script>
+$(function() {
+    $("#dob").datepicker({
+        changeYear: true,
+        yearRange: "-60:-13",
+        changeMonth: true,
+        dateFormat: 'm/d/yy' 
+        });
+    $.ajaxSetup({ 
+      beforeSend: function(xhr, settings) {
+         function getCookie(name) {
+             var cookieValue = null;
+             if (document.cookie && document.cookie != '') {
+                 var cookies = document.cookie.split(';');
+                 for (var i = 0; i < cookies.length; i++) {
+                     var cookie = jQuery.trim(cookies[i]);
+                     // Does this cookie string begin with the name we want?
+                 if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                     cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                     break;
+                 }
+ 	        	}
+        	}
+        		return cookieValue;
+        	}
+        	if (!(/^http:.*/.test(settings.url) || /^https:.*/.test(settings.url))) {
+            // Only send the token to relative URLs i.e. locally.
+  	        	xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+ 		   	}
+		} 
+	});
+});
+
+$("#sub").click(function(){
+    $.ajax({
+        	url: "db/api0/createuser/",
+        	type: "post",
+        	data: {email: $('#email').val(), password: $('#passw').val(), password2: $('#passw2').val()},
+			async: false,
+		//	beforeSend: function(xhr) {
+		//		xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrfmiddlewaretoken"]').attr('content'))
+		//	},
+            error: function(xhr, status, error) {
+                alert(xhr.responseText);
+            },
+			success: function (dataCheck) {
+                $.ajax({
+                	url: "db/api0/users/" + dataCheck.user_id + "/",
+                	type: "put",
+                	data: {first_name: $('#email').val(), 
+                        last_name: $('#passw').val(), 
+                        gender: $('#passw2').val(),
+                        dob: $('#passw2').val(),
+                        acct_type: $('#passw2').val(),
+                        },
+        			async: false,
+                    error: function(xhr, status, error) {
+                        alert(xhr.responseText);
+                    },
+                    success: function (userCheck) {
+                        
+                        alert("User Added.");
+                        window.location.replace("#/user_list");
+                }
+            });
+		});
+});
+
+$('#ClearAll').click(function(){
+    $('input[type!="button"][type!="submit"], select, textarea')
+         .val('')
+         .blur();
+});
+</script>
+

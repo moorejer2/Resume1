@@ -1,0 +1,81 @@
+{% extends base.html %}
+{% block content %}
+    	<div class="well" id="headingWell">
+    		<p>
+    		</p>
+    		<h3 id="participants">
+    			List of Participants
+    		</h3>
+    		<h4 id="eventInfo">
+    			Event Name, Event Type, Event Title
+    		</h4>
+    		<h4 id="location">
+    			Location
+    		</h4>
+    		<label class="checkbox pull-right" id="autoCalculate">
+    			<input type="checkbox" name="autoCalculate">
+    			Auto Calculate
+    		</label>
+    	</div>
+    	<!-- Example row of columns -->
+    	<hr>
+    	<div class="row">
+    		<div id="participant" class="span4 pull-left">
+    			<h3>
+    				Participant
+    			</h3>
+    		</div>
+    		<div class="span2 pull-left">
+    			<div class="control-group">
+    				<label id="period1Label" class="control-label">
+    					Period 1:
+    				</label>
+    				<div class="controls">
+    					<input id="period1Input" class="input-mini" type="number">
+    				</div>
+    			</div>
+    		</div>
+    		<div class="span2 pull-left">
+    			<div class="control-group">
+    				<label id="period2Label" class="control-label">
+    					Period 2:
+    				</label>
+    				<div class="controls">
+    					<input id="period2Input" class="input-mini" type="number">
+    				</div>
+    			</div>
+    		</div>
+    		<div class="span2 pull-left">
+    			<div class="control-group">
+    				<label id="period3Label" class="control-label">
+    					Period 3:
+    				</label>
+    				<div class="controls">
+    					<input id="period3Input" class="input-mini" type="number">
+    				</div>
+    			</div>
+    		</div>
+    		<div class="span2 pull-left">
+    			<div class="control-group">
+    				<label id="period4Label" class="control-label">
+    					Period 4:
+    				</label>
+    				<div class="controls">
+    					<input id="period4Input" class="input-mini" type="number">
+    				</div>
+    			</div>
+    		</div>
+    		<div class="span4 pull-left">
+    			<div class="control-group">
+    				<label id="finalScoreLabel" class="control-label">
+    					Final Score:
+    				</label>
+    				<div class="controls">
+    					<input id="finalScoreInput" class="input" type="number">
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    	<a href="#" class="btn btn-success btn-mini" id="addAthlete"><i class="icon-white icon-plus-sign"></i> Add Athlete
+    </a>
+{% endblock %}   

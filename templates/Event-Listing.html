@@ -1,0 +1,269 @@
+<div class="container">
+	{% csrf_token %}
+		<div id="main_events">
+			<div class="control-row">
+				<form id="event_search_filters" class="form-inline">
+					<label for="filter_school">School<br>
+    				<input id="filter_school" class="input-xlarge" type="text" ></label>
+
+					<label for="filter_gender">Gender<br>
+    				<select id="filter_gender" class="input-small">
+    				</select></label>
+
+					<label for="filter_level">Level<br>
+    				<select id="filter_level" class="input-medium">
+    				</select></label>
+
+	    			<label for="filter_sport">Sport<br>
+					<select id="filter_sport" class="input-medium">
+    				</select></label>
+                    <label for="filter_date">Date<br>
+					<input type="text" id="filter_date" class="input-small">
+    				</select></label>
+                    <button class="btn" id="reset">Clear Filters</button>
+                    <button class="btn" id="submit_search">Search</button>
+				</form> 
+    		</div>
+            <a class="btn pull-right" href="#/event_entry">Add Event</a><br><br>
+			<table id="main_events_table" class="table table-bordered tablesorter">
+    			<thead>
+    				<tr>
+    					<th>Date</th>
+    					<th>Sport</th>
+    					<th>Home Team</th>
+    					<th>Away Team</th>
+    					<th>Level</th>
+    					<th>Gender</th>
+    					<th>Status</th>
+    					<th>Start Time</th>
+    					<th>Home Score</th>
+    					<th>Away Score</th>
+    					<th></th>
+    				</tr>
+    			</thead>
+    			<tbody>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+<script>
+var baseurl = '/db/api0/events_full/?';
+var searchurl = baseurl;
+
+function save_these_scores(divhome, divaway, idhome, idaway, ve, part1, part2) {
+    $.ajax({
+        type: 'put',
+        url: "db/api0/scores/" + idhome + "/",
+        dataType: 'json',
+        data: {id: idhome,
+            event: ve,
+            eventparticipant: part1,
+            score: $("#" + divhome).val()
+            },
+        async: false
+    });
+    $.ajax({
+        type: 'put',
+        url: "db/api0/scores/" + idaway + "/",
+        dataType: 'json',
+        data: {id: idhome,
+            event: ve,
+            eventparticipant: part2,
+            score: $("#" + divaway).val()
+            },
+        async: false
+    });
+    alert("Scores saved.");
+    location.reload();
+}
+
+function make_event_table() {
+    $('#main_events_table > tbody:last').empty();
+    var table_obj = $('#main_events_table > tbody:last');
+    $.ajax({
+        type: 'GET',
+        url: searchurl,
+        dataType: 'json',
+        data: {},
+        async: false,
+        success: function(returndata) {
+            $.each(returndata, function(arrayID, group) {
+    			var hometeam;
+    			var awayteam;
+                var time_event;
+                var date_event;
+                var scorehomeid;
+                var scorehomenum;
+                var scoreawayid;
+                var scoreawaynum;
+                var eventid = group.id;
+                var eventparth;
+                var eventparta;
+    			$.each(group.participants, function(i, team) {
+                    eventpart = team.id;;
+    				if (team.is_host == true) {
+                        scorehomeid = team.scores[0].id;
+                        scorehomenum = team.scores[0].score;
+                        eventparth = team.id;
+   	    				if (team.entity == null)
+		    				hometeam = "TBA";
+			    		else
+				    		hometeam = team.entity_name;
+    				}
+				    else {
+                        scoreawayid = team.scores[0].id;
+                        scoreawaynum = team.scores[0].score;
+                        eventparta = team.id;
+					    if (team.entity == null)
+						    awayteam = "TBA";
+    					else
+	    					awayteam = team.entity_name;
+		    		}
+		    	});
+                if (group.start_time == null)
+                    time_event = "TBA";
+                else
+                    time_event = group.start_time;
+                if (group.date_tba == true)
+                    date_event = "TBA";
+                else
+                    date_event = $.datepicker.formatDate('m/d/yy', new Date(group.date));
+			    table_obj.append($(
+    				'<tr><td>'
+           			+ date_event
+		    		+ '</td><td>'
+			    	+ group.sport_data.name
+				    + '</td><td>'
+    				+ hometeam
+	    			+ '</td><td>'
+		    		+ awayteam
+			    	+ '</td><td>'
+				    + group.level_data.name
+    				+ '</td><td>'
+	    			+ group.gender_data.name
+		    		+ '</td><td>'
+			    	+ group.event_status_name
+				    + '</td><td>'
+    				+ time_event
+	    			+ '</td><td>'
+		    		+ '<input type="text" id="home_score' + scorehomeid + '" class="tinytext" value="' + scorehomenum + '">'
+			    	+ '</td><td>'
+    				+ '<input type="text" id="away_score' + scoreawayid + '" class="tinytext" value="' + scoreawaynum + '">'
+	    			+ '</td><td>'
+		    		+ '<div class="btn-group">'
+                    + '<a href="javascript:{}" class="btn" onclick="save_these_scores('
+                    + '\'home_score'+scorehomeid+'\',\'away_score'+scoreawayid+'\',' + scorehomeid + ',' + scoreawayid + ',' + eventid + ',' + eventparth + ',' + eventparta + ');">Save</a>'
+   			    	+ '<a href="#/eventedit/' + group.id + '/" class="btn">Edit</a>'
+       				+ '<a href="#/event/' + group.id + '/" class="btn">Stats</a>'
+   	    			+ '</div>'
+		    		+ '</td></tr>'
+    			));
+
+	    	});
+            $("#main_events_table").tablesorter({
+		        headers: { 
+	            10: {
+	               	sorter: false 
+	        	    }
+	            }
+	        });
+        }
+    });
+}
+
+$(function() {
+    $.getJSON("/db/sport/", function(sports) {
+		$.each(sports, function(arrayID, spo) {
+  			$('#filter_sport')
+       			.append($("<option></option>")
+       			.attr("value",spo.id)
+       			.text(spo.name)); 
+    	});
+        $(':input','#event_search_filters')
+            .not(':button, :submit, :reset, :hidden')
+            .val('')
+            .removeAttr('checked')
+            .removeAttr('selected');
+	});
+	$.getJSON("/db/level/", function(levels) {
+	    $.each(levels, function(arrayID, lev) {   
+   			$('#filter_level')
+       			.append($("<option></option>")
+       			.attr("value",lev.id)
+       			.text(lev.name));
+    	});
+        $(':input','#event_search_filters')
+            .not(':button, :submit, :reset, :hidden')
+            .val('')
+            .removeAttr('checked')
+            .removeAttr('selected');
+	});
+	$.getJSON("/db/gender/", function(genders) {
+		$.each(genders, function(arrayID, gen) {   
+   			$('#filter_gender')
+       			.append($("<option></option>")
+       			.attr("value",gen.id)
+       			.text(gen.name));
+		});
+        $(':input','#event_search_filters')
+            .not(':button, :submit, :reset, :hidden')
+            .val('')
+            .removeAttr('checked')
+            .removeAttr('selected');
+	});
+    $("#filter_date").datepicker({ dateFormat: 'm/d/yy' });
+    make_event_table();
+    $.ajaxSetup({ 
+      beforeSend: function(xhr, settings) {
+         function getCookie(name) {
+             var cookieValue = null;
+             if (document.cookie && document.cookie != '') {
+                 var cookies = document.cookie.split(';');
+                 for (var i = 0; i < cookies.length; i++) {
+                     var cookie = jQuery.trim(cookies[i]);
+                     // Does this cookie string begin with the name we want?
+                 if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                     cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                     break;
+                 }
+ 	        	}
+        	}
+        		return cookieValue;
+        	}
+        	if (!(/^http:.*/.test(settings.url) || /^https:.*/.test(settings.url))) {
+            // Only send the token to relative URLs i.e. locally.
+  	        	xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+ 		   	}
+		} 
+	});
+});
+
+$('#reset').click(function(){
+    $(':input','#event_search_filters')
+    .not(':button, :submit, :reset, :hidden')
+    .val('')
+    .removeAttr('checked')
+    .removeAttr('selected');
+    searchurl = baseurl;
+    $("#main_events_table").tablesorter({
+		headers: { 
+	    10: {
+	      	sorter: false 
+			}
+	    }
+	});
+});
+
+$('#submit_search').click(function(){
+    if ($("#filter_gender").val() != null)
+        searchurl = searchurl + "gender=" + $("#filter_gender").val() + "&";
+    if ($("#filter_sport").val() != null)
+        searchurl = searchurl + "sport=" + $("#filter_sport").val() + "&";
+    if ($("#filter_level").val() != null)
+        searchurl = searchurl + "level=" + $("#filter_level").val() + "&";
+    if ($("#filter_date").val() != "")
+        searchurl = searchurl + "date=" + $.datepicker.formatDate('yy-mm-dd', new Date($("#filter_date").val())) + "&";
+    make_event_table();
+});
+</script>

@@ -1,0 +1,54 @@
+         <p></p>
+    	<div class="well" id="headingWell">
+    		<p>
+    		<!--for debugging-->
+		{% for type,d in types.items %}
+                  <div><b>{{  type  }}</b> </div>
+		  {% for t in d  %}
+		<div>{{ t.id }} -- {{ t.name }} -- {% if t.abbreviation %}{{ t.abbreviation }}{% endif %}</div>{% endfor %} 
+		{% endfor %}
+    		event id: {{event.id}} (for debugging)
+    		</p>
+    		<h3 id="participants">
+    			{% for participant in event.participants %}
+    			{% if participant != event.host %}
+    			{{participant}}
+    			{% endif %}
+    			{% endfor %}
+    			@ {{event.host}}
+    		</h3>
+    		<h4 id="eventInfo">
+    			{{event.date}}, {{event.title}}, {{event.event_type}}
+    		</h4>
+    		<h4 id="location">
+    			{{event.location}}
+    		</h4>
+    		<label class="checkbox pull-right" id="autoCalculate">
+    			<input type="checkbox" name="autoCalculate">
+    			Auto Calculate
+    		</label>
+    	</div>
+    	{% for participant in event.participants %}
+    	<hr>
+    	<div class="row">
+    		<div class="span4 pull-left jetstrap-selected">
+    			<h3>
+    				{{participant}}
+    			</h3>
+    		</div>
+    		<div class="span4 pull-left">
+    			<div class="control-group">
+    				<label "control-label"="">
+    					Final Score:
+    				</label>
+    				<div class="controls">
+    					<input type="number">
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    	<div class="containter_'{{participant}}'">
+    	</div>
+    	<a href="#" class="btn btn-success btn-mini" id="addAthlete_'{{participant}}'"><i class="icon-white icon-plus-sign"></i> Add Athlete
+         </a>
+         {% endfor %}

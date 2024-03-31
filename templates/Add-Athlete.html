@@ -1,0 +1,216 @@
+<div id="tabs" class="container well">
+	<form id="athlete_add">
+	{% csrf_token %}
+<button id="reset" class="btn">Clear All</button>
+        <label for="select_school" class="control-label">*School<br>
+			<input id="select_school" type="text"></label>
+        <div class="control-group">
+    		<label for="f_name" class="control-label">*First Name<br>
+    		<input type="text" id="f_name" /></label>
+    	</div>
+    	<div class="control-group">
+    		<label for="m_name" class="control-label">Middle Initial<br>
+    		<input type="text" id="m_name">
+    	</div>
+    	<div class="control-group">
+    		<label for="l_name" class="control-label">*Last Name<br>
+    		<input type="text" id="l_name"></label>
+    	</div>
+		<div class="control-group">
+			<label for="select_gender" class="control-label">*Gender<br>
+			<select id="select_gender" class="input-small"></select></label>
+    	</div>
+		<div class="control-group">
+		<div class="control-group">
+    		<label for ="yearpicker"class="control-label">*Graduation Class<br>
+			<select name="yearpicker" id="yearpicker"></select></label>
+    	</div>
+            <label for="position" class="control-label">*Position<br>
+			<input id="position" type="text"></label>
+            <label for="select_level" class="control-label">*Level<br>
+			<select id="select_level" class="input-small"></select></label>
+    	<div class="control-group">
+    		<label for="jersey" class="control-label">*Jersey Number<br>
+			<input id="jersey" type="text"></label>
+       	</div>
+    	<div class="control-group">
+    		<label class="control-label">Height<br>
+    			<select id="in_feet" class="input-mini" id="Feet">
+    				<option value="5">5</option>
+    				<option value="6">6</option>
+    				<option value="7">7</option>
+    			</select>feet
+    			<select id="in_inch" class="input-small">
+    				<option value="0">0</option>
+    				<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+					<option value="8">8</option>
+					<option value="9">9</option>
+					<option value="10">10</option>
+					<option value="11">11</option>
+       			</select>inches</label>
+		</div>
+    		<label for="weight">Weight<br>
+			<input id="weight" class="input-small" type="text"></label>
+<br><br>
+    	<button class="btn" type="submit">Submit</button>
+		</form>
+	</div>
+
+<input type="hidden" id="hid_scho" value="" />
+</div>
+<div id="school-message" title="Select School">
+</div>
+
+<script>
+function get_school() {
+var school;
+    if ($('#select_school').val() != "") {
+            $.ajax({
+            	url: "db/api0/entities/?search=" + $('#select_school').val(),
+            	type: "get",
+    			async: false,
+    			success: function (schooldata) {
+    				if (schooldata.length <= 0) {
+                        alert("No results found for School");
+                        return_now = true;
+                        return false;
+                    }
+                    if (schooldata.length > 1) {
+                        $("#school-message").html("");
+                        $.each(schooldata, function(i, team) {
+            				$("#school-message").append(
+            		   		    '<a href="javascript:{}" onclick="$(\'#hid_scho\').val(\''
+                                + team.id
+                                + '\');$(\'#select_school\').val(\''
+                                + team.name
+                                + '\');make_athlete();$dia_scho.dialog(\'close\');">'
+                                + team.name
+                                + '</a><br>');
+                        });
+                        $dia_scho.dialog("open");
+                    }
+                    if (schooldata.length == 1) {
+                        $.each(schooldata, function(i, team) {
+                            $("#hid_scho").val(team.id);
+                        });
+                        make_athlete();
+                    }
+                }
+            });
+    }
+}
+
+
+function make_athlete() {
+var make_ath = {
+            first_name: $('#f_name').val(),
+			middle_initial: $('#m_name').val(),
+			last_name: $('#l_name').val(),
+			gender: $('#select_gender').val(),
+			graduation_year: $('#yearpicker').val(),
+			entity: $('#hid_scho').val(),
+            height_feet: $('#in_feet').val(),
+            height_inch: $('#in_inch').val(),
+			weight: $('#weight').val(),
+            level: $('#select_level').val(),
+            jersey_num: $('#jersey').val(),
+            position: $('#position').val(),
+			};
+
+    	$.ajax({
+        	url: "db/api0/athletes/",
+        	type: "post",
+        	data: make_ath,
+			async: false,
+		//	beforeSend: function(xhr) {
+		//		xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrfmiddlewaretoken"]').attr('content'))
+		//	},
+			success: function (dataCheck) {
+               alert("Athlete Added.");
+			   $(':input','#athlete_add')
+			    .not(':button, :submit, :reset, :hidden')
+			    .val('')
+			    .removeAttr('checked')
+			    .removeAttr('selected');
+            }
+		});
+}
+
+$(function() {
+	$.getJSON("/db/gender/", function(genders) {
+		$.each(genders, function(arrayID, tea) {   
+     		$('#select_gender')
+         		.append($("<option></option>")
+         		.attr("value",tea.id)
+         		.text(tea.name)); 
+		});
+	});
+    $.getJSON("/db/level/", function(genders) {
+		$.each(genders, function(arrayID, gen) {   
+     		$('#select_level')
+         		.append($("<option></option>")
+         		.attr("value",gen.id)
+         		.text(gen.name)); 
+		});
+	});
+
+    $.ajaxSetup({ 
+     beforeSend: function(xhr, settings) {
+         function getCookie(name) {
+             var cookieValue = null;
+             if (document.cookie && document.cookie != '') {
+                 var cookies = document.cookie.split(';');
+                 for (var i = 0; i < cookies.length; i++) {
+                         var cookie = jQuery.trim(cookies[i]);
+                         // Does this cookie string begin with the name we want?
+                     if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                         cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                         break;
+                     }
+                 }
+             }
+             return cookieValue;
+             }
+             if (!(/^http:.*/.test(settings.url) || /^https:.*/.test(settings.url))) {
+             // Only send the token to relative URLs i.e. locally.
+                 xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+             }
+         } 
+    });
+
+    for (i = (new Date().getFullYear() + 10); i > 1989; i--) {
+    	$('#yearpicker').append($('<option />').val(i).html(i));
+	}
+
+    $dia_scho = $("#school-message").dialog({
+        autoOpen: false,
+            modal: true,
+            buttons: {
+                "cancel": function() {
+                    $(this).dialog("close");
+                }
+            }
+        });
+
+	$('#athlete_add').submit(function(){
+        get_school();
+	});
+
+});
+
+$('#reset').click(function(){
+    $(':input','#athlete_add')
+    .not(':button, :submit, :reset, :hidden')
+    .val('')
+    .removeAttr('checked')
+    .removeAttr('selected');
+});
+</script>
+
+
