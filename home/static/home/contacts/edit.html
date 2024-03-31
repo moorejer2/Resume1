@@ -1,0 +1,197 @@
+<div ng-controller="EventEditPage" id="EventEditPage" class="container">
+  <form novalidate class="simple-form">
+    <div class="row-fluid">
+      <h2 style="font-size: 350%">Event Information {{event.name}}</h2>
+    </div>
+    <br/>
+    <div class="row-fluid">
+      <div class="span6">
+        <div class="input-row">
+          <label for="name">Title:</label>
+          <input id="name" placeholder="Event Title" type="text" ng-model="event.name" style="width: 408px" />
+        </div>
+
+        <div class="input-row" style='margin: 1em 0 0 0'>
+          <label for="field">Status</label>
+          <select style="margin-bottom: 4px; width: 92%;"
+                  ng-options="f.id as f.name for f in fields">
+            <option value="0" selected="selected">Scheduled</option>
+          </select>
+        </div>
+
+        <legend style='margin: 1em 0 0 0'>Details</legend>
+
+        <div class="input-row" style='margin: 1em 0 0 0'>
+          <label for="field">Gender</label>
+          <select style="margin-bottom: 4px; width: 92%;">
+            <option value="0" selected="selected">Female</option>
+          </select>
+        </div>
+
+        <div class="input-row" style='margin: 1em 0 0 0'>
+          <label for="field">Level</label>
+          <select style="margin-bottom: 4px; width: 92%;" ng-model="event.level_id"
+                  ng-options="f.id as f.name for f in levels">
+          </select>
+        </div>
+
+       <div class="input-row" style='margin: 1em 0 0 0'>
+          <label for="field">Sport</label>
+          <select name="sport" style="margin-bottom: 4px; width: 92%;" ng-model="event.sport_id"
+                  ng-options="f.id as f.name for f in sports">
+          </select>
+        </div>
+
+        <div class="input-row" style='margin: 1em 0 0 0'>
+          <label for="field">Type</label>
+          <select style="margin-bottom: 4px; width: 92%;"
+                  ng-options="f.id as f.name for f in fields">
+            <option value="0" selected="selected">Game</option>
+          </select>
+        </div>
+
+        <div class="input-row" style='margin: 1em 0 0 .25em'>
+          <label class="checkbox">
+            Conference
+            <input type="checkbox" ng-model="event.active" value="1"/>
+          </label>
+        </div>
+
+        <br/><br/>
+        <button ng-click="save()" class="btn btn-large icon-save btn-primary">&nbsp;Save</button>&nbsp;
+        <a href="#/events" class="btn btn-large icon-cancel">Cancel</a>
+      </div>
+
+      <br/>
+      <div class="span6" ng-show="id!=0">
+        <legend style="border: 1px solid #e5e5e5; padding: .5em 0 .5em .5em; background-color: #d5d5d5">
+          <i style="float: right; margin: .25em .5em .25em 0" class="icon-calendar icon-large"></i>
+          <b>Date and Time</b>
+        </legend>
+
+        <div class="input-row" style='margin: 1em 0 0 1em'>
+          <label>Start Time</label>
+          <div class="input-append bootstrap-timepicker">
+            <input ng-model="event.start" id="timepicker1" type="text" class="input-large"><span class="add-on"><i class="icon-time"></i></span>
+            </input>
+          </div>
+        </div>
+
+        <div class="input-row" style='margin: 1em 0 0 1em'>
+          <label>End Time</label>
+          <div class="input-append bootstrap-timepicker">
+            <input ng-model="event.end" id="timepicker2" type="text" class="input-large"><span class="add-on"><i class="icon-time"></i></span>
+            </input>
+          </div>
+        </div>
+ 
+        <div class="input-row" style='margin: 1em 0 0 1em'>
+          <label>Season</label>
+          <label class="radio inline">
+            <input type="radio" ng-model="event.season" value="pre"/> Pre-Season
+          </label>
+          <label class="radio inline">
+            <input type="radio" ng-model="event.season" value="regular"/> Regular Season
+          </label>
+          <label class="radio inline">
+            <input type="radio" ng-model="event.season" value="post"/> Post-Season
+          </label>
+        </div>
+
+        <div class="input-row" style="margin-top: 2em">
+          <legend style="border: 1px solid #e5e5e5; padding: .5em 0 .5em .5em; background-color: #d5d5d5">
+            <i style="float: right; margin: .25em .5em .25em 0" class="icon-group icon-large"></i>
+            <b>Participants</b>
+          </legend>
+          <table class="table table-bordered table-hover" style="margin-left: .75em">
+            <thead>
+              <tr ng-sort-row="{order: 'order', direction: 'direction', initial: 'name'}">
+                <th style="text-align: center">Id</th>
+                <th data-order="name">Name</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="q in event.participants | orderBy: order : direction" ng-nav-row="#/participants/{{q.id}}">
+                <td style="text-align: center" width="5%">{{ q.id }}</td>
+                <td>{{q.name}}</td>
+                <td width="1%" class="ignore">
+                  <a title="Remove" ng-click="removeOption(q.id)" style="display: inline-block; position: relative; bottom: .33em"><i class="icon-remove-sign"></i></a>
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td colspan="2">
+                  <select class="select2"
+                          ng-model="participant" style="margin-bottom: 4px; width: 22em;"
+                          ng-options="c as c.name for c in participants"></select><br/>
+                  <a ng-click="addAnother()" class="btn" style="margin-top: 10px"><i class="icon-plus"></i>&nbsp;Add Participant</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div> <!--//input row-->
+      </div> <!--//span6-->
+
+    </div>
+  </form>
+</div>
+
+<script type="text/javascript">
+    $('#timepicker1').timepicker();
+    $('#timepicker2').timepicker();
+</script>
+
+<script>
+// setup our controller ------------------
+function EventEditPage($scope, $routeParams, $window, Event, Participant, Level, Sport) {
+
+	$scope.id = $routeParams.id;
+  $scope.sports = Sport.query();
+  $scope.participants = Participant.query();
+  $scope.levels = Level.query();
+
+  Event.firstOrNew($scope.id).then(function(x) {
+    if ($scope.id == 0) x.active = true;
+    $scope.event = x;
+  });
+
+  // save action
+  $scope.save = function() {
+    $scope.event.$saveOrUpdate($scope.id, $scope).then(function() {
+      $window.location = '#/events';
+    });
+  }
+
+  $scope.removeOption = function(id) {
+    if (!confirm('Are you sure you want to remove this participant?')) return;
+    $scope.event.$disconnect({id: $scope.id, participant_id: id}, function(val) {
+      $scope.event.participants = $.grep($scope.event.participants, function(val) {
+        return val.id != id;
+      });
+    });
+  }
+
+  $scope.addAnother = function() {
+    // first add to element
+    $scope.event.participants.push($scope.participant);
+    $scope.event.$connect({id: $scope.id, participant_id: $scope.participant.id});
+
+    // now reset add another form
+    $scope.participants = $.grep($scope.participants, function(val) {
+        return val.id != $scope.participant.id;
+    });
+
+    $scope.participant = undefined;
+  }
+
+//  $('#timepicker1').timepicker().on('changeTime.timepicker', function(e) {
+//    $scope.event.start = e.timeStamp;
+//    $(e.currentTarget).removeClass('ng-pristine').addClass('ng-dirty');
+//    console.log(e);
+//  });
+
+}
+
+EventEditPage.$inject = ['$scope', '$routeParams', '$window', 'Event',
+                         'Participant', 'Level', 'Sport'];
+</script>

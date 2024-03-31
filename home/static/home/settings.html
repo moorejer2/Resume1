@@ -1,0 +1,26 @@
+<div ng-controller="SettingsEditPage" id="SettingsEditPage" class="container">
+  <form novalidate class="simple-form">
+      <label for="name"><h3>Server:</h3></label>
+      <input id="name" type="text" style="width: 30em" ng-model="settings.server" />
+      <br/>
+      <a ng-click="save()" class="btn icon-save">Submit</a>
+      <a href="#/" class="btn icon-cancel">Cancel</a>
+  </form>
+</div>
+<script>
+
+// setup our controller -------------------------
+function SettingsEditPage($scope, $window, Settings) {
+
+  // initialization
+  $scope.settings = Settings.get('main');
+
+  // save action
+  $scope.save = function() {
+    Settings.set('main', $scope.settings);
+    $window.location = '#/';
+  }
+}
+
+SettingsEditPage.$inject = ['$scope', '$window', 'Settings'];
+</script>

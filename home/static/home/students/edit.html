@@ -1,0 +1,56 @@
+<div ng-controller="StudentEditPage" id="StudentEditPage" class="container">
+  <form novalidate class="simple-form">
+    <div class="row-fluid">
+      <h2 style="font-size: 350%">Student Information {{student.name}}</h2>
+    </div>
+    <br/>
+    <div class="row-fluid">
+      <div class="span6">
+        <div class="input-row">
+          <label for="name">Title:</label>
+          <input id="name" placeholder="Student Title" type="text" ng-model="student.name" style="width: 408px" />
+        </div>
+
+        <div class="input-row" style='margin-top: 1em'>
+          <label>Active</label>
+          <label class="radio inline">
+            <input type="radio" ng-model="occupation.active" value="1"/> Yes
+          </label>
+          <label class="radio inline">
+            <input type="radio" ng-model="occupation.active" value="0"/> No
+          </label>
+        </div>
+
+        <br/><br/>
+        <button ng-click="save()" class="btn btn-large icon-save btn-primary">&nbsp;Save</button>&nbsp;
+        <a href="#/students" class="btn btn-large icon-cancel">Cancel</a>
+      </div>
+
+      <br/>
+    </div>
+
+  </form>
+</div>
+
+<script>
+// setup our controller ------------------
+function StudentEditPage($scope, $routeParams, $window, Student) {
+
+	$scope.id = $routeParams.id;
+
+  Student.firstOrNew($scope.id).then(function(x) {
+    if ($scope.id == 0) x.active = true;
+    $scope.student = x;
+  });
+
+  // save action
+  $scope.save = function() {
+    $scope.student.$saveOrUpdate($scope.id, $scope).then(function() {
+      $window.location = '#/students';
+    });
+  }
+
+}
+
+StudentEditPage.$inject = ['$scope', '$routeParams', '$window', 'Student'];
+</script>

@@ -1,0 +1,9 @@
+<div class="btn-group pull-right">
+  <button class="btn" ng-click="updateElements(currentPage - 1)" ng-disabled="currentPage <= 0">Back</button>
+  <button class="btn" ng-click="updateSection(currentSection - 1)" ng-disabled="currentSection <= 0"> ... </button>
+  <span class="btn" ng-repeat="number in getLength()" style="{{getPaginationStyle(number)}}" ng-click="updateElements(number)">
+    <a href="">{{number + 1}}</a>
+  </span>
+  <button class="btn" ng-click="updateSection(currentSection + 1)" ng-disabled="currentSection >= sectionLength()"> ... </button>
+  <button class="btn" ng-click="updateElements(currentPage + 1)" ng-disabled="currentPage >= getLength(true)">Next</button>
+</div>

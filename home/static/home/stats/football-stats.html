@@ -1,0 +1,2248 @@
+
+<script>
+function updatesum() {
+document.S1Totalscore.value = (document.S1qtr1score.value -0) + (document.S1qtr2score.value -0)+ (document.S1qtr3score.value -0)+ (document.S1qtr4score.value -0)+ (document.S1OTscore.value -0);
+document.S2Totalscore.value = (document.S2qtr1score.value -0) + (document.S2qtr2score.value -0)+ (document.S2qtr3score.value -0)+ (document.S2qtr4score.value -0)+ (document.S2OTscore.value -0);
+};
+</script>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+    	<div class="navbar-inner">
+    		<div class="container">
+    			<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+    				<span class="icon-bar"></span>
+    				<span class="icon-bar"></span>
+    				<span class="icon-bar"></span>
+    			</button>
+    			<a class="brand" href="#">Stats Entry</a>
+    			<!--/.nav-collapse -->
+    		</div>
+    	</div>
+    </div>
+    <div class="container">
+    	<h1>
+    		WRONG FILE!!! Team 1 v. Team 2
+    	</h1>
+    	<p>
+    		DATE &amp; TIME @ LOCATION CLICK TO EDIT
+    	</p>
+    	<div style="overflow-x:scroll">
+    		BOX SCORE
+    		<table class="table" style="width: 1400 px">
+    			<tbody>
+    				<tr>
+    					<td>
+    						School
+    					</td>
+    					<td>
+    						Record
+    					</td>
+    					<td>
+    						Record (Conference)
+    					</td>
+    					<td>
+    						Record Calculation
+    					</td>
+    					<td>
+    						Forfeit Loss
+    					</td>
+    					<td>
+    						1
+    					</td>
+    					<td>
+    						2
+    					</td>
+    					<td>
+    						3
+    					</td>
+    					<td>
+    						4
+    					</td>
+    					<td>
+    						OT
+    					</td>
+    					<td>
+    						Total
+    					</td>
+    				</tr>
+    				<tr>
+    					<td>
+    						School 1
+    					</td>
+    					<td>
+    						School 1 Record
+    					</td>
+    					<td>
+    						School 1 Conf. Record
+    					</td>
+    					<td>
+    						<div class="control-group">
+    							<div class="controls">
+    								<select>
+    									<option value="Automatic">
+    										Automatic
+    									</option>
+    									<option value="Manual">
+    										Manual
+    									</option>
+    								</select>
+    							</div>
+    						</div>
+    					</td>
+    					<td>
+    						<label class="checkbox">
+    							<input type="checkbox">
+    						</label>
+    					</td>
+    					<td>
+    						<div class="control-group">
+    							<div class="controls">
+    								<input class="tinytext" type="text" id="S1qtr1score" onchange="updatesum()">
+    							</div>
+    						</div>
+    					</td>
+    					<td>
+    						<div class="control-group">
+    							<div class="controls">
+    								<input class="tinytext" type="text" id="S1qtr2score" onchange="updatesum()">
+    							</div>
+    						</div>
+    					</td>
+    					<td>
+    						<div class="control-group">
+    							<div class="controls">
+    								<input class="tinytext" type="text" id="S1qtr3score" onchange="updatesum()">
+    							</div>
+    						</div>
+    					</td>
+    					<td>
+    						<div class="control-group">
+    							<div class="controls">
+    								<input class="tinytext" type="text" id="S1qtr4score" onchange="updatesum()">
+    							</div>
+    						</div>
+    					</td>
+    					<td>
+    						<div class="control-group">
+    							<div class="controls">
+    								<input class="tinytext" type="text" id="S1OTscore" onchange="updatesum()">
+    							</div>
+    						</div>
+    					</td>
+    					<td>
+    						<div class="control-group">
+    							<div class="controls">
+    								<input class="tinytext" type="text" id="S1Totalscore" onchange="updatesum()">
+    							</div>
+    						</div>
+    					</td>
+    				</tr>
+    				<tr>
+    					<td>
+    						School 2
+    					</td>
+    					<td>
+    						School 2 Record
+    					</td>
+    					<td>
+    						School 2 Conf. Record
+    					</td>
+    					<td>
+    						<div class="control-group">
+    							<div class="controls">
+    								<select>
+    									<option value="Automatic">
+    										Automatic
+    									</option>
+    									<option value="Manual">
+    										Manual
+    									</option>
+    								</select>
+    							</div>
+    						</div>
+    					</td>
+    					<td>
+    						<label class="checkbox">
+    							<input type="checkbox">
+    						</label>
+    					</td>
+    					<td>
+    						<div class="control-group">
+    							<div class="controls">
+    								<input class="tinytext" type="text" id="S2qtr1score" onchange="updatesum()">
+    							</div>
+    						</div>
+    					</td>
+    					<td>
+    						<div class="control-group">
+    							<div class="controls">
+    								<input class="tinytext" type="text" id="S2qtr2score" onchange="updatesum()">
+    							</div>
+    						</div>
+    					</td>
+    					<td>
+    						<div class="control-group">
+    							<div class="controls">
+    								<input class="tinytext" type="text" id="S2qtr3score" onchange="updatesum()">
+    							</div>
+    						</div>
+    					</td>
+    					<td>
+    						<div class="control-group">
+    							<div class="controls">
+    								<input class="tinytext" type="text" id="S2qtr4score" onchange="updatesum()">
+    							</div>
+    						</div>
+    					</td>
+    					<td>
+    						<div class="control-group">
+    							<div class="controls">
+    								<input class="tinytext" type="text" id="S2OTscore" onchange="updatesum()">
+    							</div>
+    						</div>
+    					</td>
+    					<td>
+    						<div class="control-group">
+    							<div class="controls">
+    								<input class="tinytext" type="text" id="S2Totalscore" onchange="updatesum()">
+    							</div>
+    						</div>
+    					</td>
+    				</tr>
+    			</tbody>
+    		</table>
+    	</div>
+    	<div style="text-align:right; float:right;">
+    		Options | Clear
+    	</div>
+    	<br>
+    	<br>
+    	TEAM STATS
+    	<div style="overflow-x:scroll">
+    		<table class="table" style="width: 1400 px; border:1px solid black">
+    			<tbody>
+    				<tr>
+    					<td>
+    					</td>
+    					<th colspan="9" style="text-align:center; border:1px solid; background:grey; color: white">
+    						Misc.
+    					</th>
+    					<th colspan="5" style="text-align:center; border:1px solid; background:grey; color: white">
+    						Receiving
+    					</th>
+    					<th colspan="5" style="text-align:center; border:1px solid; background:grey; color: white">
+    						Rushing
+    					</th>
+    					<th colspan="14" style="text-align:center; border:1px solid; background:grey; color: white">
+    						Defensive
+    					</th>
+    					<th colspan="7" style="text-align:center; border:1px solid; background:grey; color: white">
+    						Passing
+    					</th>
+    					<th colspan="8" style="text-align:center; border:1px solid; background:grey; color: white">
+    						Kicking
+    					</th>
+    					<th colspan="4" style="text-align:center; border:1px solid; background:grey; color: white">
+    						Kickoff Returns
+    					</th>
+    					<th colspan="3" style="text-align:center; border:1px solid; background:grey; color: white">
+    						Punting
+    					</th>
+    					<th colspan="4" style="text-align:center; border:1px solid; background:grey; color: white">
+    						Punt Returns
+    					</th>
+    				</tr>
+    				<tr>
+    					<td title="School">
+    						School
+    					</td>
+    					<td title="Touchbacks">
+    						TB
+    					</td>
+    					<td title="Passes Defended">
+    						DEF
+    					</td>
+    					<td title="Fumbles">
+    						FUM
+    					</td>
+    					<td title="Fumbles Lost">
+    						LOST
+    					</td>
+    					<td title="Offensive First Downs">
+    						Offen...
+    					</td>
+    					<td title="Passing Yards Allowed">
+    						Passi...
+    					</td>
+    					<td title="Rushing Yards Allowed">
+    						Rushi...
+    					</td>
+    					<td title="Penalties">
+    						Penal...
+    					</td>
+    					<td title="Penalty Yards">
+    						Penal...
+    					</td>
+    					<td title="Receptions">
+    						REC
+    					</td>
+    					<td title="Receiving Yards">
+    						YDS
+    					</td>
+    					<td title="Receiving Touchdowns">
+    						TD
+    					</td>
+    					<td title="Two Points Receiving">
+    						2P
+    					</td>
+    					<td title="Reception Long">
+    						LNG
+    					</td>
+    					<td title="Rush Attempts">
+    						ATT
+    					</td>
+    					<td title="Rushing Yards">
+    						YDS
+    					</td>
+    					<td title="Rushing Touchdowns">
+    						TD
+    					</td>
+    					<td title="Two Points Rushing">
+    						2P
+    					</td>
+    					<td title="Rushing Long">
+    						LNG
+    					</td>
+    					<td title="Tackles">
+    						TACK
+    					</td>
+    					<td title="Solo Tackles">
+    						SOLO
+    					</td>
+    					<td title="Solo Assists">
+    						AST
+    					</td>
+    					<td title="Sacks">
+    						SCK
+    					</td>
+    					<td title="Safeties">
+    						SFT
+    					</td>
+    					<td title="Forced Fumbles">
+    						FFM
+    					</td>
+    					<td title="Fumble Recoveries">
+    						FMR
+    					</td>
+    					<td title="Fumble Touchdowns">
+    						FTD
+    					</td>
+    					<td title="Interceptions">
+    						INT
+    					</td>
+    					<td title="Tackles for Losses">
+    						TFL
+    					</td>
+    					<td title="Interception Yards">
+    						YDS
+    					</td>
+    					<td title="Interception Touchdowns">
+    						TD
+    					</td>
+    					<td title="Interception Long">
+    						LNG
+    					</td>
+    					<td title="Blocked Kick">
+    						BLK
+    					</td>
+    					<td title="Passing Attempts">
+    						ATT
+    					</td>
+    					<td title="Passing Completions">
+    						CMP
+    					</td>
+    					<td title="Passing Yards">
+    						YDS
+    					</td>
+    					<td title="Passing Interceptions">
+    						INT
+    					</td>
+    					<td title="Passing Touchdowns">
+    						TD
+    					</td>
+    					<td title="Two Point Passing">
+    						2P
+    					</td>
+    					<td title="Pass Long">
+    						LNG
+    					</td>
+    					<td title="Extra Points Attempted">
+    						XPA
+    					</td>
+    					<td title="Extra Points Made">
+    						XPM
+    					</td>
+    					<td title="Field Goals Attempted">
+    						FGA
+    					</td>
+    					<td title="Field Goals Made">
+    						FGM
+    					</td>
+    					<td title="Longest Field Goal">
+    						LNG
+    					</td>
+    					<td title="Kickoffs">
+    						KCK
+    					</td>
+    					<td title="Kickoff Yards">
+    						YDS
+    					</td>
+    					<td title="Longest Kickoff">
+    						LKO
+    					</td>
+    					<td title="Kick Returns">
+    						KR
+    					</td>
+    					<td title="Kick Return Yards">
+    						KR Yds
+    					</td>
+    					<td title="Longest Kick Return">
+    						LNG
+    					</td>
+    					<td title="Kick Return Touchdowns">
+    						KR TD
+    					</td>
+    					<td title="Number of Punts">
+    						PNTS
+    					</td>
+    					<td title="Punting Yards">
+    						YDS
+    					</td>
+    					<td title="Longest Punt">
+    						LNG
+    					</td>
+    					<td title="Punt Returns">
+    						PR
+    					</td>
+    					<td title="Punt Return Yards">
+    						PR Yds
+    					</td>
+    					<td title="Longest Punt Return">
+    						LNG
+    					</td>
+    					<td title="Punt Return Touchdowns">
+    						PR TD
+    					</td>
+    				</tr>
+    				<tr>
+    					<td title="School">
+    						School 1
+    					</td>
+    					<td title="Touchbacks">
+    						<input class="tinytext" type="text" id="txtSchool1Touchbacks">
+    					</td>
+    					<td title="Passes Defended">
+    						<input class="tinytext" type="text" id="txtSchool1PassesDefended">
+    					</td>
+    					<td title="Fumbles">
+    						<input class="tinytext" type="text" id="txtSchool1Fumbles">
+    					</td>
+    					<td title="Fumbles Lost">
+    						<input class="tinytext" type="text" id="txtSchool1FumblesLost">
+    					</td>
+    					<td title="Offensive First Downs">
+    						<input class="tinytext" type="text" id="txtSchool1OffensiveFirstDowns">
+    					</td>
+    					<td title="Passing Yards Allowed">
+    						<input class="tinytext" type="text" id="txtSchool1PassingYardsAllowed">
+    					</td>
+    					<td title="Rushing Yards Allowed">
+    						<input class="tinytext" type="text" id="txtSchool1RushingYardsAllowed">
+    					</td>
+    					<td title="Penalties">
+    						<input class="tinytext" type="text" id="txtSchool1Penalties">
+    					</td>
+    					<td title="Penalty Yards">
+    						<input class="tinytext" type="text" id="txtSchool1PenaltyYards">
+    					</td>
+    					<td title="Receptions">
+    						<input class="tinytext" type="text" id="txtSchool1Receptions">
+    					</td>
+    					<td title="Receiving Yards">
+    						<input class="tinytext" type="text" id="txtSchool1ReceivingYards">
+    					</td>
+    					<td title="Receiving Touchdowns">
+    						<input class="tinytext" type="text" id="txtSchool1FReceivingTouchdowns">
+    					</td>
+    					<td title="Two Points Receiving">
+    						<input class="tinytext" type="text" id="txtSchool1TwoPointsReceiving">
+    					</td>
+    					<td title="Reception Long">
+    						<input class="tinytext" type="text" id="txtSchool1ReceptionLong">
+    					</td>
+    					<td title="Rush Attempts">
+    						<input class="tinytext" type="text" id="txtSchool1RushAttempts">
+    					</td>
+    					<td title="Rushing Yards">
+    						<input class="tinytext" type="text" id="txtSchool1RushingYards">
+    					</td>
+    					<td title="Rushing Touchdowns">
+    						<input class="tinytext" type="text" id="txtSchool1RushingTouchdowns">
+    					</td>
+    					<td title="Two Points Rushing">
+    						<input class="tinytext" type="text" id="txtSchool1TwoPointsRushing">
+    					</td>
+    					<td title="Rushing Long">
+    						<input class="tinytext" type="text" id="txtSchool1RushingLong">
+    					</td>
+    					<td title="Tackles">
+    						<input class="tinytext" type="text" id="txtSchool1Tackles">
+    					</td>
+    					<td title="Solo Tackles">
+    						<input class="tinytext" type="text" id="txtSchool1SoloTackles">
+    					</td>
+    					<td title="Solo Assists">
+    						<input class="tinytext" type="text" id="txtSchool1SoloAssists">
+    					</td>
+    					<td title="Sacks">
+    						<input class="tinytext" type="text" id="txtSchool1Sacks">
+    					</td>
+    					<td title="Safeties">
+    						<input class="tinytext" type="text" id="txtSchool1Safeties">
+    					</td>
+    					<td title="Forced Fumbles">
+    						<input class="tinytext" type="text" id="txtSchool1ForcedFumbles">
+    					</td>
+    					<td title="Fumble Recoveries">
+    						<input class="tinytext" type="text" id="txtSchool1FumbledRecoveries">
+    					</td>
+    					<td title="Fumble Touchdowns">
+    						<input class="tinytext" type="text" id="txtSchool1FumbleTouchdowns">
+    					</td>
+    					<td title="Interceptions">
+    						<input class="tinytext" type="text" id="txtSchool1Interceptions">
+    					</td>
+    					<td title="Tackles for Losses">
+    						<input class="tinytext" type="text" id="txtSchool1TacklesForLosses">
+    					</td>
+    					<td title="Interception Yards">
+    						<input class="tinytext" type="text" id="txtSchool1InterceptionYards">
+    					</td>
+    					<td title="Interception Touchdowns">
+    						<input class="tinytext" type="text" id="txtSchool1InterceptionTouchdowns">
+    					</td>
+    					<td title="Interception Long">
+    						<input class="tinytext" type="text" id="txtSchool1InterceptionLong">
+    					</td>
+    					<td title="Blocked Kick">
+    						<input class="tinytext" type="text" id="txtSchool1BlockedKick">
+    					</td>
+    					<td title="Passing Attempts">
+    						<input class="tinytext" type="text" id="txtSchool1PassingAttempts">
+    					</td>
+    					<td title="Passing Completions">
+    						<input class="tinytext" type="text" id="txtSchool1PassingCompletions">
+    					</td>
+    					<td title="Passing Yards">
+    						<input class="tinytext" type="text" id="txtSchool1PassingYards">
+    					</td>
+    					<td title="Passing Interceptions">
+    						<input class="tinytext" type="text" id="txtSchool1PassingInterceptions">
+    					</td>
+    					<td title="Passing Touchdowns">
+    						<input class="tinytext" type="text" id="txtSchool1PassingTouchdowns">
+    					</td>
+    					<td title="Two Point Passing">
+    						<input class="tinytext" type="text" id="txtSchool1TwoPointPassing">
+    					</td>
+    					<td title="Pass Long">
+    						<input class="tinytext" type="text" id="txtSchool1PassLong">
+    					</td>
+    					<td title="Extra Points Attempted">
+    						<input class="tinytext" type="text" id="txtSchool1ExtraPointsAttempted">
+    					</td>
+    					<td title="Extra Points Made">
+    						<input class="tinytext" type="text" id="txtSchool1ExtraPointsMade">
+    					</td>
+    					<td title="Field Goals Attempted">
+    						<input class="tinytext" type="text" id="txtSchool1FieldGoalsAttempted">
+    					</td>
+    					<td title="Field Goals Made">
+    						<input class="tinytext" type="text" id="txtSchool1FieldGoalsMade">
+    					</td>
+    					<td title="Longest Field Goal">
+    						<input class="tinytext" type="text" id="txtSchool1LongestFieldGoal">
+    					</td>
+    					<td title="Kickoffs">
+    						<input class="tinytext" type="text" id="txtSchool1Kickoffs">
+    					</td>
+    					<td title="Kickoff Yards">
+    						<input class="tinytext" type="text" id="txtSchool1KickoffYards">
+    					</td>
+    					<td title="Longest Kickoff">
+    						<input class="tinytext" type="text" id="txtSchool1LongestKickoff">
+    					</td>
+    					<td title="Kick Returns">
+    						<input class="tinytext" type="text" id="txtSchool1KickoffReturns">
+    					</td>
+    					<td title="Kick Return Yards">
+    						<input class="tinytext" type="text" id="txtSchool1KickReturnYards">
+    					</td>
+    					<td title="Longest Kick Return">
+    						<input class="tinytext" type="text" id="txtSchool1LongestKickReturn">
+    					</td>
+    					<td title="Kick Return Touchdowns">
+    						<input class="tinytext" type="text" id="txtSchool1KickReturnTouchdowns">
+    					</td>
+    					<td title="Number of Punts">
+    						<input class="tinytext" type="text" id="txtSchool1NumberOfPunts">
+    					</td>
+    					<td title="Punting Yards">
+    						<input class="tinytext" type="text" id="txtSchool1PuntingYards">
+    					</td>
+    					<td title="Longest Punt">
+    						<input class="tinytext" type="text" id="txtSchool1LongestPunt">
+    					</td>
+    					<td title="Punt Returns">
+    						<input class="tinytext" type="text" id="txtSchool1PuntReturns">
+    					</td>
+    					<td title="Punt Return Yards">
+    						<input class="tinytext" type="text" id="txtSchool1PuntReturnYards">
+    					</td>
+    					<td title="Longest Punt Return">
+    						<input class="tinytext" type="text" id="txtSchool1LongestPuntReturn">
+    					</td>
+    					<td title="Punt Return Touchdowns">
+    						<input class="tinytext" type="text" id="txtSchool1PuntReturnTouchdowns">
+    					</td>
+    				</tr>
+    				<tr>
+    					<td title="School">
+    						School 2
+    					</td>
+    					<td title="Touchbacks">
+    						<input class="tinytext" type="text" id="txtSchool2Touchbacks">
+    					</td>
+    					<td title="Passes Defended">
+    						<input class="tinytext" type="text" id="txtSchool2PassesDefended">
+    					</td>
+    					<td title="Fumbles">
+    						<input class="tinytext" type="text" id="txtSchool2Fumbles">
+    					</td>
+    					<td title="Fumbles Lost">
+    						<input class="tinytext" type="text" id="txtSchool2FumblesLost">
+    					</td>
+    					<td title="Offensive First Downs">
+    						<input class="tinytext" type="text" id="txtSchool2OffensiveFirstDowns">
+    					</td>
+    					<td title="Passing Yards Allowed">
+    						<input class="tinytext" type="text" id="txtSchool2PassingYardsAllowed">
+    					</td>
+    					<td title="Rushing Yards Allowed">
+    						<input class="tinytext" type="text" id="txtSchool2RushingYardsAllowed">
+    					</td>
+    					<td title="Penalties">
+    						<input class="tinytext" type="text" id="txtSchool2Penalties">
+    					</td>
+    					<td title="Penalty Yards">
+    						<input class="tinytext" type="text" id="txtSchool2PenaltyYards">
+    					</td>
+    					<td title="Receptions">
+    						<input class="tinytext" type="text" id="txtSchool2Receptions">
+    					</td>
+    					<td title="Receiving Yards">
+    						<input class="tinytext" type="text" id="txtSchool2ReceivingYards">
+    					</td>
+    					<td title="Receiving Touchdowns">
+    						<input class="tinytext" type="text" id="txtSchool2ReceivingTouchdowns">
+    					</td>
+    					<td title="Two Points Receiving">
+    						<input class="tinytext" type="text" id="txtSchool2TwoPointsReceiving">
+    					</td>
+    					<td title="Reception Long">
+    						<input class="tinytext" type="text" id="txtSchool2ReceptionLong">
+    					</td>
+    					<td title="Rush Attempts">
+    						<input class="tinytext" type="text" id="txtSchool2RushAttempts">
+    					</td>
+    					<td title="Rushing Yards">
+    						<input class="tinytext" type="text" id="txtSchool2RushingYards">
+    					</td>
+    					<td title="Rushing Touchdowns">
+    						<input class="tinytext" type="text" id="txtSchool2RushingTouchdowns">
+    					</td>
+    					<td title="Two Points Rushing">
+    						<input class="tinytext" type="text" id="txtSchool2TwoPointsRushing">
+    					</td>
+    					<td title="Rushing Long">
+    						<input class="tinytext" type="text" id="txtSchool2RushingLong">
+    					</td>
+    					<td title="Tackles">
+    						<input class="tinytext" type="text" id="txtSchool2Tackles">
+    					</td>
+    					<td title="Solo Tackles">
+    						<input class="tinytext" type="text" id="txtSchool2SoloTackles">
+    					</td>
+    					<td title="Solo Assists">
+    						<input class="tinytext" type="text" id="txtSchool2SoloAssists">
+    					</td>
+    					<td title="Sacks">
+    						<input class="tinytext" type="text" id="txtSchool2Sacks">
+    					</td>
+    					<td title="Safeties">
+    						<input class="tinytext" type="text" id="txtSchool2Safeties">
+    					</td>
+    					<td title="Forced Fumbles">
+    						<input class="tinytext" type="text" id="txtSchool2ForcedFumbles">
+    					</td>
+    					<td title="Fumble Recoveries">
+    						<input class="tinytext" type="text" id="txtSchool2FumbledRecoveries">
+    					</td>
+    					<td title="Fumble Touchdowns">
+    						<input class="tinytext" type="text" id="txtSchool2FumbleTouchdowns">
+    					</td>
+    					<td title="Interceptions">
+    						<input class="tinytext" type="text" id="txtSchool2Interceptions">
+    					</td>
+    					<td title="Tackles for Losses">
+    						<input class="tinytext" type="text" id="txtSchool2TacklesForLosses">
+    					</td>
+    					<td title="Interception Yards">
+    						<input class="tinytext" type="text" id="txtSchool2InterceptionYards">
+    					</td>
+    					<td title="Interception Touchdowns">
+    						<input class="tinytext" type="text" id="txtSchool2InterceptionTouchdowns">
+    					</td>
+    					<td title="Interception Long">
+    						<input class="tinytext" type="text" id="txtSchool2InterceptionLong">
+    					</td>
+    					<td title="Blocked Kick">
+    						<input class="tinytext" type="text" id="txtSchool2BlockedKick">
+    					</td>
+    					<td title="Passing Attempts">
+    						<input class="tinytext" type="text" id="txtSchool2PassingAttempts">
+    					</td>
+    					<td title="Passing Completions">
+    						<input class="tinytext" type="text" id="txtSchool2PassingCompletions">
+    					</td>
+    					<td title="Passing Yards">
+    						<input class="tinytext" type="text" id="txtSchool2PassingYards">
+    					</td>
+    					<td title="Passing Interceptions">
+    						<input class="tinytext" type="text" id="txtSchool2PassingInterceptions">
+    					</td>
+    					<td title="Passing Touchdowns">
+    						<input class="tinytext" type="text" id="txtSchool2PassingTouchdowns">
+    					</td>
+    					<td title="Two Point Passing">
+    						<input class="tinytext" type="text" id="txtSchool2TwoPointPassing">
+    					</td>
+    					<td title="Pass Long">
+    						<input class="tinytext" type="text" id="txtSchool2PassLong">
+    					</td>
+    					<td title="Extra Points Attempted">
+    						<input class="tinytext" type="text" id="txtSchool2ExtraPointsAttempted">
+    					</td>
+    					<td title="Extra Points Made">
+    						<input class="tinytext" type="text" id="txtSchool2ExtraPointsMade">
+    					</td>
+    					<td title="Field Goals Attempted">
+    						<input class="tinytext" type="text" id="txtSchool2FieldGoalsAttempted">
+    					</td>
+    					<td title="Field Goals Made">
+    						<input class="tinytext" type="text" id="txtSchool2FieldGoalsMade">
+    					</td>
+    					<td title="Longest Field Goal">
+    						<input class="tinytext" type="text" id="txtSchool2LongestFieldGoal">
+    					</td>
+    					<td title="Kickoffs">
+    						<input class="tinytext" type="text" id="txtSchool2Kickoffs">
+    					</td>
+    					<td title="Kickoff Yards">
+    						<input class="tinytext" type="text" id="txtSchool2KickoffYards">
+    					</td>
+    					<td title="Longest Kickoff">
+    						<input class="tinytext" type="text" id="txtSchool2LongestKickoff">
+    					</td>
+    					<td title="Kick Returns">
+    						<input class="tinytext" type="text" id="txtSchool2KickoffReturns">
+    					</td>
+    					<td title="Kick Return Yards">
+    						<input class="tinytext" type="text" id="txtSchool2KickReturnYards">
+    					</td>
+    					<td title="Longest Kick Return">
+    						<input class="tinytext" type="text" id="txtSchool2LongestKickReturn">
+    					</td>
+    					<td title="Kick Return Touchdowns">
+    						<input class="tinytext" type="text" id="txtSchool2KickReturnTouchdowns">
+    					</td>
+    					<td title="Number of Punts">
+    						<input class="tinytext" type="text" id="txtSchool2NumberOfPunts">
+    					</td>
+    					<td title="Punting Yards">
+    						<input class="tinytext" type="text" id="txtSchool2PuntingYards">
+    					</td>
+    					<td title="Longest Punt">
+    						<input class="tinytext" type="text" id="txtSchool2LongestPunt">
+    					</td>
+    					<td title="Punt Returns">
+    						<input class="tinytext" type="text" id="txtSchool2PuntReturns">
+    					</td>
+    					<td title="Punt Return Yards">
+    						<input class="tinytext" type="text" id="txtSchool2PuntReturnYards">
+    					</td>
+    					<td title="Longest Punt Return">
+    						<input class="tinytext" type="text" id="txtSchool2LongestPuntReturn">
+    					</td>
+    					<td title="Punt Return Touchdowns">
+    						<input class="tinytext" type="text" id="txtSchool2PuntReturnTouchdowns">
+    					</td>
+    				</tr>
+    			</tbody>
+    		</table>
+    	</div>
+    	<br>
+    	<br>
+    	ATHLETE STATS SCHOOL 1
+    	<div style="overflow-x:scroll">
+    		<table class="table" style="width: 1400 px; border:1px solid black" id="School1Athlete">
+    			<tbody>
+    				<tr>
+    					<td>
+    					</td>
+    					<td>
+    					</td>
+    					<td>
+    					</td>
+    					<td>
+    					</td>
+    					<td>
+    					</td>
+    					<th colspan="11" style="text-align:center; border:1px solid; background:grey; color: white">
+    						Misc
+    					</th>
+    					<th colspan="5" style="text-align:center; border:1px solid; background:grey; color: white">
+    						Receiving
+    					</th>
+    					<th colspan="5" style="text-align:center; border:1px solid; background:grey; color: white">
+    						Rushing
+    					</th>
+    					<th colspan="14" style="text-align:center; border:1px solid; background:grey; color: white">
+    						Defensive
+    					</th>
+    					<th colspan="7" style="text-align:center; border:1px solid; background:grey; color: white">
+    						Passing
+    					</th>
+    					<th colspan="8" style="text-align:center; border:1px solid; background:grey; color: white">
+    						Kicking
+    					</th>
+    					<th colspan="4" style="text-align:center; border:1px solid; background:grey; color: white">
+    						Kickoff Returns
+    					</th>
+    					<th colspan="3" style="text-align:center; border:1px solid; background:grey; color: white">
+    						Punting
+    					</th>
+    					<th colspan="4" style="text-align:center; border:1px solid; background:grey; color: white">
+    						Punt Returns
+    					</th>
+    				</tr>
+    				<tr>
+    					<td>
+    						Played
+    					</td>
+    					<td>
+    						#
+    					</td>
+    					<td>
+    						Last Name
+    					</td>
+    					<td>
+    						First Name
+    					</td>
+    					<td>
+    						Positions
+    					</td>
+    					<td title="Key Player?">
+    						Key...
+    					</td>
+    					<td title="Start?">
+    						GS?
+    					</td>
+    					<td title="Touchbacks">
+    						TB
+    					</td>
+    					<td title="Passes Defended">
+    						DEF
+    					</td>
+    					<td title="Fumble">
+    						FUM
+    					</td>
+    					<td title="Fumbles Lost">
+    						LOST
+    					</td>
+    					<td title="Offensive First Downs">
+    						Offen...
+    					</td>
+    					<td title="Passing Yards Allowed">
+    						Passi...
+    					</td>
+    					<td title="Rushing Yards Allowed">
+    						Rushi...
+    					</td>
+    					<td title="Penalties">
+    						Penal...
+    					</td>
+    					<td title="Penalty Yards">
+    						Penal...
+    					</td>
+    					<td title="Receptions">
+    						REC
+    					</td>
+    					<td title="Receiving Yards">
+    						YDS
+    					</td>
+    					<td title="Receiving Touchdowns">
+    						TD
+    					</td>
+    					<td title="Two Points Receiving">
+    						2P
+    					</td>
+    					<td title="Reception Long">
+    						LNG
+    					</td>
+    					<td title="Rushing Attempts">
+    						ATT
+    					</td>
+    					<td title="Rushing Yards">
+    						YDS
+    					</td>
+    					<td title="Rushing Touchdowns">
+    						TD
+    					</td>
+    					<td title="Two Points Rushing">
+    						2P
+    					</td>
+    					<td title="Rush Long">
+    						LNG
+    					</td>
+    					<td title="Tackles">
+    						TACK
+    					</td>
+    					<td title="Solo Tackles">
+    						SOLO
+    					</td>
+    					<td title="Assists">
+    						AST
+    					</td>
+    					<td title="Sacks">
+    						SCK
+    					</td>
+    					<td title="Safeties">
+    						SFT
+    					</td>
+    					<td title="Forced Fumbles">
+    						FFM
+    					</td>
+    					<td title="Fumble Recoveries">
+    						FMR
+    					</td>
+    					<td title="Fumble Touchdowns">
+    						FTD
+    					</td>
+    					<td title="Interceptions">
+    						INT
+    					</td>
+    					<td title="Tackles For Loss">
+    						TFL
+    					</td>
+    					<td title="Interception Yards">
+    						YDS
+    					</td>
+    					<td title="Interception Touchdowns">
+    						TD
+    					</td>
+    					<td title="Interception Long">
+    						LNG
+    					</td>
+    					<td title="Blocked Kick">
+    						BLK
+    					</td>
+    					<td title="Passing Attempts">
+    						ATT
+    					</td>
+    					<td title="Passing Completions">
+    						CMP
+    					</td>
+    					<td title="Passing Yards">
+    						YDS
+    					</td>
+    					<td title="Passing Interceptions">
+    						INT
+    					</td>
+    					<td title="Passing Touchdowns">
+    						TD
+    					</td>
+    					<td title="Two Points Passing">
+    						2P
+    					</td>
+    					<td title="Pass Long">
+    						LNG
+    					</td>
+    					<td title="Extra Points Attempted">
+    						XPA
+    					</td>
+    					<td title="Extra Points Made">
+    						XPM
+    					</td>
+    					<td title="Field Goals Attempted">
+    						FGA
+    					</td>
+    					<td title="Field Goals Made">
+    						FGM
+    					</td>
+    					<td title="Longest Field Goal">
+    						LNG
+    					</td>
+    					<td title="Kickoffs">
+    						KCK
+    					</td>
+    					<td title="Kickoff Yards">
+    						YDS
+    					</td>
+    					<td title="Longest Kickoff">
+    						LKO
+    					</td>
+    					<td title="Kick Returns">
+    						KR
+    					</td>
+    					<td title="Kick Return Yards">
+    						KR Yds
+    					</td>
+    					<td title="Longest Kick Return">
+    						LNG
+    					</td>
+    					<td title="Kick Return Touchdowns">
+    						KR TD
+    					</td>
+    					<td title="Number of Punts">
+    						PNTS
+    					</td>
+    					<td title="Punting Yards">
+    						YDS
+    					</td>
+    					<td title="Longest Punt">
+    						LNG
+    					</td>
+    					<td title="Punt Returns">
+    						PR
+    					</td>
+    					<td title="Punt Return Yards">
+    						PR Yds
+    					</td>
+    					<td title="Longest Punt Return">
+    						LNG
+    					</td>
+    					<td title="Punt Return Touchdowns">
+    						PR TD
+    					</td>
+    				</tr>
+					        		<tr>
+					<td>
+						<input type="checkbox">
+					</td>
+					<td>
+					</td>
+					<td>
+						Last Name
+					</td>
+					<td>
+						First Name
+					</td>
+					<td>
+						<select>
+							<option value="Quarterback">
+								Quarterback
+							</option>
+							<option value="Fullback">
+								Fullback
+							</option>
+							<option value="Halfback">
+								Halfback
+							</option>
+						</select>
+					</td>
+					<td title="Key Player?">
+					    <input type="checkbox">
+					</td>
+					<td title="Start?">
+					    <input type="checkbox">
+					</td>
+					<td title="Touchbacks">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Passes Defended">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Fumble">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Fumbles Lost">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Offensive First Downs">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Passing Yards Allowed">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Rushing Yards Allowed">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Penalties">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Penalty Yards">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Receptions">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Receiving Yards">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Receiving Touchdowns">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Two Points Receiving">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Reception Long">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Rushing Attempts">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Rushing Yards">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Rushing Touchdowns">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Two Points Rushing">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Rush Long">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Tackles">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Solo Tackles">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Assists">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Sacks">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Safeties">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Forced Fumbles">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Fumble Recoveries">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Fumble Touchdowns">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Interceptions">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Tackles For Loss">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Interception Yards">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Interception Touchdowns">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Interception Long">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Blocked Kick">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Passing Attempts">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Passing Completions">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Passing Yards">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Passing Interceptions">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Passing Touchdowns">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Two Points Passing">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Pass Long">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Extra Points Attempted">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Extra Points Made">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Field Goals Attempted">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Field Goals Made">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Longest Field Goal">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Kickoffs">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Kickoff Yards">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Longest Kickoff">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Kick Returns">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Kick Return Yards">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Longest Kick Return">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Kick Return Touchdowns">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Number of Punts">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Punting Yards">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Longest Punt">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Punt Returns">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Punt Return Yards">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Longest Punt Return">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Punt Return Touchdowns">
+						<input class="tinytext" type="text">
+					</td>
+				</tr>
+    			</tbody>
+    		</table>
+			<!-- Dyanmic Update Required -->
+    		<button>
+    			Add Athlete
+    		</button>
+    	</div>
+    	<br>
+    	<br>
+    	ATHLETE STATS SCHOOL 2
+    	<div style="overflow-x:scroll">
+    		<table class="table" style="width: 1400 px; border:1px solid black" id="School2Athlete">
+    			<tbody>
+    				<tr>
+    					<td>
+    					</td>
+    					<td>
+    					</td>
+    					<td>
+    					</td>
+    					<td>
+    					</td>
+    					<td>
+    					</td>
+    					<th colspan="11" style="text-align:center; border:1px solid; background:grey; color: white">
+    						Misc
+    					</th>
+    					<th colspan="5" style="text-align:center; border:1px solid; background:grey; color: white">
+    						Receiving
+    					</th>
+    					<th colspan="5" style="text-align:center; border:1px solid; background:grey; color: white">
+    						Rushing
+    					</th>
+    					<th colspan="14" style="text-align:center; border:1px solid; background:grey; color: white">
+    						Defensive
+    					</th>
+    					<th colspan="7" style="text-align:center; border:1px solid; background:grey; color: white">
+    						Passing
+    					</th>
+    					<th colspan="8" style="text-align:center; border:1px solid; background:grey; color: white">
+    						Kicking
+    					</th>
+    					<th colspan="4" style="text-align:center; border:1px solid; background:grey; color: white">
+    						Kickoff Returns
+    					</th>
+    					<th colspan="3" style="text-align:center; border:1px solid; background:grey; color: white">
+    						Punting
+    					</th>
+    					<th colspan="4" style="text-align:center; border:1px solid; background:grey; color: white">
+    						Punt Returns
+    					</th>
+    				</tr>
+    				<tr>
+    					<td>
+    						Played
+    					</td>
+    					<td>
+    						#
+    					</td>
+    					<td>
+    						Last Name
+    					</td>
+    					<td>
+    						First Name
+    					</td>
+    					<td>
+    						Positions
+    					</td>
+    					<td title="Key Player?">
+    						Key...
+    					</td>
+    					<td title="Start?">
+    						GS?
+    					</td>
+    					<td title="Touchbacks">
+    						TB
+    					</td>
+    					<td title="Passes Defended">
+    						DEF
+    					</td>
+    					<td title="Fumble">
+    						FUM
+    					</td>
+    					<td title="Fumbles Lost">
+    						LOST
+    					</td>
+    					<td title="Offensive First Downs">
+    						Offen...
+    					</td>
+    					<td title="Passing Yards Allowed">
+    						Passi...
+    					</td>
+    					<td title="Rushing Yards Allowed">
+    						Rushi...
+    					</td>
+    					<td title="Penalties">
+    						Penal...
+    					</td>
+    					<td title="Penalty Yards">
+    						Penal...
+    					</td>
+    					<td title="Receptions">
+    						REC
+    					</td>
+    					<td title="Receiving Yards">
+    						YDS
+    					</td>
+    					<td title="Receiving Touchdowns">
+    						TD
+    					</td>
+    					<td title="Two Points Receiving">
+    						2P
+    					</td>
+    					<td title="Reception Long">
+    						LNG
+    					</td>
+    					<td title="Rushing Attempts">
+    						ATT
+    					</td>
+    					<td title="Rushing Yards">
+    						YDS
+    					</td>
+    					<td title="Rushing Touchdowns">
+    						TD
+    					</td>
+    					<td title="Two Points Rushing">
+    						2P
+    					</td>
+    					<td title="Rush Long">
+    						LNG
+    					</td>
+    					<td title="Tackles">
+    						TACK
+    					</td>
+    					<td title="Solo Tackles">
+    						SOLO
+    					</td>
+    					<td title="Assists">
+    						AST
+    					</td>
+    					<td title="Sacks">
+    						SCK
+    					</td>
+    					<td title="Safeties">
+    						SFT
+    					</td>
+    					<td title="Forced Fumbles">
+    						FFM
+    					</td>
+    					<td title="Fumble Recoveries">
+    						FMR
+    					</td>
+    					<td title="Fumble Touchdowns">
+    						FTD
+    					</td>
+    					<td title="Interceptions">
+    						INT
+    					</td>
+    					<td title="Tackles For Loss">
+    						TFL
+    					</td>
+    					<td title="Interception Yards">
+    						YDS
+    					</td>
+    					<td title="Interception Touchdowns">
+    						TD
+    					</td>
+    					<td title="Interception Long">
+    						LNG
+    					</td>
+    					<td title="Blocked Kick">
+    						BLK
+    					</td>
+    					<td title="Passing Attempts">
+    						ATT
+    					</td>
+    					<td title="Passing Completions">
+    						CMP
+    					</td>
+    					<td title="Passing Yards">
+    						YDS
+    					</td>
+    					<td title="Passing Interceptions">
+    						INT
+    					</td>
+    					<td title="Passing Touchdowns">
+    						TD
+    					</td>
+    					<td title="Two Points Passing">
+    						2P
+    					</td>
+    					<td title="Pass Long">
+    						LNG
+    					</td>
+    					<td title="Extra Points Attempted">
+    						XPA
+    					</td>
+    					<td title="Extra Points Made">
+    						XPM
+    					</td>
+    					<td title="Field Goals Attempted">
+    						FGA
+    					</td>
+    					<td title="Field Goals Made">
+    						FGM
+    					</td>
+    					<td title="Longest Field Goal">
+    						LNG
+    					</td>
+    					<td title="Kickoffs">
+    						KCK
+    					</td>
+    					<td title="Kickoff Yards">
+    						YDS
+    					</td>
+    					<td title="Longest Kickoff">
+    						LKO
+    					</td>
+    					<td title="Kick Returns">
+    						KR
+    					</td>
+    					<td title="Kick Return Yards">
+    						KR Yds
+    					</td>
+    					<td title="Longest Kick Return">
+    						LNG
+    					</td>
+    					<td title="Kick Return Touchdowns">
+    						KR TD
+    					</td>
+    					<td title="Number of Punts">
+    						PNTS
+    					</td>
+    					<td title="Punting Yards">
+    						YDS
+    					</td>
+    					<td title="Longest Punt">
+    						LNG
+    					</td>
+    					<td title="Punt Returns">
+    						PR
+    					</td>
+    					<td title="Punt Return Yards">
+    						PR Yds
+    					</td>
+    					<td title="Longest Punt Return">
+    						LNG
+    					</td>
+    					<td title="Punt Return Touchdowns">
+    						PR TD
+    					</td>
+    				</tr>
+					        		<tr>
+					<td>
+						<input type="checkbox">
+					</td>
+					<td>
+					</td>
+					<td>
+						Last Name
+					</td>
+					<td>
+						First Name
+					</td>
+					<td>
+						<select>
+							<option value="Quarterback">
+								Quarterback
+							</option>
+							<option value="Fullback">
+								Fullback
+							</option>
+							<option value="Halfback">
+								Halfback
+							</option>
+						</select>
+					</td>
+					<td title="Key Player?">
+					    <input type="checkbox">
+					</td>
+					<td title="Start?">
+					    <input type="checkbox">
+					</td>
+					<td title="Touchbacks">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Passes Defended">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Fumble">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Fumbles Lost">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Offensive First Downs">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Passing Yards Allowed">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Rushing Yards Allowed">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Penalties">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Penalty Yards">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Receptions">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Receiving Yards">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Receiving Touchdowns">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Two Points Receiving">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Reception Long">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Rushing Attempts">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Rushing Yards">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Rushing Touchdowns">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Two Points Rushing">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Rush Long">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Tackles">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Solo Tackles">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Assists">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Sacks">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Safeties">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Forced Fumbles">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Fumble Recoveries">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Fumble Touchdowns">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Interceptions">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Tackles For Loss">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Interception Yards">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Interception Touchdowns">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Interception Long">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Blocked Kick">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Passing Attempts">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Passing Completions">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Passing Yards">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Passing Interceptions">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Passing Touchdowns">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Two Points Passing">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Pass Long">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Extra Points Attempted">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Extra Points Made">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Field Goals Attempted">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Field Goals Made">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Longest Field Goal">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Kickoffs">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Kickoff Yards">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Longest Kickoff">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Kick Returns">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Kick Return Yards">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Longest Kick Return">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Kick Return Touchdowns">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Number of Punts">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Punting Yards">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Longest Punt">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Punt Returns">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Punt Return Yards">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Longest Punt Return">
+						<input class="tinytext" type="text">
+					</td>
+					<td title="Punt Return Touchdowns">
+						<input class="tinytext" type="text">
+					</td>
+				</tr>
+    			</tbody>
+    		</table>
+    		<!--Dynamic update required-->
+			<button>
+    			Add Athlete
+    		</button>
+    	</div>
+    </div>
+    <div>
+    	<table>
+    		<tbody>
+    			<tr>
+    				<td>
+    					SCORING SUMMARY
+    				</td>
+    				<td>
+    					EVENT SUMMARY
+    				</td>
+    			</tr>
+    			<tr>
+    				<td>
+    					<table>
+    						<tbody>
+    							<tr>
+    								<td>
+    									1
+    								</td>
+    								<td>
+    									<input type="text">
+    								</td>
+    							</tr>
+    							<tr>
+    								<td>
+    									2
+    								</td>
+    								<td>
+    									<input type="text">
+    								</td>
+    							</tr>
+    							<tr>
+    								<td>
+    									3
+    								</td>
+    								<td>
+    									<input type="text">
+    								</td>
+    							</tr>
+    							<tr>
+    								<td>
+    									4
+    								</td>
+    								<td>
+    									<input type="text">
+    								</td>
+    							</tr>
+								<tr>
+    								<td>
+    									OT
+    								</td>
+    								<td>
+    									<input type="text">
+    								</td>
+    							</tr>
+    						</tbody>
+    					</table>
+    					<button onclick="AppendAthlete2()">
+    						Add Overtime
+    					</button>
+    				</td>
+    				<td>
+    					<textarea></textarea>
+    				</td>
+    			</tr>
+    		</tbody>
+    	</table>
+    </div>
+    <!-- /container -->
+
+    <style>
+      
+        body {
+          padding-top: 60px;
+        }
+      
+      .tinytext {
+          width: 20px;
+      }
+      .centertxt {
+          style="text-align:center"
+      }
+      
+      table, th, td
+      {
+      border: 1px solid #cccccc; 
+      }
+    </style>
+    
+    
+    <script>
+     
+      function AppendAthlete1()
+      {
+      $('
+          			<tr>
+      					<td>
+      						<input type="checkbox">
+      					</td>
+      					<td>
+      					</td>
+      					<td>
+      						Last Name
+      					</td>
+      					<td>
+      						First Name
+      					</td>
+      					<td>
+      						<select>
+      							<option value="Quarterback">
+      								Quarterback
+      							</option>
+      							<option value="Fullback">
+      								Fullback
+      							</option>
+      							<option value="Halfback">
+      								Halfback
+      							</option>
+      						</select>
+      					</td>
+      					<td title="Key Player?">
+      					    <input type="checkbox">
+      					</td>
+      					<td title="Start?">
+      					    <input type="checkbox">
+      					</td>
+      					<td title="Touchbacks">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Passes Defended">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Fumble">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Fumbles Lost">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Offensive First Downs">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Passing Yards Allowed">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Rushing Yards Allowed">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Penalties">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Penalty Yards">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Receptions">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Receiving Yards">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Receiving Touchdowns">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Two Points Receiving">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Reception Long">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Rushing Attempts">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Rushing Yards">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Rushing Touchdowns">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Two Points Rushing">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Rush Long">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Tackles">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Solo Tackles">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Assists">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Sacks">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Safeties">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Forced Fumbles">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Fumble Recoveries">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Fumble Touchdowns">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Interceptions">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Tackles For Loss">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Interception Yards">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Interception Touchdowns">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Interception Long">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Blocked Kick">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Passing Attempts">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Passing Completions">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Passing Yards">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Passing Interceptions">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Passing Touchdowns">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Two Points Passing">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Pass Long">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Extra Points Attempted">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Extra Points Made">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Field Goals Attempted">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Field Goals Made">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Longest Field Goal">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Kickoffs">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Kickoff Yards">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Longest Kickoff">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Kick Returns">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Kick Return Yards">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Longest Kick Return">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Kick Return Touchdowns">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Number of Punts">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Punting Yards">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Longest Punt">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Punt Returns">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Punt Return Yards">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Longest Punt Return">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Punt Return Touchdowns">
+      						<input class="tinytext" type="text">
+      					</td>
+      				</tr>
+      				').appendTo("School1Athlete tbody");
+      }
+      
+      function AppendAthlete2()
+      {
+      $('
+              		<tr>
+      					<td>
+      						<input type="checkbox">
+      					</td>
+      					<td>
+      					</td>
+      					<td>
+      						Last Name
+      					</td>
+      					<td>
+      						First Name
+      					</td>
+      					<td>
+      						<select>
+      							<option value="Quarterback">
+      								Quarterback
+      							</option>
+      							<option value="Fullback">
+      								Fullback
+      							</option>
+      							<option value="Halfback">
+      								Halfback
+      							</option>
+      						</select>
+      					</td>
+      					<td title="Key Player?">
+      					    <input type="checkbox">
+      					</td>
+      					<td title="Start?">
+      					    <input type="checkbox">
+      					</td>
+      					<td title="Touchbacks">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Passes Defended">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Fumble">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Fumbles Lost">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Offensive First Downs">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Passing Yards Allowed">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Rushing Yards Allowed">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Penalties">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Penalty Yards">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Receptions">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Receiving Yards">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Receiving Touchdowns">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Two Points Receiving">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Reception Long">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Rushing Attempts">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Rushing Yards">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Rushing Touchdowns">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Two Points Rushing">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Rush Long">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Tackles">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Solo Tackles">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Assists">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Sacks">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Safeties">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Forced Fumbles">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Fumble Recoveries">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Fumble Touchdowns">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Interceptions">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Tackles For Loss">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Interception Yards">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Interception Touchdowns">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Interception Long">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Blocked Kick">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Passing Attempts">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Passing Completions">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Passing Yards">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Passing Interceptions">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Passing Touchdowns">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Two Points Passing">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Pass Long">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Extra Points Attempted">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Extra Points Made">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Field Goals Attempted">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Field Goals Made">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Longest Field Goal">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Kickoffs">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Kickoff Yards">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Longest Kickoff">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Kick Returns">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Kick Return Yards">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Longest Kick Return">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Kick Return Touchdowns">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Number of Punts">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Punting Yards">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Longest Punt">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Punt Returns">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Punt Return Yards">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Longest Punt Return">
+      						<input class="tinytext" type="text">
+      					</td>
+      					<td title="Punt Return Touchdowns">
+      						<input class="tinytext" type="text">
+      					</td>
+      				</tr>
+      				').appendTo("School2Athlete tbody");
+      }
+      </script>
+    </script>

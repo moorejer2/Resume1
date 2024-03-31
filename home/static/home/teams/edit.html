@@ -1,0 +1,60 @@
+<div ng-controller="TeamEditPage" id="TeamEditPage" class="container">
+  <form novalidate class="simple-form">
+    <div class="row-fluid">
+      <h2 style="font-size: 350%">Team Information {{team.name}}</h2>
+    </div>
+    <br/>
+    <div class="row-fluid">
+      <div class="span6">
+        <div class="input-row">
+          <label for="name">Title:</label>
+          <input id="name" placeholder="Team Title" type="text" ng-model="team.name" style="width: 408px" />
+        </div>
+
+        <div class="input-row" style='margin-top: 1em'>
+          <label>Active</label>
+          <label class="radio inline">
+            <input type="radio" ng-model="occupation.active" value="1"/> Yes
+          </label>
+          <label class="radio inline">
+            <input type="radio" ng-model="occupation.active" value="0"/> No
+          </label>
+        </div>
+
+        <br/><br/>
+        <button ng-click="save()" class="btn btn-large icon-save btn-primary">&nbsp;Save</button>&nbsp;
+        <a href="#/teams" class="btn btn-large icon-cancel">Cancel</a>
+      </div>
+
+      <br/>
+    </div>
+
+  </form>
+</div>
+
+<script>
+// setup our controller ------------------
+function TeamEditPage($scope, $routeParams, $window, Team, Participant, Level, Sport) {
+
+	$scope.id = $routeParams.id;
+  $scope.sports = Sport.query();
+  $scope.participants = Participant.query();
+  $scope.levels = Level.query();
+
+  Team.firstOrNew($scope.id).then(function(x) {
+    if ($scope.id == 0) x.active = true;
+    $scope.team = x;
+  });
+
+  // save action
+  $scope.save = function() {
+    $scope.team.$saveOrUpdate($scope.id, $scope).then(function() {
+      $window.location = '#/teams';
+    });
+  }
+
+}
+
+TeamEditPage.$inject = ['$scope', '$routeParams', '$window', 'Team',
+                         'Participant', 'Level', 'Sport'];
+</script>

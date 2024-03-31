@@ -1,0 +1,114 @@
+<div ng-controller="ParticipantEditPage" id="ParticipantEditPage" class="container">
+  <form novalidate class="css-form">
+    <style type="text/css">
+      .css-form input.ng-invalid.ng-dirty {
+      background-color: #FA787E;
+      }
+      .css-form input.ng-valid.ng-dirty {
+      background-color: #78FA89;
+      } 
+    </style>
+    <div class="row-fluid">
+      <div ng-show="id!=0">
+        <h2 style="font-size: 250%">{{participant.event__title}} <br/> Participant Information for {{participant.entity__name}}</h2>
+        <h2 style="font-size: 250%">{{participant.event}} <br/> Participant Information for {{participant.entity}}</h2>
+      </div>
+      <div ng-show="id==0">
+        <h2 style="font-size: 250%">Add Participant Information</h2>
+      </div>
+    </div>
+    <br/>
+    <div class="row-fluid">
+      <div class="span6">
+        <div class="input-row" style='margin: 1em 0 0 0'>
+          <label for="field">Name</label>
+          <select style="margin-bottom: 4px; width: 92%;" ng-model="participant.entity" required
+                  ng-options="f.id as f.name for f in entities">
+          </select>
+          <div ng-field-error="errors['entity']" />
+        </div>
+
+        <legend style='margin: 1em 0 0 0'>Details</legend>
+
+        <div class="input-row" style='margin: 1em 0 0 .25em'>
+          <label class="checkbox">
+            Is Host
+            <input type="checkbox" ng-model="participant.is_host" />
+          </label>
+          <div ng-field-error="errors['is_host']" />
+        </div>
+        
+        <div class="input-row" style='margin: 1em 0 0 .25em'>
+          <label class="checkbox">
+            Has Accepted
+            <input type="checkbox" ng-model="participant.has_accepted" />
+          </label>
+          <div ng-field-error="errors['has_accepted']" />
+        </div>
+
+        <br/><br/>
+        <button ng-click="save()" class="btn btn-large icon-save btn-primary">&nbsp;Save</button>&nbsp;
+        <a href="#/events/{{event_id}}" class="btn btn-large icon-cancel">Cancel</a>
+      </div>
+    </div>
+  </form>
+</div>
+
+<script>
+// setup our controller ------------------
+function ParticipantEditPage($scope, $routeParams, $window, 
+        Event,
+        Entity, 
+        Participant) {
+
+  $scope.id = $routeParams.id;
+  $scope.event_id = $routeParams.event_id;
+//  $scope.event = Event.query({id: $routeParams.event_id});
+//  var event;
+//  $window.console.log(['0000', $routeParams.event_id]);
+//  for (event in Event.query({id: $routeParams.event_id})) {
+//    $window.console.log(['0001']);
+//    ;
+//  }
+  //$scope.event = event;
+  $scope.event = Event.get({id: $scope.event_id});
+
+  //$window.console.log(['0002', $scope.event_id, $scope.event]);
+  $scope.entities = Entity.query();
+  $scope.participants = Participant.query({event_id: $routeParams.event_id});
+
+//  $window.console.log(['1111', $scope.event]);
+//  $window.console.log(['1112', $scope.event]);
+
+  Participant.firstOrNew($scope.id).then(function(x) {
+    $scope.participant = x;
+    $scope.participant.event = $scope.event_id;
+  });
+
+  // save action
+  $scope.save = function() {
+    $scope.participant.event = $scope.event_id;
+    $scope.participant.$saveOrUpdate($scope.id, $scope).then(function() {
+      $window.location = '#/events/' + $scope.event_id;
+    });
+  }
+
+  // handle api field errors                                                                                   
+  $scope.errors = {};                                                                                          
+                                                                                                               
+  $scope.$on('resource.alert', function(event, field, message) {                                               
+      if (typeof message == 'undefined' || message == "") return;                                              
+      $scope.errors[field] = message;                                                                          
+  });                                                                                                          
+                                                                                                               
+  $scope.$on('resource.saveOrUpdate', function(event) {                                                        
+      $scope.errors = {};                                                                                      
+  });  
+
+}
+
+ParticipantEditPage.$inject = ['$scope', '$routeParams', '$window', 
+        'Event',
+        'Entity',
+        'Participant'];
+</script>

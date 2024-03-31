@@ -1,0 +1,285 @@
+<div ng-controller="EventEditPage" id="EventEditPage" class="container">
+  <form novalidate class="css-form">
+    <style type="text/css">
+      .css-form input.ng-invalid.ng-dirty {
+      background-color: #FA787E;
+      }
+      .css-form input.ng-valid.ng-dirty {
+      background-color: #78FA89;
+      } 
+    </style>
+    <div class="row-fluid">
+      <div ng-show="id!=0">
+        <h2 style="font-size: 250%">Event Information for {{event.title}}</h2>
+      </div>
+      <div ng-show="id==0">
+        <h2 style="font-size: 250%">Add Event Information</h2>
+      </div>
+    </div>
+    <br/>
+    <div class="row-fluid">
+      <div class="span6">
+        <div class="input-row">
+          <label for="name">Title</label>
+          <input id="name" placeholder="Event Title" type="text" ng-model="event.title" required style="width: 408px" />
+          <div ng-field-error="errors['title']" />
+        </div>
+        <div class="input-row" style='margin: 1em 0 0 0'>
+          <label for="field">Status</label>
+          <select style="margin-bottom: 4px; width: 92%;" ng-model="event.event_status" required
+                  ng-options="f.id as f.name for f in eventstatuses">
+                  <!--ng-options="f as f.name for f in eventstatuses track by f.id"> -->
+          </select>
+          <div ng-field-error="errors['event_status']" />
+        </div>
+
+        <legend style='margin: 1em 0 0 0'>Details</legend>
+
+        <div class="input-row" style='margin: 1em 0 0 0'>
+          <label for="field">Gender</label>
+          <select style="margin-bottom: 4px; width: 92%;" ng-model="event.gender" required
+	          ng-options="f.id as f.name for f in genders">
+          </select>
+          <div ng-field-error="errors['gender']" />
+        </div>
+
+        <div class="input-row" style='margin: 1em 0 0 0'>
+          <label for="field">Level</label>
+          <select style="margin-bottom: 4px; width: 92%;" ng-model="event.level" required
+                  ng-options="f.id as f.name for f in levels">
+          </select>
+          <div ng-field-error="errors['level']" />
+        </div>
+
+       <div class="input-row" style='margin: 1em 0 0 0'>
+          <label for="field">Sport</label>
+          <select name="sport" style="margin-bottom: 4px; width: 92%;" ng-model="event.sport" required
+                  ng-options="f.id as f.name for f in sports">
+          </select>
+          <div ng-field-error="errors['sport']" />
+        </div>
+
+        <div class="input-row" style='margin: 1em 0 0 0'>
+          <label for="field">Club</label>
+          <select style="margin-bottom: 4px; width: 92%;" ng-model="event.club" required
+                  ng-options="f.id as f.name for f in clubs">
+          </select>
+          <div ng-field-error="errors['club']" />
+        </div>
+
+        <div class="input-row" style='margin: 1em 0 0 0'>
+          <label for="field">Entity</label>
+          <select style="margin-bottom: 4px; width: 92%;" ng-model="event.entity" required
+                  ng-options="f.id as f.name for f in entities">
+          </select>
+          <div ng-field-error="errors['entity']" />
+        </div>
+
+        <div class="input-row" style='margin: 1em 0 0 0'>
+          <label for="field">Facility</label>
+          <select style="margin-bottom: 4px; width: 92%;" ng-model="event.facility" required
+                  ng-options="f.id as f.name for f in facilities">
+          </select>
+          <div ng-field-error="errors['facility']" />
+        </div>
+
+        <div class="input-row" style='margin: 1em 0 0 0'>
+          <label for="field">Type</label>
+          <select style="margin-bottom: 4px; width: 92%;" ng-model="event.event_type" required
+                  ng-options="f.id as f.name for f in eventtypes">
+          </select>
+          <div ng-field-error="errors['event_type']" />
+        </div>
+
+        <div class="input-row" style='margin: 1em 0 0 .25em'>
+          <label class="checkbox">
+            Conference
+            <!--<input type="checkbox" ng-model="event.is_conference" value="1"/>-->
+            <input type="checkbox" ng-model="event.is_conference" />
+          </label>
+          <div ng-field-error="errors['is_conference']" />
+        </div>
+
+        <br/><br/>
+        <button ng-click="save()" class="btn btn-large icon-save btn-primary">&nbsp;Save</button>&nbsp;
+        <a href="#/events" class="btn btn-large icon-cancel">Cancel</a>
+      </div>
+
+      <br/>
+      <div class="span6" >
+        <legend style="border: 1px solid #e5e5e5; padding: .5em 0 .5em .5em; background-color: #d5d5d5">
+          <i style="float: right; margin: .25em .5em .25em 0" class="icon-calendar icon-large"></i>
+          <b>Date and Time</b>
+        </legend>
+
+    <div class="row-fluid">
+        <div class="span6">
+
+        <div class="input-row" style='margin: 1em 0 0 1em'>
+          <label>Date</label>
+          <div class="input-append bootstrap-datepicker">
+            <input ng-model="event.date" 
+                bs-datepicker="" 
+                data-date-format="yyyy-mm-dd" 
+                type="text" 
+                class="input-large" 
+                required
+                style="width: 100px">
+              <span class="add-on" data-toggle="datepicker"><i class="icon-calendar"></i></span>
+            </input>
+          </div>
+          <div ng-field-error="errors['date']" />
+        </div>
+
+        <div class="input-row" style='margin: 1em 0 0 1em'>
+          <label>Time</label>
+          <div class="input-append bootstrap-timepicker">
+            <input ng-model="event.time" 
+                bs-timepicker="" 
+                type="text" 
+                class="input-large" 
+                required
+                style="width: 100px">
+              <span class="add-on"><i class="icon-time"></i></span>
+            </input>
+          </div>
+          <div ng-field-error="errors['time']" />
+        </div>
+
+        </div>        
+        <div class="span5">
+        </div>
+        </div>
+
+        <div ng-show="id!=0">
+        <div class="input-row" style="margin-top: 2em">
+          <legend style="border: 1px solid #e5e5e5; padding: .5em 0 .5em .5em; background-color: #d5d5d5">
+            <i style="float: right; margin: .25em .5em .25em 0" class="icon-group icon-large"></i>
+            <b>Participants</b>
+          </legend>
+          <a ng-click="addParticipant()" class="btn" style="margin-top: 10px"><i class="icon-plus"></i>&nbsp;Add Participant</a>
+          <br/>
+          <br/>
+          <table class="table table-bordered table-hover" style="margin-left: .75em">
+            <thead>
+              <tr ng-sort-row="{order: 'order', direction: 'direction', initial: 'name'}">
+                <th data-order="name">Name</th>
+                <th data-order="name">Is Host</th>
+                <th data-order="name">Has Accepted</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="p in participants | orderBy: order : direction" ng-nav-row="#/participants/{{p.id}}/{{p.entity}}">
+                <td>{{p.entity}}</td>
+                <td>{{p.is_host}}</td>
+                <td>{{p.has_accepted}}</td>
+                <td width="1%" class="ignore">
+                  <a title="Remove" ng-click="removeParticipant(p)" style="display: inline-block; position: relative; bottom: .33em"><i class="icon-remove-sign"></i></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div> <!--//input row-->
+        <div class="input-row" style="margin-top: 2em">
+          <legend style="border: 1px solid #e5e5e5; padding: .5em 0 .5em .5em; background-color: #d5d5d5">
+            <i style="float: right; margin: .25em .5em .25em 0" class="icon-table icon-large"></i>
+            <b>Statistics</b>
+          </legend>
+          <a ng-click="linkStatistics()" class="btn" style="margin-top: 10px"> Statistics </a>
+        </div> <!--//input row-->
+      </div> <!-- no show -->
+      </div> <!--//span6-->
+
+    </div>
+  </form>
+</div>
+
+<script>
+// setup our controller ------------------
+function EventEditPage($scope, $routeParams, $window, $route, Event, Eventstatus, Eventtype, 
+        Club, Entity, Facility, Participant, Gender, Level, Sport) {
+
+  $scope.id = $routeParams.id;
+  $scope.eventstatuses = Eventstatus.query();
+  $scope.eventtypes = Eventtype.query();
+  $scope.clubs = Club.query();
+  $scope.entities = Entity.query();
+  $scope.facilities = Facility.query();
+  $scope.sports = Sport.query();
+  $scope.genders = Gender.query();
+  $scope.participants = Participant.query({event_id: $scope.id});
+  $scope.levels = Level.query();
+
+  Event.firstOrNew($scope.id).then(function(x) {
+    $scope.event = x;
+  });
+
+  // save action
+  $scope.save = function() {
+
+    // process date/time pickers
+    //var t = moment($scope.event.time, "hh:mm A");
+    //var d = moment($scope.event.date, "YYYY-MM-DD");
+    //$window.console.log(['t', t, $scope.event.time]);
+    //$window.console.log(['d', d, $scope.event.date]);
+    //$scope.event.date = moment(new Date(d.years(), d.months(), d.days())).local().format("YYYY-MM-DD");
+    //$scope.event.time = moment(new Date(t.hours(), t.minutes())).local().format("HH:mm");
+    //$window.console.log(['t1', $scope.event.time]);
+    //$window.console.log(['d1', $scope.event.date]);
+
+    // the API requires a certain date format, quick hack for demo
+    var d = $scope.event.date;
+    if (d && d.getFullYear) {
+      var ds = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + (d.getDate() + 1);
+      $scope.event.date = ds;
+    }
+    
+    //console.log($scope.event.time);
+
+    $scope.event.$saveOrUpdate($scope.id, $scope).then(function() {
+      $window.location = '#/events';
+    });
+  }
+
+  $scope.removeParticipant = function(participant) {
+    if (confirm('Are you sure you want to remove this participant?' + ' ' + participant.entity.name)) {
+      participant.$delete({id: participant.id}, function() {
+        $route.reload();
+        //$window.location = '#/events/' + participant.event;
+      });
+    }
+    else {
+      return;
+    }
+  }
+
+  $scope.addParticipant = function() {
+    $window.location = '#/participants/0/' + $scope.id;
+  }
+  
+  $scope.linkStatistics = function() {
+    $window.location = '#/events/' + $scope.id + '/stats';
+  }
+
+  // handle api field errors
+  $scope.errors = {};
+
+  $scope.$on('resource.alert', function(event, field, message) {
+      if (typeof message == 'undefined' || message == "") return;
+      $scope.errors[field] = message;
+  });
+
+  $scope.$on('resource.saveOrUpdate', function(event) {
+      $scope.errors = {};
+  });
+
+}
+
+EventEditPage.$inject = ['$scope', '$routeParams', '$window', '$route', 'Event',
+                         'Eventstatus',
+                         'Eventtype',
+                         'Club',
+                         'Entity',
+                         'Facility',
+                         'Participant', 'Gender', 'Level', 'Sport'];
+</script>
