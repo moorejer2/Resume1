@@ -1,0 +1,4 @@
+# Create soft links to 3rd party application static files:
+cd /home/dev/Stats/project/static
+ln -s /usr/local/lib/python2.7/site-packages/django/contrib/admin/static/admin
+ln -s /usr/local/lib/python2.7/dist-packages/rest_framework/static/rest_framework
